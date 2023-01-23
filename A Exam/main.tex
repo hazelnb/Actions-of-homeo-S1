@@ -1,0 +1,232 @@
+\documentclass[10pt, oneside]{article}
+\usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, graphics, geometry}
+
+\geometry{tmargin=.75in, bmargin=1in, lmargin=1in, rmargin = 1in}  
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Cdot}{\boldsymbol{\cdot}}
+
+\newtheorem{thm}{Theorem}
+\newtheorem*{thm*}{Theorem}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{conv}{Convention}
+\newtheorem{conj}{Conjecture}
+\newtheorem{rem}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{prop}{Proposition}
+\theoremstyle{definition}
+\newtheorem*{prog*}{Program}
+
+\usepackage{biblatex} %Imports biblatex package
+\addbibresource{main.bib} %Import the bibliography file
+
+\title{Outline and Scope of A Examination}
+\author{Hazel Brenner}
+\date{Fall 2022}
+
+\begin{document}
+
+\maketitle
+
+\section{Background}
+
+%%% (first sentence) A theorem of whittaker .... .
+%%% This suggests alg. struct of homeo group reflects top. of underlying mfld.
+
+A theorem of Whittaker \cite{whittaker-homeo-groups} shows that the homeomorphism type of a compact manifold is completely determined by its homeomorphism group as an abstract group. This provides an indication that topological data about manifolds can be recovered by examining algebraic data on their homeomorphism groups. By analogy with the representation theory of simple Lie groups, a piece of algebraic information one can study is homomorphisms of homeomorphism groups. Questions and partial results posed in recent work by Hurtado \cite{hurtado} and Militon \cite{militon} were inspired by this analogy and were resolved by a paper of Mann and Chen in 2019 \cite{mann-chen}. In my work, I seek to begin extending this theory to three dimensions by considering the actions of the identity component of the smallest manifold homeomorphism group, $\text{Homeo}(S^1)$, on compact three-manifolds.
+
+\subsection{The general problem setting}
+
+\begin{defn}
+    For an orientable manifold $M$, we denote by $\text{Homeo}(M)$ the group of self-homeomorphisms of $M$. This is a topological group in the topology induced by uniform convergence on compact sets, and $\text{Homeo}_0(M)$ refers to the connected component of the identity.
+\end{defn}
+
+By analogy with the study of Lie groups we consider actions of $\text{Homeo}_0(M)$ on another manifold $N$. For our purposes, we take the following definition:
+
+\begin{defn}
+    An {\it action} of $\mathrm{Homeo}_0(M)$ for $M$ compact on a manifold $N$ is a homomorphism of topological groups $\rho: \text{Homeo}_0(M) \to \text{Homeo}_0(N)$.
+\end{defn}
+
+It suffices to consider $\text{Homeo}_0(N)$ since an abstract homomorphism of $\text{Homeo}_0(M)$ for compact $M$ into a separable topological group is {\it automatically continuous} \cite{mann-auto-continuity}. In particular then, the image of a homomorphism $\phi: \text{Homeo}_0(M) \to \text{Homeo}(N)$ must in fact lie in $\text{Homeo}_0(N)$. This statement is equivalent to saying that the induced representation of the mapping class group is trivial.
+
+For a proper Lie group action on a smooth manifold, its orbits and the way they fit together are described by the orbit type stratification. This consists of the following two results\cite{top-trans-groups}.
+\begin{thm*}
+    Suppose a lie group $G$ acts properly by diffeomorphisms on a smooth manifold $M$. Then, two points are said to be of the same {\it type} if their stabilizers are conjugate subgroups of $G$. Clearly, points in the same orbit are of the same type. This is an equivalence relation, giving a partition of $M$ into {\it orbit types}. These orbit types are properly embedded submanifolds.
+\end{thm*}
+
+Moreover, the orbit type decomposition is a {\it stratification}, that is:
+
+\begin{thm*}
+    The collection of orbit types is locally finite. Moreover, the topological closure of every orbit type $X$ is a union of $X$ with lower-dimensional orbit types.
+\end{thm*}
+
+For actions of homeomorphism groups we no longer require properness and have shed substantial structure by passing from Lie groups to a larger transformation group, but we can still understand the orbit topology by the {\it Orbit Classification Theorem} in \cite{mann-chen} as follows.
+
+\begin{thm}
+    Let $M$ be a compact connected manifold. For any action of $\mathrm{Homeo}_0(M)$ on a finite-dimensional CW-complex, every orbit is either a point or the continuous injective image of an {\it admissible} cover of a configuration space $\mathrm{Conf}_n(M)$ for some $n$.
+\end{thm}
+
+Where $\text{Conf}_n(M)$ refers to the configuration space of $n$ distinct, unlabeled points in $M$. In the special case of $M= S^1$, we take this to be the configuration space of $n$ distinct, unlabeled, {\it cyclically ordered} points. The notion of admissible is somewhat subtle to define in full generality, but in the case of $\text{Homeo}_0(S_1)$, admissible covers are those which are intermediate between $\text{Conf}_n(S^1)$ and the configuration space of $n$ distinct, {\bf labeled}, cyclically ordered points on $S^1$. These computations are very simple in dimension 3, since we can only have one, two and three dimensional orbits. These amount to continuous injective images of $S^1$, an open annulus, an open M\"{o}bius band or an open solid torus.
+
+%%% In the special case of M= s^1 or r, this is .... of "cyclically ordered" ... points.
+
+% \begin{itemize}
+%     \item {\bf Summary:} In this section, I want to introduce the type of action we're thinking about and the general results.
+
+%     \item {\it Recall} $\text{Homeo}_0(M)$ is the group of orientation-preserving self-homeomorphisms of the manifold $M$. For my work $M$ will mostly be $S^1$ 
+%         \begin{itemize}
+%           \item {\it Here I would like a brief discussion of the topology and subgroup structure of $\text{Homeo}_0(S^1)$. This will amount to a summary of the discussion in the introduction to Ghys' paper. I think this will be worth keeping short for time.}
+%         \end{itemize}
+
+%     \item {\it We say} a continuous action by homeomorphisms of $\text{Homeo}_0(M)$ on a manifold $N$ is a continuous homomorphism $\rho: \text{Homeo}_0(M) \to \text{Homeo}_0(N)$
+
+%     \item The orbits of such an action are continuous injective images of intermediate covers of $\text{Homeo}_c(M)/\text{Stab}(X)_0$ and $\text{Homeo}_c(M)/\text{Stab}(X)$ for some finite set $X$. The latter space is homeomorphic to $\text{Conf}_{|X|}(M)$, the configuration space of $|X|$ distinct unlabeled points in $M$.
+
+%     \begin{itemize}
+%         \item For $M = S^1$, this is taken to be up to a fixed cyclic order. In this case, $\text{Homeo}_c(M)/\text{Stab}(X)_0$ is homeomorphic to the configuration space of $|X|$ distinct {\bf labeled} points in $S^1$. 
+%         \item In dimensions 1, 2 and 3 the possible intermediate covers are respectively $S^1$, the open annulus and open mobius band, and the open solid torus.
+%     \end{itemize}
+% \end{itemize}
+
+\subsection{$\text{Homeo}_0(S^1)$ acting on compact surfaces}
+    Every $\text{Homeo}_0(S^1)$ restricts, in particular, to an $\text{SO}(2)$ (i.e., $S^1$) action. Since actions of $S^1$ by homeomorphisms on hyperbolic surfaces are necessarily trivial, we only need consider surfaces with nonnegative Euler characteristic. So, the only compact surfaces admitting actions of $\text{Homeo}_0(S^1)$ are $S^2$, $T^2$, $RP^2$, the Klein bottle, $D^2$, the closed annulus and the closed M\"{o}bius band. Since the boundaries of all of the examples with boundary must be invariant under such an action, we can paste together actions on the closed annulus, the closed disk and the closed M\"{o}bius band to obtain examples on $S^2$, $T^2$, the Klein bottle and $RP^2$. 
+    
+    By a theorem of Militon \cite{militon}, later strengthened in \cite{mann-chen}, an action of $\text{Homeo}_0(S^1)$ on the annulus is conjugated to an action with concentric annulus orbits on which the action restricts to one of two maps constructed as follows:
+
+    Consider the map $a_0:\text{Homeo}_0(S^1)\to \text{Homeo}(\R/\Z \times [0,1])$ given by
+    $$a_0(f)(\theta, r) = (f(\theta), \tilde{f}(r + \tilde{\theta}) - \tilde{f}(\tilde{\theta}))$$ where f is some lift of $f$ to $\R$ and $\theta$ is some lift of $\theta$. This is continuous since it is continuous in coordinates, and it is transitive on the interior annulus. We also define the map $a_1$ as $T\circ a_0\circ T^{-1}$, where $T$ is the Dehn twist along the inner boundary circle.
+    
+    The previously mentioned decomposition into concentric annulus orbits is given by some closed subset $K \subseteq [0,1]$ and a map $\lambda: [0,1]-K \to \{0,1\}$ which is constant on components of $[0,1]-K$. Then, let $\rho_{K, \lambda}$ be an action of $\text{Homeo}_0(S^1)$ which restricts to $a_0$ on each component of $\lambda^{-1}(0)$ and $a_1$ on each component of $\lambda^{-1}(1)$. 
+
+    Then we have the following theorem from \cite{mann-chen}.
+
+    \begin{thm}\label{surface-classif}
+        Every action of $\text{Homeo}_0(S^1)$ on a closed annulus is conjugate to $\rho_{K, \lambda}$ for some $K$ and $\lambda$
+    \end{thm}
+
+    Motivated by this, we have the following research program:
+
+    \begin{prog*}
+        Classify actions of $\text{Homeo}_0(S^1)$ on compact 3-manifolds. There are two cases:
+        \begin{itemize}
+            \item Fixed-point free: An action of $\text{Homeo}_0(S^1)$ on a compact 3-manifold admits a Seifert-fibered structure. The first step is to determine which Seifert-fibered 3-manifolds admit $\text{Homeo}_0(S^1)$ actions. The second step is to identify a standard for a $\text{Homeo}_0(S^1)$ action on such a manifold.
+            \item With fixed points: There is an analogue of the theory of Seifert fibrations for $\text{SO}(2)$ actions on compact 3-manifolds with fixed points \cite{raymond}. Given the additional complexity of this starting point, this is a next step after studying the fixed-point free case.
+        \end{itemize}
+    \end{prog*}
+
+    
+    % This result motivates my line of inquiry for actions of $\text{Homeo}_0(S^1)$ on compact three-manifolds. It turns out that even the question of which manifolds admit $\text{Homeo}_0(S^1)$ is more subtle.
+    
+% \begin{itemize}
+%     \item Every $\text{Homeo}_0(S^1)$ restricts, in particular, to an $\text{SO}(2)$ (i.e., $S^1$) action, so the surfaces which could possibly admit such an action are $S^2$, $T^2$, $RP^2$, the Klein bottle, $D^2$, the annulus and Mobius band with and without boundary.
+%     \item Consider the map $a_0:\text{Homeo}_0(S^1)\to \text{Homeo}(\R/\Z \times [0,1])$ given by
+%     $$a_0(f)(\theta, r) = (f(\theta), \tilde{f}(r + \tilde{\theta}) - \tilde{f}(\tilde{\theta})$$ where f is some lift of $f$ to $\R$ and $\theta$ is some lift of $\theta$
+%     \item This is a continuous action on the closed annulus, which is transitive on the interior.
+%     \item On the interior of the annulus, this is the standard action with the open annulus considered as the configuration space of two distinct unmarked points on a circle.
+%     \begin{thm}
+%         Given an action of $\text{Homeo}_0(S^1)$ on $D^2$, there is a closed subset $K$ of the orbit space $[0, 1]$ of the associated $\text{SO}(2)$ action, such that it conjugates to either $a_0$ or $T\circ a_0 T^{-1}$ on each component away from $K\times S^1$ 
+%     \end{thm}
+%     \item This standard conjugacy description motivates the question of whether such a decomposition exists for an action of $\text{Homeo}_0(S^1)$ on a compact three manifold.
+% \end{itemize}
+
+\subsection{Seifert fibered spaces}
+    In the case of a fixed-point free action of $\text{Homeo}_0(S^1)$ on a compact three manifold, the associated fixed-point free action of $\text{SO}(2)$ can be understood to define a Seifert-fibered structure on the 3-manifold. If we take this as our definition a Seifert-fibered structure, we can state the following proposition:
+
+    \begin{prop}
+        Every $S^1$ orbit of a Seifert-fibered 3-manifold has a neighborhood fiber-preservingly diffeomorphic to a open solid cylinder with ends identified by a $2\pi q/p$ twist. The orbits for which $p>1$ are called {\it singular fibers of type $(p, q)$}, the remaining fibers are called regular fibers. A Seifert fibered compact manifold has finitely many singular fibers.
+    \end{prop}
+
+    There are many standard references for the classical theory of Seifert-fibered spaces, e.g. \cite{martelli}(Martelli) and \cite{hatcher-3mflds}, which primarily take the preceeding proposition as a definition. For this material, I will primarily reference the classical theory for results about horizontal surfaces within Seifert fibrations. These serve as the Seifert-fibered analogue of sections of a circle bundle. 
+
+    \begin{defn}
+        A {\it horizontal surface} to a Seifert fibration is a properly embedded surface which is transverse to all of the fibers
+    \end{defn}
+    
+    Note that this definition says nothing about having a unique point of intersection with each fiber, but we do have the following property:
+
+    \begin{rem}
+        The orbit space of the $\text{SO}(2)$ action has a natural 2-dimensional orbifold structure by marking the points corresponding to singular fibers with their multiplicity. There is a natural orbifold covering from any horizontal surface to the base orbifold.
+    \end{rem}
+
+     The following result fully detects the existence of horizontal surfaces to a Seifert fibration.
+
+     \begin{prop}
+         A compact Seifert fibration $M$ with $n$ singular fibers of types $(p_i, q_i)$ has a horizontal surface if and only if:
+         \begin{itemize}
+             \item $M$ has nonempty boundary, {\bf or}
+             \item The sum $\sum_{i=1}^{n} q_i/p_i$ vanishes
+         \end{itemize}
+     \end{prop}
+
+    The sum in the latter condition is called the {\it Euler number} of the fibration, by analogy with the Euler number of a circle bundle. 
+    
+% \begin{itemize}
+%     \item In the fixed point free case, the associated $\text{SO}(2)$ action induces a Seifert-fibered structure.
+%     \item {\it Recall} a Seifert-fibered structure on a 3-manifold is a decomposition into disjoint circles such that every circle has a fibered neighborhood fiber-preservingly diffeomorphic to a open solid cylinder with ends identified by a $2\pi q/p$ twist. Fibers for which the twist is nontrivial are called singular fiber, the remaining fibers are called regular fibers.
+%     \item This structure is analogous to a circle bundle in the sense that the quotient of $M$ along the circles can be given a 2-orbifold structure by marking the points associated to singular fibers with $q/p$ .
+%     \item The theory of Seifert fibered spaces is rich and interesting in its own right, but I will summarize a few facts which help to set the stage.
+
+%     \begin{itemize}
+%         \item Notice that a Seifert fibration without singular fibers is just a circle bundle, and cutting out fibered neighborhoods of the singular fibers leaves a (necessarily) trivial circle bundle with boundary. 
+%         \item By analogy with circle bundles, Seifert fibrations have an associated numerical invariant called the {\it Euler number} given by the sum of the coefficients of its singular fibers. The vanishing of this number characterizes the existence of sections. 
+%         \item Aside from an explicit list of exceptions (all of which having at most 4 singular fibers), every Seifert manifold has a unique Seifert fibered structure up to fiber-preserving diffeomorphism. Thus, outside of the list of exceptions, $\text{SO}(2)$ actions on a given three-manifold are all conjugate to particular action, i.e. the action associated with the unique Seifert structure.
+%     \end{itemize}
+    
+% \end{itemize}
+
+
+\section{Preliminary Results and Future Work}
+
+Unlike the surface case where every $\text{SO}(2)$ can be extended to a $\text{Homeo}_0(S^1)$ action, it is not clear this can always be done in 3-dimensions. In particular, suppose $\text{SO}(2)$ acts on $M^3$ with singular fibers. 
+
+\begin{conj}\label{singular-fiber-conj}
+    An action of $\text{SO}(2)$ extends to an action of $\text{Homeo}_0(S^1)$ only if the singular fibers have multiplicity 2. If the action extends, the singular orbits must lie within M\"{o}bius band orbits of the extended action.
+\end{conj}
+
+A proof of this conjecture would greatly restrict the topology of a three-manifold admitting an action of $\text{Homeo}_0(S^1)$ as it would tell us that the only Seifert manifolds which could admit $\text{Homeo}_0(S^1)$ actions are of the form $(\Sigma, (2, q_1), \dots, (2, q_n))$. This is motivated by studying the non-orientable case of Theorem \ref{surface-classif}. The analogous setting is to consider an action of $\text{Homeo}_0(S^1)$ on a closed M\"{o}bius band. The key difference comes when considering a meridian cycle on the M\"{o}bius band (a circle which wraps around the band once).
+
+\begin{prop}
+A fixed-point free action of $\text{Homeo}_0(S^1)$ on a closed M\"{o}bius band has one M\"{o}bius band orbit. The remaining orbits are determined by the standard form on the invariant circle or closed annulus obtained by cutting out the M\"{o}bius orbit. In particular, there is no continuous action of $\text{Homeo}_0(S^1)$ which leaves a meridian invariant.
+\end{prop}
+
+A M\"{o}bius band can be thought of as a 2-dimensional Seifert fibration with one singular fiber of multiplicity 2, corresponding to a meridian circle. With this view, the above proposition would be sufficient to prove the 2-dimensional analog of Conjecture \ref{singular-fiber-conj}. As it stands though, the proof of this result cannot be directly imported into three dimensional manifolds, and part of my work is to adapt this proof. The result I am targeting is the following:
+
+\begin{conj}\label{singular-fiber-invar-ann}
+Suppose $\sigma$ is a 1-dimensional orbit of an action of $\text{Homeo}_0(S^1)$ on a compact 3-manifold which lies in $\bar{A}- A$ for some invariant annulus $A$. Then, $\sigma$ is not a singular fiber of the associated Seifert fibration. 
+\end{conj}
+
+The only setting this leaves for singular orbits to appear is the topological boundary of a 3-dimensional orbit. Since it cannot bound an invariant annulus, it has to be dense, or the entire boundary of the 3-dimensional orbit. My next step is to rule out the latter configuration. It seems possible to prove by considering the finer orbit decomposition of the restriction of the action to a point stabilizer subgroup of $\text{PSL}(2;\R)$. This gives a system of three disks which must compactify onto the entire $S^1$ boundary. In this setting, it seems that a variant of my proof technique for Conjecture \ref{singular-fiber-invar-ann} will apply.
+
+As mentioned in the research program at the end of Section 1.2, my long-term goal is to understand and use the theory developed in \cite{raymond} (raymond) to classify actions of $\text{Homeo}_0(S^1)$ on compact 3-manifolds {\it with fixed points}. At this time, it is not clear whether this will be a nearly immediate extension of the fixed-point free theory, or whether the existence of fixed points will introduce significant complications.
+
+
+
+% \begin{itemize}
+%     \item Suppose $\text{SO}(2)$ acts on $M^3$ with singular fibers. Can this extend to an action of $\text{Homeo}_0(S^1)$?
+%     \item {\bf Conjecture:} only if the singular fibers have degree 2. Then the singular orbits must lie within M\"{o}bius band orbits of the extended action.
+%     \item {\bf Motivating results:}
+%     \begin{itemize}
+%         \item In the surface case, there is subtlety for the argument about non-orientable surfaces. In particular consider $\text{Homeo}_0(S^1)$ acting on the open M\"{o}bius band. The associated $\text{SO}(2)$ action conjugates to one which has one meridian circle (generating the $\Z/2\Z$ in $\pi_1$, and the remainder are regular (generating the $\Z$ part of $\pi_1$). 
+%         \item Can the meridian circle be an orbit of the $\text{Homeo}_0(S^1)$ action?
+%         \item {\bf Answer:} No! Consider an element of $\text{Homeo}_0(S^1)$ which fixes some interval and moves some interval off of itself ({\it I think it's worth writing down an explicit example homeomorphism here.}). Then take a point on the meridian so that the $\theta$ coordinate on one side is in the fixed interval and on the other is in the translated interval. Since the part of the neighborhood lying on one side of the meridian (onto which it accumulates is fixed pointwise), the part of the neighborhood on the meridian must also be fixed pointwise. But this can't be a homeomorphism of the M\"{o}bius band because the image of the connected neighborhood is disconnected.
+%         \item This argument isn't uniquely 2-dimensional, but there are challenges to extending it to a claim about singular orbits for actions on three manifolds, but this motivates a first step:
+%         \item {\bf Conjecture:} Suppose $\sigma$ is a 1-orbit of an action of $\text{Homeo}_0(S^1)$ on a compact 3-manifold which lies in $\bar{A}- A$ for some invariant annulus $A$. Then, $\sigma$ is not a singular fiber of the associated Seifert fibration. 
+%         \item The idea of proof is to use an argument similar in flavor to the previous part, but the coordinates of an injectively embedded annulus orbit, for example, may be sufficiently distorted that a direct application of this technique is not possible.
+%     \end{itemize}
+%     \item With that result in hand, my strategy will be to consider a 1-orbit in the topological boundary of a 3-orbit and try to force the existence of an invariant annulus bounded by that 1-orbit.
+%     \begin{itemize}
+%         \item The first step here is to show that 3-orbit cannot have boundary consisting of a single 1-orbit.
+%         \item In that setting, the topology of the overall manifold would be greatly restricted -- it would necessarily be a lens space with one singular fiber, which is diffeomorphic to $L(p, 1)$ for some $p$.
+%         \item My approach is to consider the orbit decomposition of the restriction of the action to that of a point stabilizer in $\text{PSL}(2; \R)$, i.e., the subgroup of lower triangular matrices. This contains a system of disks which act as "near horizontal surfaces" to the Seifert fibration and accumulate on the the distinguished 1-orbit.
+%     \end{itemize}
+%     \item A proof of this conjecture would greatly restrict the topology of a three-manifold admitting an action of $\text{Homeo}_0(S^1)$. 
+% \end{itemize}
+
+\printbibliography
+\end{document}
