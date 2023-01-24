@@ -1,0 +1,56 @@
+\documentclass[10pt, oneside]{article} 
+\usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, graphics, geometry}
+
+\geometry{tmargin=.75in, bmargin=1in, lmargin=1in, rmargin = 1in}  
+
+%% NOTATION
+%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Cdot}{\boldsymbol{\cdot}}
+\newcommand{\SO}{\text{SO}(2)}
+\newcommand{\homeoS}{\text{Homeo}_0(S^1)}
+\newcommand{\cl}[1]{\overline{#1}}
+
+%% CUSTOM THEOREMS
+%%%%%
+\newtheorem{thm}{Theorem}
+\newtheorem*{thm*}{Theorem}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{conv}{Convention}
+\newtheorem{conj}{Conjecture}
+\newtheorem{rem}{Remark}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{prop}{Proposition}
+\theoremstyle{definition}
+\newtheorem*{prog*}{Program}
+
+% \usepackage{biblatex}
+% \addbibresource{main.bib}
+
+\title{Invariant Annuli and Singular Fibers}
+\author{Hazel Brenner}
+\date{Spring 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Idea of writeup}
+
+This writeup is the first step toward showing that one dimensional orbits of $\homeoS$ actions on compact three-manifolds are regular fibers of the associated Seifert fibration. In particular, the goal here is to prove that when there is an invariant annulus accumulating onto a given 1-diemnsional orbit, it must be regular. The proof of this fact proceeds by making use of a simple observation about sequences of points in invariant surfaces of $\homeoS$ actions on spaces. 
+
+\section{Main trick}
+We have the following fact which more or less amounts to a restatement of continuity.
+
+\begin{rem}
+    Suppose that $\homeoS$ acts on a compact three-manifold $M$, and $A$ is an invariant annulus with standard model coordinates $\varphi: S^1\times (0,1) \to A$ and $\sigma$ a 1-dimensional orbit in $\cl{A}- A$. Then, if two sequences of points in $A$ with constant $S^1$ coordinate under $\varphi$ converge in $M$ to $X\in\sigma$, then their $S^1$ coordinate must be the same.
+\end{rem}
+
+%\printbibliography
+\end{document}
