@@ -1,5 +1,13 @@
 \documentclass[10pt, oneside]{article} 
-\usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, graphics, geometry}
+\usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, graphics, geometry, xargs}
+\usepackage[pdftex,dvipsnames]{xcolor}
+
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
+\newcommandx{\fix}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\improve}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\note}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
 
 \geometry{tmargin=.75in, bmargin=1in, lmargin=1in, rmargin = 1in}  
 
@@ -49,8 +57,9 @@ This writeup is the first step toward showing that one dimensional orbits of $\h
 We have the following fact which more or less amounts to a restatement of continuity.
 
 \begin{rem}
-    Suppose that $\homeoS$ acts on a compact three-manifold $M$, and $A$ is an invariant annulus with standard model coordinates $\varphi: S^1\times (0,1) \to A$ and $\sigma$ a 1-dimensional orbit in $\cl{A}- A$. Then, if two sequences of points in $A$ with constant $S^1$ coordinate under $\varphi$ converge in $M$ to $X\in\sigma$, then their $S^1$ coordinate must be the same.
+    Suppose that $\homeoS$ acts on a compact three-manifold $M$, and $A$ is an invariant annulus with standard model coordinates $\varphi: S^1\times (0,1) \to A$ and $\sigma$ a 1-dimensional orbit in $\cl{A}- A$. Then, if two sequences of points in $A$ with constant $S^1$ coordinate under $\varphi$ converge in $M$ to $X\in\sigma$, then their $S^1$ coordinate must be the same.\improve{Look for ways to relax conditions here, espec. on $S^1$ coord}
 \end{rem}
 
+\listoftodos[Notes]
 %\printbibliography
 \end{document}

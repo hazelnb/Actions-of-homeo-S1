@@ -10,4 +10,5 @@
 *.log
 *.fls
 *.bcf
+*.tdo
 *.run.xml
