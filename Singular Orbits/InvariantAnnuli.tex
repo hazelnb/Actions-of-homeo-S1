@@ -1,5 +1,5 @@
 \documentclass[10pt, oneside]{article} 
-\usepackage{amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, graphics, geometry, xargs}
+\usepackage{mathtools, amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, graphics, geometry, xargs}
 \usepackage[pdftex,dvipsnames]{xcolor}
 
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
@@ -49,7 +49,7 @@
 
 \maketitle
 
-\section{Idea of writeup}
+\section{Introduction}
 
 This writeup is the first step toward showing that one dimensional orbits of $\homeoS$ actions on compact three-manifolds are regular fibers of the associated Seifert fibration. In particular, the goal here is to prove that when there is an invariant annulus accumulating onto a given 1-diemnsional orbit, it must be regular. The proof of this fact proceeds by making use of a simple observation about sequences of points in invariant surfaces of $\homeoS$ actions on spaces. 
 
@@ -57,9 +57,31 @@ This writeup is the first step toward showing that one dimensional orbits of $\h
 We have the following fact which more or less amounts to a restatement of continuity.
 
 \begin{rem}
-    Suppose that $\homeoS$ acts on a compact three-manifold $M$, and $A$ is an invariant annulus with standard model coordinates $\varphi: S^1\times (0,1) \to A$ and $\sigma$ a 1-dimensional orbit in $\cl{A}- A$. Then, if two sequences of points in $A$ with constant $S^1$ coordinate under $\varphi$ converge in $M$ to $X\in\sigma$, then their $S^1$ coordinate must be the same.\improve{Look for ways to relax conditions here, espec. on $S^1$ coord}
+    Suppose that $\homeoS$ acts on a compact three-manifold $M$, and $A$ is an invariant annulus with standard model coordinates $\varphi: S^1\times (0,1) \to A$ and $\sigma$ a 1-dimensional orbit in $\cl{A}- A$. Then, if two sequences of points in $A$ with constant $S^1$ coordinate under $\varphi$ converge in $M$ to $p\in\sigma$, then their $S^1$ coordinate must be the same.\improve{Look for ways to relax conditions here, espec. on $S^1$ coord}
 \end{rem}
 
+Note that the proof of this fact depends on orbit structure of a point stabilizer subgroup of $\homeoS$ on a model annulus. See Mann-Chen.\fix{Track cites sooner rather than later}
+
+\begin{proof}[Pf of remark]
+    \fix[inline]{This proof is tricky to extract from the details of the following section, need to work more}
+\end{proof}
+
+Then, when seeking a contradiciton, the goal is to search for point sequences with distinct $S^1$ coordinates converging to the same $p\in\sigma$. The main motivation here is that a singular orbit $\sigma$ very naturally affords us such point sequences by "wrapping the annulus around" multiple times.
+
+\section {First Result}
+\begin{prop}
+    Suppose that $\homeoS$ acts on a compact three-manifold $M$, $A$ is an annulus orbit, and $\sigma$ is a 1-dimensional orbit in $\cl{A} - A$. Then, $\sigma$ must be a regular fiber of the associated Seifert fibration.
+\end{prop}
+\note[inline]{Because of my difficulties in parsing out and proving this trick independently, the following is a direct proof of this proposition which does not appeal to the trick. Hopefully it will become clearer as I go forward how to parse this proof into two pieces.}
+\begin{proof}
+    Let $p\in\sigma$ be the fixed point on $\sigma$ of $G_0\subset \homeoS$. Now, let $\gamma \coloneqq \{(x, 0)\in[0,1]\times S^1\}$. In particular, since $\gamma$ is an orbit of $G_0$ acting on the model annulus, $\varphi(\gamma)$ is an orbit of $G_0$ acting on $M$. So, $\cl{\varphi(\gamma)}$ is also an invariant set, that is $\cl{\varphi(\gamma)} - \varphi(\gamma)$ is a union of orbits of $G_0$. Furthermore, note that since $\gamma$ is a continuous curve whose projection onto the first coordinate of the model annulus is all of $(0, 1)$, $\cl{\varphi(\gamma)}$ intersects every $S^1$ fiber in $\cl{A}$, so $\cl{\varphi(\gamma)}\cap \sigma \neq \emptyset$. Since the action of $G_0$ divides $\sigma$ into an invariant open interval, and a fixed point, we must have that $p\in \cl{\varphi(\gamma)}$. Thus, there is a sequence of points $\{x_k\}$ in $\varphi(\gamma)$, which converges to $p$, and by definition, the $S^1$ coordinates of the $x_k$'s under $\varphi$ are all 0. 
+
+    Now, to construct the second sequence of points, suppose toward a contradiction that $\sigma$ is singular, then there is another $\theta$ such that $G_\theta$ fixes $p$. Then, apply the same construction with $G_\theta$ rather than $G_0$ to produce a sequence of points $x_k'$. Note that under any element $f$ of $G_0$, we must have by continuity that $f(x_k')$ converges to $f(p)=p$, but by sufficiently disturbing\fix{I am suddenly uneasy about this part. In fact, it's become clear that the initial point sequence may not even be necessary. All I need to violate continuity is a point sequence whose image does not converge to what it should.} the $S^1$ coordinate away from $0$, $f(x'_k)$ cannot converge to $p$.
+\end{proof}
+
+This proof can be extended to a general invariant annulus by noting that if $A$ is such an invariant annulus and there is no annulus orbit meeting the conditions of the previous proposition, there must be a sequence of 1-dimensional orbits accumulating onto $\sigma$. Then the argument will proceed by taking the point sequences to be the respective sequences of the fixed points of $G_0$ and $G_\theta$ on the orbits of the sequence of 1-dimensional orbits. Then apply the same kind of map.\unsure{Again, I am concerned that the construction of the desired map is trickier than I previously thought. I'm not sure how to "sufficiently disturb" the points of the second sequence so that they no longer converge to what they're meant to.}
+
+% For proof:  This result really has two cases, either $A$ contains a sequence of invariant circles accumulating on $\sigma$ or it does not, in which case we can pass without loss of generality to considering $A$ to be an orbit. {\it If there are invariant circles accumulating on $\sigma$} then 
 \listoftodos[Notes]
 %\printbibliography
 \end{document}
