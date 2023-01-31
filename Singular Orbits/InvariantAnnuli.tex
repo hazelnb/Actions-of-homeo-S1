@@ -32,14 +32,15 @@
 \newtheorem{conv}{Convention}
 \newtheorem{conj}{Conjecture}
 \newtheorem{rem}{Remark}
+\newtheorem*{obs*}{Observation}
 \newtheorem{lem}{Lemma}
 \newtheorem{cor}{Corollary}
 \newtheorem{prop}{Proposition}
 \theoremstyle{definition}
 \newtheorem*{prog*}{Program}
 
-% \usepackage{biblatex}
-% \addbibresource{main.bib}
+\usepackage{biblatex}
+\addbibresource{InvariantAnnuli.bib}
 
 \title{Invariant Annuli and Singular Fibers}
 \author{Hazel Brenner}
@@ -50,38 +51,27 @@
 \maketitle
 
 \section{Introduction}
+The following is a result about the structure of compact three-manifolds admitting fixed point-free $\homeoS$ actions. An important observation is that by considering the restriction of the $\homeoS$ action to rotation subgroup, every fixed point-free $\homeoS$ action on a three-manifold has an associated Seifert fibered structure on that manifold. It is then natural to ask if every Seifert fibered space admits an action of $\homeoS$. We will see by the proposition in the following section that the answer is, in fact, no.
 
-This writeup is the first step toward showing that one dimensional orbits of $\homeoS$ actions on compact three-manifolds are regular fibers of the associated Seifert fibration. In particular, the goal here is to prove that when there is an invariant annulus accumulating onto a given 1-diemnsional orbit, it must be regular. The proof of this fact proceeds by making use of a simple observation about sequences of points in invariant surfaces of $\homeoS$ actions on spaces. 
+\section{Where Do Singular Fibers Occur}
+A first obstruction to the extension of an $\SO$ action to a fixed point-free action of $\homeoS$ on a three manifold is the presence of singular fibers of multiplicity greater than 2 in the associated Seifert fibered structure. The orbits of $\homeoS$ are unions of fibers of the Seifert fibered structure, so any given fiber lies within an orbit or is an orbit itself. We rule out both options for singular as follows.
 
-\section{Main trick}
-We have the following fact which more or less amounts to a restatement of continuity.
+\begin{obs*}
+    Suppose that $\homeoS$ acts without fixed-points on compact three-manifold $M$. Then every fiber of the associated Seifert fibered structure contained in an orbit of $\homeoS$ is regular with the exception of one multiplicity 2 fiber in each orbit which is topologically a M\"{o}bius band.
+\end{obs*}
 
-\begin{rem}
-    Suppose that $\homeoS$ acts on a compact three-manifold $M$, and $A$ is an invariant annulus with standard model coordinates $\varphi: S^1\times (0,1) \to A$ and $\sigma$ a 1-dimensional orbit in $\cl{A}- A$. Then, if two sequences of points in $A$ with constant $S^1$ coordinate under $\varphi$ converge in $M$ to $p\in\sigma$, then their $S^1$ coordinate must be the same.\improve{Look for ways to relax conditions here, espec. on $S^1$ coord}
-\end{rem}
+\noindent This follows from \cite{mann-chen}. \note{For the future, it could be useful to write up the classification of $\homeoS$ orbits on three-manifolds using the classification thm in mann-chen.} So in particular, if there are singular fibers of the $\SO$ action, they must be 1-dimensional orbits of the proposed extended action, but we will see from the following proposition that this is not possible.
 
-Note that the proof of this fact depends on orbit structure of a point stabilizer subgroup of $\homeoS$ on a model annulus. See Mann-Chen.\fix{Track cites sooner rather than later}
-
-\begin{proof}[Pf of remark]
-    \fix[inline]{This proof is tricky to extract from the details of the following section, need to work more}
-\end{proof}
-
-Then, when seeking a contradiciton, the goal is to search for point sequences with distinct $S^1$ coordinates converging to the same $p\in\sigma$. The main motivation here is that a singular orbit $\sigma$ very naturally affords us such point sequences by "wrapping the annulus around" multiple times.
-
-\section {First Result}
 \begin{prop}
-    Suppose that $\homeoS$ acts on a compact three-manifold $M$, $A$ is an annulus orbit, and $\sigma$ is a 1-dimensional orbit in $\cl{A} - A$. Then, $\sigma$ must be a regular fiber of the associated Seifert fibration.
+    If $\sigma$ is a 1-dimensional orbit of a fixed point-free action of $\homeoS$ on a compact three-manifold, then $\sigma$ is a regular fiber of the associated Seifert fibration.
 \end{prop}
-\note[inline]{Because of my difficulties in parsing out and proving this trick independently, the following is a direct proof of this proposition which does not appeal to the trick. Hopefully it will become clearer as I go forward how to parse this proof into two pieces.}
+
 \begin{proof}
-    Let $p\in\sigma$ be the fixed point on $\sigma$ of $G_0\subset \homeoS$. Now, let $\gamma \coloneqq \{(x, 0)\in[0,1]\times S^1\}$. In particular, since $\gamma$ is an orbit of $G_0$ acting on the model annulus, $\varphi(\gamma)$ is an orbit of $G_0$ acting on $M$. So, $\cl{\varphi(\gamma)}$ is also an invariant set, that is $\cl{\varphi(\gamma)} - \varphi(\gamma)$ is a union of orbits of $G_0$. Furthermore, note that since $\gamma$ is a continuous curve whose projection onto the first coordinate of the model annulus is all of $(0, 1)$, $\cl{\varphi(\gamma)}$ intersects every $S^1$ fiber in $\cl{A}$, so $\cl{\varphi(\gamma)}\cap \sigma \neq \emptyset$. Since the action of $G_0$ divides $\sigma$ into an invariant open interval, and a fixed point, we must have that $p\in \cl{\varphi(\gamma)}$. Thus, there is a sequence of points $\{x_k\}$ in $\varphi(\gamma)$, which converges to $p$, and by definition, the $S^1$ coordinates of the $x_k$'s under $\varphi$ are all 0. 
+   We will consider the restriction of the $\homeoS$ action on $\sigma$ to the subgroup $G_0\subset \homeoS$ where $G_0$ is a point-stabilizer subgroup of $\homeoS$. In particular, the action of $G_0$ on $\sigma$ has some fixed point $x$. If we suppose toward a contradiction that $\sigma$ has multiplicity greater than 1, then there is some angle $\theta$ such that the rotation $r_\theta$ fixes $\sigma$ pointwise. Then, note that $G_\theta = r_\theta G_0 r_\theta^{-1}$ also fixes $x$, but in fact the product of any two point stabilizer subgroups is all of $\homeoS$. There are a number of ways to observe this fact, an easy way is by noting that $\homeoS$ acts doubly transitively on $S^1$, so point stabilizers are maximal subgroups. The consequence of this is that $x$ must be a global fixed point, which is a contradiction. So, in particular, $\sigma$ must be regular.
+\end{proof} 
 
-    Now, to construct the second sequence of points, suppose toward a contradiction that $\sigma$ is singular, then there is another $\theta$ such that $G_\theta$ fixes $p$. Then, apply the same construction with $G_\theta$ rather than $G_0$ to produce a sequence of points $x_k'$. Note that under any element $f$ of $G_0$, we must have by continuity that $f(x_k')$ converges to $f(p)=p$, but by sufficiently disturbing\fix{I am suddenly uneasy about this part. In fact, it's become clear that the initial point sequence may not even be necessary. All I need to violate continuity is a point sequence whose image does not converge to what it should.} the $S^1$ coordinate away from $0$, $f(x'_k)$ cannot converge to $p$.
-\end{proof}
+\noindent Taking these two facts together, we see that the Seifert-fibered structure associated to an action of $\homeoS$ on a three-manifold has only singular fibers of multiplicity 2.
 
-This proof can be extended to a general invariant annulus by noting that if $A$ is such an invariant annulus and there is no annulus orbit meeting the conditions of the previous proposition, there must be a sequence of 1-dimensional orbits accumulating onto $\sigma$. Then the argument will proceed by taking the point sequences to be the respective sequences of the fixed points of $G_0$ and $G_\theta$ on the orbits of the sequence of 1-dimensional orbits. Then apply the same kind of map.\unsure{Again, I am concerned that the construction of the desired map is trickier than I previously thought. I'm not sure how to "sufficiently disturb" the points of the second sequence so that they no longer converge to what they're meant to.}
-
-% For proof:  This result really has two cases, either $A$ contains a sequence of invariant circles accumulating on $\sigma$ or it does not, in which case we can pass without loss of generality to considering $A$ to be an orbit. {\it If there are invariant circles accumulating on $\sigma$} then 
 \listoftodos[Notes]
-%\printbibliography
+\printbibliography
 \end{document}
