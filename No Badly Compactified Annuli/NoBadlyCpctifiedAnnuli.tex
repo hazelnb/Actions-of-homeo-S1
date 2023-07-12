@@ -1,0 +1,85 @@
+\documentclass[10pt, oneside]{article} 
+\usepackage{mathtools, amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, graphics, geometry, xargs}
+\usepackage[pdftex,dvipsnames]{xcolor}
+
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
+\newcommandx{\fix}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\improve}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\note}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+
+\geometry{tmargin=.75in, bmargin=1in, lmargin=1in, rmargin = 1in}  
+
+%% NOTATION
+%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Cdot}{\boldsymbol{\cdot}}
+\newcommand{\SO}{\text{SO}(2)}
+\newcommand{\homeoS}{\text{Homeo}_0(S^1)}
+\newcommand{\cl}[1]{\overline{#1}}
+
+%% CUSTOM THEOREMS
+%%%%%
+\newtheorem{thm}{Theorem}
+\newtheorem*{thm*}{Theorem}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}
+\newtheorem{conv}{Convention}
+\newtheorem{conj}{Conjecture}
+\newtheorem{rem}{Remark}
+\newtheorem*{obs*}{Observation}
+\newtheorem{lem}{Lemma}
+\newtheorem{cor}{Corollary}
+\newtheorem{prop}{Proposition}
+\theoremstyle{definition}
+\newtheorem*{prog*}{Program}
+
+% \usepackage{biblatex}
+% \addbibresource{InvariantAnnuli.bib}
+
+\title{Open Regions Foliated by Annulus Orbits}
+\author{Hazel Brenner}
+\date{Summer 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+The following is a result about the structure of compact three-manifolds admitting fixed point-free $\homeoS$ actions having only one dimensional and annulus orbits.
+
+\section{Global structure}
+Such actions have orbits consisting of a closed set with all $S^1$ fibers invariant whose complement is a union of open regions foliated by annulus orbits\fix{This has a 2 line justification, maybe obvious?}. A natural question is what can be said about the structure of a component of the complement of the 1-dimensional orbits. Two results are:
+
+\section{Foliation by Annuli}
+\begin{prop}
+    Suppose $X$ is a component of the open subset of $M^3$ in which all orbits are annuli. Then the decomposition of $X$ into orbits is a $\text{C}^0$ foliation by annuli.
+\end{prop}
+\begin{proof}[Proof sketch]\improve{flesh this out with details}
+    Take a short curve segment through $x$, build two one paramater families of homeos, giving local product structure (do this explicitly, use flow of a bump vec field on circle).
+\end{proof}
+
+\section{Annuli Compactify Nicely}
+As a small point of notation, recall the following definition from point set topology:
+\begin{defn}
+    The {\it frontier} of a set $X$, denoted $\text{fr}(X)$ is defined as $\bar{X}-X$
+\end{defn}
+
+\begin{prop}
+    Suppose $A$ is an annulus orbit in a component $X$ of the open region foliated by annulus orbits. Then $\text{fr}(A)\subset \text{fr}(X)$
+\end{prop}
+
+\begin{proof}
+    Suppose toward a contradiction that $\text{fr}(A)\cap X\neq \emptyset$. Then, since every fiber in $X$ is contained in some annulus orbit and $\bar{A}$ must be invariant, there is some invariant annulus $A'\subset \text{fr}(A)$. Now, consider the restriction of the $\homeoS$ action to the action of a point stabilizer subgroup $G_0$. Let $I$ be a $G_0$ invariant interval in $A$. Let $\pi_{SO(2)}$ denote the projection along the orbits of the rotation subgroup to the base orbifold. Then, since $\pi_{SO(2)}(I) = \pi_{SO(2)}(A)$ and $\pi_{SO(2)}$ is continuous, $$\pi_{SO(2)}(\bar{I}) = \overline{\pi_{SO(2)}(I)} = \overline{\pi_{SO(2)}(A)} = \pi_{SO(2)}(\bar{A}).$$ This implies that $\text{fr}(I)$ intersects every fiber of $\text{fr}(A)$ and in particular, every fiber of $A'$. Since $\bar{I}$ is closed and invariant, $\text{fr}(I)$ must be a union of $G_0$ orbits in $A'$ containing at least one interval orbit $I'$ (the disk orbits are not closed). Thus, there is some sequence of points $\{x_n\}\subset I$ converging to a point $x\in I'$.
+
+
+    From \cite{mann-chen}, there are continuous bijections $f:I\to S^1-\{0\}$ and $g:I'\to S^1-\{0\}$ given by mapping the unique fixed point of $G_\theta\cap G_0$ on $I$ to $\theta\in S^1 - \{0\}$ and similarly for $I'$. Then, up to a subsequence, $\{f(x_n)\}$ is a monotonic sequence converging to 0. So we can choose a monotonic element $\phi\in G_0$ satisfying $\phi(f(x_k)) = f(x_{k+1})$. In particular, we must have that $\{\rho(\phi)( x_n)\}$ converges to $x$, but by monotonicity, $\rho(\phi)(x) \neq x$, violating continuity, which is a contradiction. Thus $\text{fr}(A)\cap X = \emptyset$
+\end{proof}
+
+\listoftodos[Notes]
+\end{document}
