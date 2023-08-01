@@ -51,12 +51,18 @@
 \maketitle
 
 \section{Introduction}
-The following is a result about the structure of compact three-manifolds admitting fixed point-free $\homeoS$ actions having only one dimensional and annulus orbits.
+The following is a result about the structure of compact three-manifolds admitting fixed point-free $\homeoS$ actions having only one dimensional and annulus orbits. A fact we will make repeated use of to prove these results is the following:
+
+\begin{rem}
+    Let $\pi_{SO(2)}$ denote the projection along the orbits of the rotation subgroup to the base orbifold. Then, since $M^3$ and the base orbifold are compact Hausdorff spaces, by a classical fact from point-set topology, $\pi_{SO(2)}$ is a closed map.
+\end{rem}
 
 \section{Global structure}
-Such actions have orbits consisting of a closed set with all $S^1$ fibers invariant whose complement is a union of open regions foliated by annulus orbits\fix{This has a 2 line justification, maybe obvious?}. A natural question is what can be said about the structure of a component of the complement of the 1-dimensional orbits. Two results are:
+Consider the subset of $M$ consisting of 1-dimensional orbits. The set $\text{fix}(G_0)$ is closed, and $\pi_{SO(2)}$ is a closed map, so $\pi_{SO(2)}(\text{fix}(G_0))$ is closed in the base surface. By continuity then $\pi_{SO(2)}^{-1}(\pi_{SO(2)}(\text{fix}(G_0)))$,which is the union of all of the one-dimensional orbits, is closed.
+The complement is then an open subset of $M$ which decomposes into annulus orbits. It is natural to ask about the structure of this open region. Below are two ipmortant structural results:
 
 \section{Foliation by Annuli}
+
 \begin{prop}
     Suppose $X$ is a component of the open subset of $M^3$ in which all orbits are annuli. Then the decomposition of $X$ into orbits is a $\text{C}^0$ foliation by annuli.
 \end{prop}
@@ -70,16 +76,49 @@ As a small point of notation, recall the following definition from point set top
     The {\it frontier} of a set $X$, denoted $\text{fr}(X)$ is defined as $\bar{X}-X$
 \end{defn}
 
+When $X$ is an annulus orbit, we use the following notation for convenience.
+
+\begin{defn}
+    Let $A$ be an annulus orbit, fix a model annulus $f:A\to S^1\times I$. Then, denote by $\text{fr}_+(A)$ the set of frontier points which can be accumulated by sequences with increasing $I$ coordinate and $\text{fr}_-(A)$ analogously. Note that $\text{fr}_+(A)\cup\text{fr}_-(A) = \text{fr}(A)$, but they are not necessarily distinct. We can compatibly label subsets of the frontier of a $G_0$ invariant interval in an annulus $A$
+\end{defn}
+
+For the following two proofs, we want to make use of a kind of canonical coordinates on interval orbits of $G_0$.
+
+\begin{rem}
+    Suppose $A$ is an annulus orbit of $\homeoS$ and $I\subset A$ is an interval orbit of $G_0$. Then, we can define two homeomorphisms $\varphi, \psi:(0,1) \to I$ by $\varphi(\theta) = \text{fix}(G_0\cap G_\theta)$ and $\psi(\theta) = \text{fix}(G_0\cap G_{-\theta})$. One of these maps will send monotonic sequences that converge to $1$ to sequences which converge to something in $\text{fr}_+(I)$, we will denote the inverse of this map as $f_I$, which we will refer to as the {\it canonical homeomorphism between $I$ and $S^1 - \{0\}$}
+\end{rem}
+
 \begin{prop}
     Suppose $A$ is an annulus orbit in a component $X$ of the open region foliated by annulus orbits. Then $\text{fr}(A)\subset \text{fr}(X)$
 \end{prop}
 
 \begin{proof}
-    Suppose toward a contradiction that $\text{fr}(A)\cap X\neq \emptyset$. Then, since every fiber in $X$ is contained in some annulus orbit and $\bar{A}$ must be invariant, there is some invariant annulus $A'\subset \text{fr}(A)$. Now, consider the restriction of the $\homeoS$ action to the action of a point stabilizer subgroup $G_0$. Let $I$ be a $G_0$ invariant interval in $A$. Let $\pi_{SO(2)}$ denote the projection along the orbits of the rotation subgroup to the base orbifold. Then, since $\pi_{SO(2)}(I) = \pi_{SO(2)}(A)$ and $\pi_{SO(2)}$ is continuous, $$\pi_{SO(2)}(\bar{I}) = \overline{\pi_{SO(2)}(I)} = \overline{\pi_{SO(2)}(A)} = \pi_{SO(2)}(\bar{A}).$$ This implies that $\text{fr}(I)$ intersects every fiber of $\text{fr}(A)$ and in particular, every fiber of $A'$. Since $\bar{I}$ is closed and invariant, $\text{fr}(I)$ must be a union of $G_0$ orbits in $A'$ containing at least one interval orbit $I'$ (the disk orbits are not closed). Thus, there is some sequence of points $\{x_n\}\subset I$ converging to a point $x\in I'$.
+    Suppose toward a contradiction that $\text{fr}(A)\cap X\neq \emptyset$. Then, since every fiber in $X$ is contained in some annulus orbit and $\bar{A}$ must be invariant, there is some invariant annulus $A'\subset \text{fr}(A)$. Now, consider the restriction of the $\homeoS$ action to the action of a point stabilizer subgroup $G_0$. Let $I$ be a $G_0$ invariant interval in $A$. Since $\pi_{SO(2)}$ is continuous and closed, $$\pi_{SO(2)}(\bar{I}) = \overline{\pi_{SO(2)}(I)} = \overline{\pi_{SO(2)}(A)} = \pi_{SO(2)}(\bar{A}).$$ This implies that $\text{fr}(I)$ intersects every fiber of $\text{fr}(A)$ and in particular, every fiber of $A'$. Since $\bar{I}$ is closed and invariant, $\text{fr}(I)$ must be a union of $G_0$ orbits in $A'$ containing at least one interval orbit $I'$ (the disk orbits are not closed). Thus, there is some sequence of points $\{x_n\}\subset I$ converging to a point $x\in I'$.
 
 
     From \cite{mann-chen}, there are continuous bijections $f:I\to S^1-\{0\}$ and $g:I'\to S^1-\{0\}$ given by mapping the unique fixed point of $G_\theta\cap G_0$ on $I$ to $\theta\in S^1 - \{0\}$ and similarly for $I'$. Then, up to a subsequence, $\{f(x_n)\}$ is a monotonic sequence converging to 0. So we can choose a monotonic element $\phi\in G_0$ satisfying $\phi(f(x_k)) = f(x_{k+1})$. In particular, we must have that $\{\rho(\phi)( x_n)\}$ converges to $x$, but by monotonicity, $\rho(\phi)(x) \neq x$, violating continuity, which is a contradiction. Thus $\text{fr}(A)\cap X = \emptyset$
 \end{proof}
+
+Note that, in particular, $\text{fr}(X)$ consists entirely of one-dimensional orbits, so $\text{fr}(A)$ must as well. A piece of notation which will be useful for the following,
+
+
+
+In fact, we can say something quite strong about these sets.
+
+\begin{prop}
+    Suppose $A$ is an annulus orbit. Then, $\text{fr}_+(A)$ and $\text{fr}_-(A)$ are (not necessarily distinct) one-dimensional orbits.
+\end{prop}
+
+\begin{proof}
+    Suppose that $\sigma$ and $\sigma'$ are invariant circles in $\text{fr}_+(A)$ with respective $G_0$ fixed points $x$ and $x'$. Let $I$ be a $G_0$-invariant interval in $A$. By the same reasoning as the previous result, $x, x'\in \text{fr}(I)$, so let $\{a_k\}$ and $\{b_k\}$ be sequences in $I$ reperesenting $x$ and $x'$. Since both sequences are monotonic in $I$, there is a homeomorphism $f\in G_0$ such that $\rho(f)(a_k) = b_k$. By continuity, this implies that $\{b_k\}$ converges to $\rho(f)(x)$, which is $x$, since $x\in\text{fix}(G_0)$. Thus, $x=x'$; morevoer, $\sigma = \sigma'$ since every fixed point of $G_0$ is part of a unique 1-dimensional orbit of $\homeoS$.
+\end{proof}
+
+This result can be rephrased in a slightly more concrete way.
+
+\begin{cor}
+    The invariant subset $\bar{A}$ is either an invariant closed annulus with boundary circles $\text{fr}_+(A)$ and $\text{fr}_-(A)$ or an invariant $T^2$ when $\text{fr}_-(A) = \text{fr}_+(A)$.
+\end{cor}
+\textcolor{blue}{Next steps: show that $G_0$ invariant intervals must have frontier = $\text{fix}(G_0)\cap\text{fr}(A)$?}
 
 \listoftodos[Notes]
 \end{document}
