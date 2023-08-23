@@ -70,55 +70,57 @@ The complement is then an open subset of $M$ which decomposes into annulus orbit
     Take a short curve segment through $x$, build two one paramater families of homeos, giving local product structure (do this explicitly, use flow of a bump vec field on circle).
 \end{proof}
 
-\section{Annuli Compactify Nicely}
+\section{2D Orbits Compactify Nicely}
 As a small point of notation, recall the following definition from point set topology:
 \begin{defn}
-    The {\it frontier} of a set $X$, denoted $\text{fr}(X)$ is defined as $\bar{X}-X$
+    The {\it frontier} of a set $X$, denoted $\text{fr}(X)$ is defined as $\cl{X}-X$
 \end{defn}
 
-When $X$ is an annulus orbit, we use the following notation for convenience.
+When $X$ is a 2-dimensional orbit, we use the following notation for convenience.
 
 \begin{defn}
-    Let $A$ be an annulus orbit, fix a model annulus $f:A\to S^1\times I$. Then, denote by $\text{fr}_+(A)$ the set of frontier points which can be accumulated by sequences with increasing $I$ coordinate and $\text{fr}_-(A)$ analogously. Note that $\text{fr}_+(A)\cup\text{fr}_-(A) = \text{fr}(A)$, but they are not necessarily distinct. We can compatibly label subsets of the frontier of a $G_0$ invariant interval in an annulus $A$
+    Let $A$ be an annulus orbit, fix a model annulus $f:A\to S^1\times I$. Then, denote by $\text{fr}_+(A)$ the set of frontier points which can be accumulated by sequences with increasing $I$ coordinate and $\text{fr}_-(A)$ analogously. Note that $\text{fr}_+(A)\cup\text{fr}_-(A) = \text{fr}(A)$, but they are not necessarily distinct. We can compatibly label subsets of the frontier of a $G_0$ invariant interval in an annulus $A$. For notational consistency, when $X$ is a M\"{o}bius band orbit, let $\text{fr}_+(X) = \text{fr}_-(X) = \text{fr}(X)$.
 \end{defn}
 
 For the following two proofs, we want to make use of a kind of canonical coordinates on interval orbits of $G_0$.
 
-\begin{rem}
-    Suppose $A$ is an annulus orbit of $\homeoS$ and $I\subset A$ is an interval orbit of $G_0$. Then, we can define two homeomorphisms $\varphi, \psi:(0,1) \to I$ by $\varphi(\theta) = \text{fix}(G_0\cap G_\theta)$ and $\psi(\theta) = \text{fix}(G_0\cap G_{-\theta})$. One of these maps will send monotonic sequences that converge to $1$ to sequences which converge to something in $\text{fr}_+(I)$, we will denote the inverse of this map as $f_I$, which we will refer to as the {\it canonical homeomorphism between $I$ and $S^1 - \{0\}$}
+\begin{rem}\cite{mann-chen}
+    Suppose $A$ is an annulus orbit of $\homeoS$ and $I\subset A$ is an interval orbit of $G_0$. Then, we can define two homeomorphisms $\varphi, \psi:(0,1) \to I$ by $\varphi(\theta) = \text{fix}(G_0\cap G_\theta)$ and $\psi(\theta) = \text{fix}(G_0\cap G_{-\theta})$. One of these maps will send monotonic sequences that converge to $1$ to sequences which converge to something in $\text{fr}_+(I)$, we will denote the inverse of this map as $f_I$, which we will refer to as the {\it canonical homeomorphism between $I$ and $S^1 - \{0\}$}. Note, the same construction works for the one interval orbit in a M\"{o}bius band orbit.
 \end{rem}
 
+The following results are true for 2-dimensional orbits of any $\homeoS$ action without fixed points on a closed 3-manifold.
+
 \begin{prop}
-    Suppose $A$ is an annulus orbit in a component $X$ of the open region foliated by annulus orbits. Then $\text{fr}(A)\subset \text{fr}(X)$
+    Suppose $X$ is an 2-dimensional orbit, then $\text{fr}(X)$ consists of 1-dimensional orbits.
 \end{prop}
 
 \begin{proof}
-    Suppose toward a contradiction that $\text{fr}(A)\cap X\neq \emptyset$. Then, since every fiber in $X$ is contained in some annulus orbit and $\bar{A}$ must be invariant, there is some invariant annulus $A'\subset \text{fr}(A)$. Now, consider the restriction of the $\homeoS$ action to the action of a point stabilizer subgroup $G_0$. Let $I$ be a $G_0$ invariant interval in $A$. Since $\pi_{SO(2)}$ is continuous and closed, $$\pi_{SO(2)}(\bar{I}) = \overline{\pi_{SO(2)}(I)} = \overline{\pi_{SO(2)}(A)} = \pi_{SO(2)}(\bar{A}).$$ This implies that $\text{fr}(I)$ intersects every fiber of $\text{fr}(A)$ and in particular, every fiber of $A'$. Since $\bar{I}$ is closed and invariant, $\text{fr}(I)$ must be a union of $G_0$ orbits in $A'$ containing at least one interval orbit $I'$ (the disk orbits are not closed). Thus, there is some sequence of points $\{x_n\}\subset I$ converging to a point $x\in I'$.
+    Trivially, $\text{fr}(X)$ contains no 3-dimensional orbit.
 
+    Suppose toward a contradiction that $\text{fr}(X)$ contains some 2-dimensional orbit $X'$. Now, consider the restriction of the $\homeoS$ action to the point stabilizer subgroup $G_0$. There is some interval orbit $I$ in $X$. Since $\pi_{SO(2)}$ is continuous and closed, $$\pi_{SO(2)}(\bar{I}) = \overline{\pi_{SO(2)}(I)} = \overline{\pi_{SO(2)}(A)} = \pi_{SO(2)}(\bar{A}).$$ In particular, this means that $\text{fr}(I)$ must nontrivially intersect $X'$. The closure of every $G_0$ orbit in $X'$ contains at least one interval orbit $I'$, so $I'\subseteq \text{fr}(I)$. In particular, there is some sequence of points $\{x_n\}\subset I$ converging to a point $x\in I'$.
 
-    From \cite{mann-chen}, there are continuous bijections $f:I\to S^1-\{0\}$ and $g:I'\to S^1-\{0\}$ given by mapping the unique fixed point of $G_\theta\cap G_0$ on $I$ to $\theta\in S^1 - \{0\}$ and similarly for $I'$. Then, up to a subsequence, $\{f(x_n)\}$ is a monotonic sequence converging to 0. So we can choose a monotonic element $\phi\in G_0$ satisfying $\phi(f(x_k)) = f(x_{k+1})$. In particular, we must have that $\{\rho(\phi)( x_n)\}$ converges to $x$, but by monotonicity, $\rho(\phi)(x) \neq x$, violating continuity, which is a contradiction. Thus $\text{fr}(A)\cap X = \emptyset$
+    From the remark, there are continuous bijections $f:I\to S^1-\{0\}$ and $g:I'\to S^1-\{0\}$ given by mapping the unique fixed point of $G_\theta\cap G_0$ on $I$ to $\theta\in S^1 - \{0\}$ and similarly for $I'$. Then, up to a subsequence, $\{f(x_n)\}$ is a monotonic sequence converging to 0. So we can choose a monotonic element $\phi\in G_0$ satisfying $\phi(f(x_k)) = f(x_{k+1})$. In particular, we must have that $\{\rho(\phi)( x_n)\}$ converges to $x$, but by monotonicity, $\rho(\phi)(x) \neq x$, violating continuity, which is a contradiction. Thus $\text{fr}(A)\cap X = \emptyset$
 \end{proof}
 
-Note that, in particular, $\text{fr}(X)$ consists entirely of one-dimensional orbits, so $\text{fr}(A)$ must as well. A piece of notation which will be useful for the following,
+Note that, in particular if $X$ is an annulus orbit in a component foliated by annuli, this implies that $\text{fr}(X)$ is a subset of the frontier of the component.
 
-
-
-In fact, we can say something quite strong about these sets.
+We can in fact say something stronger though.
 
 \begin{prop}
-    Suppose $A$ is an annulus orbit. Then, $\text{fr}_+(A)$ and $\text{fr}_-(A)$ are (not necessarily distinct) one-dimensional orbits.
+    Suppose $X$ is a 2-dimensional orbit. Then, $\text{fr}_+(X)$ and $\text{fr}_-(X)$ are (not necessarily distinct) one-dimensional orbits.
 \end{prop}
 
 \begin{proof}
-    Suppose that $\sigma$ and $\sigma'$ are invariant circles in $\text{fr}_+(A)$ with respective $G_0$ fixed points $x$ and $x'$. Let $I$ be a $G_0$-invariant interval in $A$. By the same reasoning as the previous result, $x, x'\in \text{fr}(I)$, so let $\{a_k\}$ and $\{b_k\}$ be sequences in $I$ reperesenting $x$ and $x'$. Since both sequences are monotonic in $I$, there is a homeomorphism $f\in G_0$ such that $\rho(f)(a_k) = b_k$. By continuity, this implies that $\{b_k\}$ converges to $\rho(f)(x)$, which is $x$, since $x\in\text{fix}(G_0)$. Thus, $x=x'$; morevoer, $\sigma = \sigma'$ since every fixed point of $G_0$ is part of a unique 1-dimensional orbit of $\homeoS$.
+    Suppose that $\sigma$ and $\sigma'$ are invariant circles in (WLOG) $\text{fr}_+(X)$ with respective $G_0$ fixed points $x$ and $x'$. Let $I$ be a $G_0$-invariant interval in $X$. By the same reasoning as the previous result, $x, x'\in \text{fr}(I)$, so let $\{a_k\}$ and $\{b_k\}$ be sequences in $I$ reperesenting $x$ and $x'$. Since both sequences are monotonic in $I$, there is a homeomorphism $f\in G_0$ such that $\rho(f)(a_k) = b_k$. By continuity, this implies that $\{b_k\}$ converges to $\rho(f)(x)$, which is $x$, since $x\in\text{fix}(G_0)$. Thus, $x=x'$; morevoer, $\sigma = \sigma'$ since every fixed point of $G_0$ is part of a unique 1-dimensional orbit of $\homeoS$.
 \end{proof}
 
 This result can be rephrased in a slightly more concrete way.
 
 \begin{cor}
-    The invariant subset $\bar{A}$ is either an invariant closed annulus with boundary circles $\text{fr}_+(A)$ and $\text{fr}_-(A)$ or an invariant $T^2$ when $\text{fr}_-(A) = \text{fr}_+(A)$.
+    When $X$ is an annulus orbit, $\bar{X}$ is either an invariant closed annulus with boundary circles $\text{fr}_+(A)$ and $\text{fr}_-(A)$ or an invariant $T^2$ when $\text{fr}_-(A) = \text{fr}_+(A)$.
+
+    When $X$ is a M\"{o}bius band orbit, $\bar{X}$ is an invariant closed M\"{o}bius band, with invariant boundary circle $\text{fr}(X)$.
 \end{cor}
-\textcolor{blue}{Next steps: show that $G_0$ invariant intervals must have frontier = $\text{fix}(G_0)\cap\text{fr}(A)$?}
 
 \listoftodos[Notes]
 \end{document}
