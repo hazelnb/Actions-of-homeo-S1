@@ -22,6 +22,8 @@
 \newcommand{\SO}{\text{SO}(2)}
 \newcommand{\homeoS}{\text{Homeo}_0(S^1)}
 \newcommand{\cl}[1]{\overline{#1}}
+\newcommand{\conf}[1]{\text{Conf}_{#1}(S^1)}
+\newcommand{\pconf}[1]{\text{PConf}_{#1}(S^1)}
 
 %% CUSTOM THEOREMS
 %%%%%
@@ -51,7 +53,7 @@
 \maketitle
 
 \section{Introduction}
-The following is a result about the structure of compact three-manifolds admitting fixed point-free $\homeoS$ actions having only one dimensional and annulus orbits. A fact we will make repeated use of to prove these results is the following:
+The following is a result about the structure of compact three-manifolds admitting fixed point-free $\homeoS$ actions having only one dimensional and annulus orbits. As a matter of convention, denote we denote configuration space actions and their lifts to covers by $*$. A fact we will make repeated use of to prove these results is the following:
 
 \begin{rem}
     Let $\pi_{SO(2)}$ denote the projection along the orbits of the rotation subgroup to the base orbifold. Then, since $M^3$ and the base orbifold are compact Hausdorff spaces, by a classical fact from point-set topology, $\pi_{SO(2)}$ is a closed map.
@@ -63,12 +65,35 @@ The complement is then an open subset of $M$ which decomposes into annulus orbit
 
 \section{Foliation by Annuli}
 
-\begin{prop}
-    Suppose $X$ is a component of the open subset of $M^3$ in which all orbits are annuli. Then the decomposition of $X$ into orbits is a $\text{C}^0$ foliation by annuli.
-\end{prop}
-\begin{proof}[Proof sketch]\improve{flesh this out with details}
-    Take a short curve segment through $x$, build two one paramater families of homeos, giving local product structure (do this explicitly, use flow of a bump vec field on circle).
+We seek to investigate the structure of an open region consisting of orbits of the same type. For what follows, consider $X$ a connected component of the open region consisiting entirely of annulus orbits. Of primary relevance in our investigation will be the map $p: X\to \text{Conf}_2(S^1)$ given by $p(x) = (\theta, \varphi)$ where $\theta$ and $\varphi$ are the unique points in $S^1$ such that $x\in\text{fix}(G_\theta\cap G_\varphi)$. First, an elementary property of group actions.
+
+\begin{rem}
+    Suppose there is an action of group $G$ on $M$ by homeomorphisms and $H$ is a subgroup of $G$. Then, for all $g\in G$,
+    $$g * \text{fix}(H) = \text{fix}(g H g^{-1})$$
+\end{rem}
+\begin{proof}
+    Suppose $y\in g * \text{fix}(H)$, then $g^{-1}*y\in \text{fix}(H)$. I.e., $(hg^{-1})*y = g^{-1}*y$ for all $h\in H$. So, by cancellation, $(ghg^{-1})*y = y$ for all $h\in H$; thus, $y\in \text{fix}(g H g^{-1})$. Each step was reversible, so this concludes the proof of equality.
 \end{proof}
+
+A similar (but dual) argument shows that for any $f\in\homeoS$ and $G_\theta$ a point stabilizer subgroup, $f G_\theta f^{-1} = G_{f(\theta)}$.
+
+\begin{prop}
+    The map $p$ is equivariant, continuous, and its fibers are homeomorphic.
+\end{prop}
+\begin{proof}
+    First, we check equivariance. Suppose $x\in X$, $f\in\homeoS$ and $p(x)=(\theta, \varphi)$. Under the standard configuration space action $f*p(x) = (f(\theta), f(\varphi))$. So we, need to check that $\rho(f)(x)\in \text{fix}(\rho(G_{f(\theta)}\cap G_{f(\varphi)}))$. By the remark, $$\rho(f)(\text{fix}(G_\theta \cap G_\varphi)) = \text{fix}(\rho(f(G_\theta\cap G_\varphi)f^{-1}))$$
+    Then, pulling the conjugation through the intersection and applying the second remark,
+    $$\rho(f)(\text{fix}(G_\theta \cap G_\varphi)) = \text{fix}(\rho(G_{f(\theta)}\cap G_{f(\varphi)}))$$
+    Thus, $f*p(x) = p(\rho(f)(x))$.
+
+    Second, we check continuity by checking that open neighborhoods of points in $\text{conf}_2(S^1)$ pull back to open subsets of $X$. Let $(a, b)$ be a point $\text{conf}_2(S^1)$ and $U = (I, J)$ be a small open neighborhood of $(a,b)$ consisting of small disjoint open intervals $I$ and $J$ around $a$ and $b$ in $S^1$. Denote by $H(I)$ and $H(J)$ the subgroups of $\homeoS$ supported on $I$ and $J$ respectively. We will show that $p^{-1}(U)$ is open by proving that 
+    $$p^{-1}(U) = X - \left(\text{fix}(\rho(H(I)))\cup\text{fix}(\rho(H(J)))\right)$$
+    Suppose $x\notin p^{-1}(U)$, then in particular for $p(x) = (\theta, \varphi)$, assume without loss of generality $\theta, \varphi \notin I$. Then by definition, every element of $H(I)$ fixes $(\theta, \varphi)$, so by equivariance, $x\in \text{fix}(\rho(H(I)))$. In particular, $x$ is not in the right hand side of the desired equality. Now, suppose $x\in p^{-1}(U)$, then in particular $p(x) = (\theta, \varphi)$ for some $\theta\in I, \varphi\in J$. Fix an equivariant homeomorphism $\varphi$ from the $\homeoS$ orbit of $x$ to $\pconf{2}$ such that $\psi(x) = (\theta, \varphi)$. Then, in particular we know $\rho(f)(x) = \psi^{-1}(f(\theta), f(\varphi))$ and thus if $f\in H(I) - G_\theta$ then $f\notin \text{Stab}(x)$. The contrapositive of this is then that $x\notin \text{fix}(\rho(H(I)))$. A symmetric argument will show that $x\notin \text{fix}(\rho(H(J)))$, so it is not in the union. Since fixed point sets are closed, their union is as well, thus the complement here is open. So this shows $p$ is open.
+
+    Finally, we can demonstrate that for a point $(x,y)\in\conf{2}$, there is a homeomorphism from $F$ to $p^{-1}(x, y)$. Simply choose a homeomorphism $h\in\homeoS$ such that $h(b) = (x, y)$, then by equivariance of $p$, $\rho(h)$ restricts to a homeomorphism $F\to p^{-1}(x,y)$.
+\end{proof}
+
+
 
 \section{2D Orbits Compactify Nicely}
 As a small point of notation, recall the following definition from point set topology:
