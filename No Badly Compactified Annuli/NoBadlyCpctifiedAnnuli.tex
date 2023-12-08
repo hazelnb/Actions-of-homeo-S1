@@ -1,5 +1,5 @@
 \documentclass[10pt, oneside]{article} 
-\usepackage{mathtools, amsmath, amsthm, amssymb, calrsfs, wasysym, verbatim, bbm, color, graphics, geometry, xargs}
+\usepackage{mathtools, amsmath, amsthm, amssymb, wasysym, verbatim, bbm, color, graphics, geometry, xargs, hyperref}
 \usepackage[pdftex,dvipsnames]{xcolor}
 
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
@@ -27,17 +27,18 @@
 
 %% CUSTOM THEOREMS
 %%%%%
-\newtheorem{thm}{Theorem}
+\newtheorem{thm}{Theorem}[section]
 \newtheorem*{thm*}{Theorem}
 \theoremstyle{definition}
-\newtheorem{defn}{Definition}
-\newtheorem{conv}{Convention}
-\newtheorem{conj}{Conjecture}
-\newtheorem{rem}{Remark}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conv}{Convention}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{rem}{Remark}[section]
 \newtheorem*{obs*}{Observation}
-\newtheorem{lem}{Lemma}
-\newtheorem{cor}{Corollary}
-\newtheorem{prop}{Proposition}
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem*{fact*}{Fact}
+\newtheorem{prop}{Proposition}[section]
 \theoremstyle{definition}
 \newtheorem*{prog*}{Program}
 
@@ -93,7 +94,83 @@ A similar (but dual) argument shows that for any $f\in\homeoS$ and $G_\theta$ a 
     Finally, we can demonstrate that for a point $(x,y)\in\conf{2}$, there is a homeomorphism from $F$ to $p^{-1}(x, y)$. Simply choose a homeomorphism $h\in\homeoS$ such that $h(b) = (x, y)$, then by equivariance of $p$, $\rho(h)$ restricts to a homeomorphism $F\to p^{-1}(x,y)$.
 \end{proof}
 
+Next, rather than belabor a proof that $p$ in fact gives a bundle structure, we will build a homeomorphism between $X$ and a particular generalized flat bundle over $\conf{2}$ that pulls its projection map back to $p$. 
 
+\begin{rem}
+    Suppose for some topological spaces $X, Y$ and $B$ such that $p: X\to B$ is a topological fiber bundle and $h: X\to Y$ is a homeomorphism. Suppose $q: Y\to B$ is a map such that the relevant triangle over $B$ commutes. Then $q:Y \to B$ is a fiber bundle and in particular $h$ is a bundle isomorphism.
+\end{rem}
+
+The relevant bundle is constructed as follows,
+\begin{obs*}
+    For convenience, assume that the $S^1$ coordinates of the basepoint are antipodal. There is an $\Z_2$ action on $\pconf{2}\times p^{-1}(b)$ given by $\tau\times \rho(r_\pi)|_{p^{-1}(b)}$ where $r_\pi$ is the half turn rotation and $\tau$ is the unique nontrivial deck transformation of $\pconf{2}\to\conf{2}$. The restriction $\rho(r_\pi)|_{p^{-1}(b)}$ is a homeomorphism from $p^{-1}(b)\to p^{-1}(b)$ since every orbit contains exactly two points of $p^{-1}(b)$ and $p$ is equivariant. This is a product of (fixed point-free) homeomorphisms, so this action is continuous and free, and $\pconf{2}\times p^{-1}(b)/\Z_2\to \pconf{2}\times p^{-1}(b)$ is a two-fold covering map.
+\end{obs*}
+
+We begin by building the map which we will demonstrate to be a homeomorphism. First we check that it is a continuous bijection:
+
+\begin{prop}
+    There is a continuous bijection from $X$ to $(\pconf{2}\times F)/\Z_2$ where $\Z_2$ acts on $\pconf{2}\times F$ by the involution which exchanges $\theta$ and $\phi$ coordinates on $\pconf{2}$ and swaps the all of the pairs of points in $F$ lying in the same orbit.
+\end{prop}
+
+\begin{proof}
+    To start, we fix a basepoint $b\in \conf{2}$ and label the two choices of lifts in $\pconf{2}$ as $\tilde{b}_0$ and $\tilde{b}_1$ with the property that $\tilde{b}_0 = \tau(\tilde{b}_1)$ where $\tau:\pconf{2}\to\pconf{2}$ is the involution which swaps the two points on the circle.Then, if $x\in F=p^{-1}(b)$, by the orbit classification theorem, there are two choices of equivariant homeomorphism from the orbit of $x$ to $\pconf{2}$ with the standard action; namely, $\Phi_{0_x}$ and $\Phi_{1_x}$ which send $x$ to $\tilde{b}_0$ and $\tilde{b}_1$ respectively.
+    We begin by constructing a map
+    $$\hat{I}: \pconf{2}\times F \to X.$$
+    Given $x=(\alpha, \beta)\in \pconf{2}$ and $y\in F$, then choose $f_x\in\homeoS$ such that $f_x*(\alpha, \beta) = \tilde{b}_0$. Then,
+    $$\hat{I}((\alpha, \beta)\times y) \coloneqq \rho(f_x^{-1})(y)$$
+
+    {\it $\hat{I}$ is well-defined.} Suppose $f_x$ and $g_x$ are two such maps. Then, $f_x\circ g_x^{-1}$ fixes $b$, thus also fixes $y$. Reworded, there is some $h\in \text{stab}(y)$ such that $f_x = h\circ g_x$. Then,
+    $$\rho(f_x^{-1})(y) = \rho(g_x^{-1}h^{-1})(y) = \rho(g_x^{-1})(y)$$
+
+    {\it $\hat{I}$ descends.} Let $(\alpha, \beta)\times y$ and $(\beta, \alpha)\times y'$ be two points which are identified by the $\Z_2$ action. Notice that the map $\Phi_0$ centered at $y$ must take $y'$ to $\tilde{b}_1$. Now choose a map $f_x\in\homeoS$ which moves $(\alpha, \beta)$ to $\tilde{b}_0$, and $f'_x$ which moves $(\beta, \alpha)$ to $\tilde{b}_0$. By working in $\Phi_0$ coordinates at $y$, we see that $\rho(f_x^{-1})(y) = \Phi_{0_y}^{-1}(f_x^{-1} * \tilde{b}_0)$. By construction, this is the same as $\Phi_{0_y}^{-1}(\alpha, \beta)$. By the same argument, $\rho(f'{_x}^{-1})(y') = \Phi_{0_{y'}}^{-1}(\beta, \alpha)$. Since the change of coordinates map is $\tau$, these are the same point. 
+
+   {\it $I$ is bijective.} We refer to the induced map on the quotient as $I$. We wish to demonstrate that this map is a homeomorphism. Surjectivity is clear since every point in $X$ belongs to some orbit of a point in $p^{-1}(b)$. To see injectivity, suppose $(\theta, \varphi)\times y$ and $(\theta', \varphi')\times y'$ map to the same point under $I$. First note that, trivially, $y$ and $y'$ must be points of $p^-1(b)$ which lie in the same orbit in $X$. This then proceeds by an identical argument to the argument that the map descends, ultimately showing that if $y$ and $y'$ are the same point, we must have $(\theta, \varphi) = (\theta', \varphi')$ and if $y$ and $y'$ are distinct, $(\theta, \varphi) = \tau(\theta', \varphi')$.\improve{could write something slightly slicker with change of coordinates map here}\
+
+   {\it $I$ is continuous.} Finally, we will check sequential continuity. Suppose $(m_i, y_i)$ converges to $(m, y)$ in $(\pconf{2}\times F)/\Z_2$. Then, we are free to choose a sequence $\{f_{m_i}\} \subset \homeoS$ converging to $f_m$ a representative function for producing $I(m, y)$. Then, by the continuity of the $\homeoS$ action $\{\rho(f_{m_i})\}$ is a sequence converging to $\rho(f_m)$ in $\text{Homeo}_0(X)$. In particular, since $X$ is a manifold, convergence in $\text{Homeo}_0(X)$ implies pointwise convergence, so $$I(m_i, y_i) = \rho(f_{m_i}^{-1})(y_i) \to \rho(f_{m}^{-1})(y) = I(m, y).$$
+\end{proof}
+
+To complete the proof that this map is, in fact, a homeomorphism, we will show that it is proper. To do this, we will need the following lemma.
+
+\begin{lem}\label{lem:cpct_subset_union}
+    Suppose $M, \,N$ closed manifolds such that $\text{Homeo}_0(M)$ acts continously on $N$. Further, suppose $K$ is a compact subset of $N$ and $S$ is a compact subset of $\text{Homeo}_0(M)$, then $\rho(S)(K) \coloneqq \bigcup_{\sigma\in S} \rho(\sigma)(K)$ is compact.
+\end{lem}
+
+\begin{proof}
+    Let $\{x_n\}$ be a sequnce of points in $\rho(S)(K)$ converging to $x$. Then denote by $\sigma_n$ a sequence of elements of $S$ such that $x_n\in\rho(\sigma_n)(K)$. Using the continuity of the action map, clearly $\rho(S)\subseteq\text{Homeo}_0(N)$ is compact. Since $\text{Homeo}_0(N)$ is metric, we can pass to a convergent subsequence of $\{\rho(\sigma_n)\}$. In particular, since $N$ is closed, convergence of a sequence in $\text{Homeo}_0(N)$ implies uniform convergence when considered as a sequence of functions from $N$ to $N$. Since $\rho(\sigma_n)$ converges to some $\rho(\sigma)$ uniformly, and inversion is continuous in $\text{Homeo}_0(N)$, $\rho(\sigma_n^{-1})$ converges uniformly to $\rho(\sigma^{-1})$. Then, by the general metric space remark \ref{rem:metric_fnxn}, $\rho(\sigma_n^{-1})(x_n)$ converges to $\rho(\sigma^{-1})(x)$. But, by choice, $\rho(\sigma_n^{-1})(x_n)$ is a sequence in $K$, so in particular, $\rho(\sigma^{-1})(x)\in K$ since $K$ is closed by the Hausdorffness of $N$. But, this means that $x\in\rho(\sigma)(K)\subseteq\rho(S)(K)$; thus, $\rho(S)(K)$ is closed, and in particular, compact.
+\end{proof}
+
+For completeness, the following is a brief presentation of the metric space fact used in the above proof
+
+\begin{rem}\label{rem:metric_fnxn}
+    Suppose $X,\,Y$ are metric space, $f_n: X \to Y$ a sequence of continuous functions converging uniformly to $f$ and $\{x_n\}$ is a sequence converging to $x$, then $f_n(x_n)$ converges to $f(x)$
+\end{rem}
+\begin{proof}
+    Let $\varepsilon>0$. By uniform convergence of $\{f_n\}$, there is some $N$ such that for all $n\geq N$ we have $\text{d}(f_n(x_n), f(x_n)) \leq \varepsilon/2$ for all $n\geq N$. Since $f$ is continuous and $x_n$ converges to $x$, there is some other $N'$ such that for all $n\geq N'$ we have $\text{d}(f(x_n), f(x)) \leq \varepsilon/2$. By taking $n\geq \text{max}\{N,\, N'\}$, and applying the triangle inequality, we arrive at $\text{d}(f_n(x_n), f(x)) \leq \varepsilon$ as desired.
+\end{proof}.
+
+
+We will complete the proof that $I$ is a homeomorphism, by showing that $I$ is {\it proper} since a continuous, proper bijection is a homeomorphism. Recall,
+\begin{defn}
+    Let $X$ and $Y$ be metric spaces. A sequence $\{x_n\}$ {\it diverges to infinity} if every compact set $K$ in $X$ contains at most finitely many points of $\{x_n\}$.
+    
+    A map $f:X\to Y$ is {\it proper} if $\{x_n\}$ diverges to infinity implies $\{f(x_n)\}$ diverges to infinity. 
+\end{defn}
+
+Finally,
+\begin{prop}
+    The map $I:(\pconf{2}\times F)/\Z_2\to X$ is proper.
+\end{prop}
+\begin{proof}
+    Let $(x_n)$ be a sequence in $(\pconf{2}\times F)/\Z_2$ diverging to infinity. We consider the sequence $(I(x_n))\subset X$. Let $K\subsetneq X$ be some compact set. We wish to show that $K$ may contain only finitely many points of $(I(x_n))$. First, consider $\{p(I(x_n))\}\cap p(K)$. If this collection were finite, we would be finished as $K$ could then only contain finitely many of $(I(x_n))$, so suppose without loss of generality it is infinite. Denote by $(y_n)$ the subsequence of $(x_n)$ such that $p(I(y_n))\in p(K)$. Note that $p$ is continuous, so in particular $p(K)$ is compact; furthermore, since $\pi:\pconf{2}\to \conf{2}$ is a finite-sheeted covering, it is proper, so $\pi^{-1}(p(K)) \subsetneq \pconf{2}$ is compact. By the definition of the map $p$, if $p(I(x_n))$ is in $p(K)$, then there is a lift $\tilde{x}_n$ such that $\text{pr}_{\pconf{2}}(\tilde{x_n})$ is in $\pi^{-1}(p(K))$. Thus there exist lifts $(\tilde{y}_n)$ such that $\pi{-1}(p(K))$ contains $(\text{pr}_{\pconf{2}}(\tilde{y}_n))$. If there were some compact $K'$ containing infinitely many of $(\text{pr}_{F}(\tilde{y}_n))$ for any choice of lifts, then the image of $\pi^{-1}(p(K))\times K'$ under the $\Z_2$ quotient is a compact set containing infinitely many points of $(y_n)\subseteq(x_n)$, but $(x_n)$ diverges to infinity, so no such compact set can exist. Thus, there is no such $K'$ and $\text{pr}_F(\tilde{y}_n)$ must diverge to infinity for any choices of lifts. 
+
+    The goal for what follows is to construct a large compact set $\hat{K}$ containing $K$ with the property that $I(y_n)\in \hat{K}$ if and only if $\text{pr}_F(\tilde{y}_n)\in \hat{K}\cap p^{-1}(b_0)$ as such a $\hat{K}$ may contain only finitely many of $(I(y_n))$. Consider the set $\mathcal{P}_N*SO(2)\subset \homeoS$ defined as:
+    $$\mathcal{P}_N*SO(2)\coloneqq \left\{ P_t R \;\vert \;P_t = \begin{pmatrix} 1 & t\\ 0 & 1\\
+    \end{pmatrix}\, t\in[-N, N], R\in SO(2)\right\}$$
+    Where $SO(2)$ is the rotation subgroup and $P_t$ is considered as an element of $PSL(2;\R)$. Note that $\mathcal{P}_N * SO(2)$ is a group product of two continuous families in $\homeoS$ which intersect at the identity, so it is homeomorphic to their topological product, i.e. a closed annulus; thus, $\mathcal{P}_N*SO(2)$ is compact for all $N\in\R$. Moreover, if $B\subset\conf{2}$ is compact, there is some $N\in \R$ with the property that for every $x\in B$, there is some element $f\in \mathcal{P}_N*SO(2)$ such that $f*x = b$. The procedure to construct this element is as follows. Since $B$ is compact, there is a uniform $\varepsilon$ such that for all $(\alpha, \beta)\in B$, $\lvert\beta - \alpha\rvert\ >\epsilon$. Suppose without loss of generality that $b_0 = (0,\theta)$ for some $\theta$. Then, let $\varepsilon' =\text{min}(\varepsilon,\, \theta,\, 1-\theta)$. Now, for $N=2*\cot(\pi \varepsilon')$, the element $P_N$ satisfies $P_N(\varepsilon') = 1-\varepsilon'$, so in particular, for any $\beta, \beta'\in[\varepsilon', 1-\varepsilon']$ there is some $t_{\beta\beta'}\in[-N, N]$ such that $P_{t_{\beta\beta'}}(\beta) = \beta'$. Thus, the element of $\mathcal{P}_N * SO(2)$ taking $(\alpha, \beta)$ to $(0, \theta)$ is $P_{t_{(\beta-\alpha)\theta}} R_{-\alpha}$. Moreover, since, by construction, $N$ was uniform over $B$, this is satisfied by the same $\mathcal{P}_N*SO(2)$.
+
+    Now, fix an appropriate $N$ for $p(K)$, then by applying lemma \ref{lem:cpct_subset_union}, we get that
+    $$\hat{K}\coloneqq \bigcup_{f\in \mathcal{P}_N * SO(2)} \rho(f)(K)$$
+    is a compact set containing $K$. Moreover, $\hat{K}$ has the property that if $I(x)\in K$, then $\text{pr}_F(\tilde{x})\in \hat{K}\cap p^{-1}(b)$ which is a subset of the fiber $F$, since $F$ is defined to be $p^{-1}(b)$. This is easy to see since fixing an orbit $A$, by definition the $I^{-1}$ image of each point in $A$ has a lift whose $F$ coordinate is each of the points in $p^{-1}(b)\cap A$. At this point, we are essentially finished though. Since $p{-1}(b)$ is closed, $\hat{K}\cap p^{-1}(b)$ is compact in $X$ and thus compact in $p{-1}(b)$. But, as observed earlier, any sequence $(\text{pr}_F(\tilde{y}_n))$ must diverge to infinity where $(\tilde{y}_n)$ is any sequence of lifts $(y_n)$, so in particular, $\hat{K}$ contains only finitely many $F$ projections of lifts of points in $(y_n)$, so $K$ contains only finitely many of the points of $(y_n)$ and thus $(x_n)$
+\end{proof}
 
 \section{2D Orbits Compactify Nicely}
 As a small point of notation, recall the following definition from point set topology:
