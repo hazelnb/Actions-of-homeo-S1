@@ -1,5 +1,5 @@
 \documentclass[10pt, oneside]{article} 
-\usepackage{mathtools, amsmath, amsthm, amssymb, wasysym, verbatim, bbm, color, graphics, geometry, xargs, hyperref}
+\usepackage{mathtools,mathrsfs, amsmath, amsthm, amssymb, wasysym, verbatim, bbm, color, graphics, geometry, xargs, hyperref}
 \usepackage[pdftex,dvipsnames]{xcolor}
 
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
@@ -39,6 +39,7 @@
 \newtheorem{cor}{Corollary}[section]
 \newtheorem*{fact*}{Fact}
 \newtheorem{prop}{Proposition}[section]
+\newtheorem*{clm*}{Claim}
 \theoremstyle{definition}
 \newtheorem*{prog*}{Program}
 
@@ -50,22 +51,101 @@
 \maketitle
 
 \section{Introduction}
-This writeup is an extension of what I've written in No Badly Compactified Annuli. This will prove a general version of the {\it Orbit Bundle Structure} which concerns the structure of connected regions consisting of orbits of a fixed dimension. As of writing, this result takes as an input that the region is a manifold (would be ideal to have settings that this can be relaxed). 
+This writeup is an extension 
+of what I've written in No Badly Compactified Annuli.
+This will prove a general version of the {\it Orbit Bundle Structure} 
+which concerns the structure of connected regions consisting of orbits of a fixed dimension. 
+As of writing, 
+this result takes as an input that the region is a manifold 
+(would be ideal to have settings that this can be relaxed). 
 
-The setting of the generalized bundle structure result is the following.  Suppose $\homeo[M]$ acts on $N$, and $X$ is a connected submanifold of $N$ with orbits of fixed dimension. Fix a base point $b\in \conf[M]{n}$. We will abuse notation by denoting both the point in $\conf[M]{n}$ and the corresponding subset of $M$ as $b$. Also, note that the deck group of the maximal admissible covering $C_b \to \conf[M]{n}$ can be identified with $\text{stab}(b)/\text{stab}_0(b)\subset\homeo[M]$.
+The setting of the generalized bundle structure result is the following.  
+Suppose $\homeo[M]$ acts on $N$,
+and $X$ is a connected submanifold of $N$ 
+with orbits of fixed dimension. 
+Fix a base point $b\in \conf[M]{n}$. 
+We will abuse notation 
+by denoting both the point in $\conf[M]{n}$ 
+and the corresponding subset of $M$ as $b$.
+Also, 
+note that the deck group of the maximal admissible covering $C_b \to \conf[M]{n}$ can be identified with $\text{stab}(b)/\text{stab}_0(b)\subset\homeo[M]$.
 
 \begin{prop}[Orbit Bundle]
-    Suppose $X$ a connected submanifold of $N$ with orbits of fixed dimension, then there is a continuous map $p: X\to \conf[M]{n}$ such that there's a map: $$I: C_n \times p^{-1}(b) / \Gamma \to X$$
-    where $\Gamma$ is the deck group of the covering $C_n \to \conf[M]{n}$ acting on the first factor by deck transformations and the second factor by the $\homeo[M]$ action restricted to the subgroup $\Gamma$ acting on the fiber. The map $I$ is an equivariant homeomorphism with the $\homeo[M]$ action on $C_n \times p^{-1}(b) / \Gamma$ be the quotient of the product of the standard action on $C_n$ with the trivial action on the fiber.
+    Suppose $A$ a connected submanifold of $N$ 
+    with orbits of fixed dimension, 
+    then there is a continuous map $p: A\to \conf[M]{n}$ 
+    such that there's a map: $$I: C_n \times p^{-1}(b) / \Gamma \to A.$$
+    where $\Gamma$ is the deck group of the covering $C_n \to \conf[M]{n}$ 
+    acting on the first factor by deck transformations 
+    and the second factor by the $\homeo[M]$ action 
+    restricted to the subgroup $\Gamma$ acting on the fiber.
+    The map $I$ is an equivariant homeomorphism 
+    with the $\homeo[M]$ action on $C_n \times p^{-1}(b) / \Gamma$ being the quotient of the product of the standard action on $C_n$ 
+    with the trivial action on the fiber.
 \end{prop}
 \begin{proof}
-    TODO
+    First, 
+    suppose $O$ is an orbit in $A$. 
+    Recall that $O$ is a continuous injective image 
+    of an admissible cover of $\conf[M]{n}$ 
+    with a lift of the standard configuration action. 
+    So, in particular, 
+    for every point $x\in O$, 
+    there is a unique $X\in\conf[M]{n}$ 
+    such that $\text{stab}_0(X) \subseteq G_x \subseteq \text{stab}(X)$. 
+    Then, define $p(x) = X$. 
+    Since $G_{\rho(f)(x)} = f G_x f^{-1}$ 
+    it follows that $\text{stab}_0(f(X)) \subseteq G_{\rho(f)(x)}\subseteq \text{stab}(f(X))$. 
+    This directly implies $p$ is equivariant. 
+
+    Next we wish to show that $p$ is continuous.
+    We will do this by checking continuity on a nice basis. 
+    In particular, 
+    note that if $\mathscr{B}$ is a basis for the topology on $M$, 
+    then the set of all products of $n$ disjoint elements of $\mathscr{B}$ form a basis for the topology on $\pconf[M]{n}$ 
+    i.e., the $n$-fold product of $M$ with itself minus the fat diagonal. 
+    Then, the image of this basis under the quotient forms a basis for the topology on $\conf[M]{n}$.
+    Let $U$ be image of one such $B_1\times\dots\times B_n$ 
+    under the quotient map to $\conf[M]{n}$. 
+
+    \begin{clm*}
+        Let $H(B_i)$ denote the $\homeo[M]$ subgroup of homeomorphisms supported on $B_i$.
+        $$p^{-1}(U) = A \setminus \bigcup \text{fix}(H(B_i))$$
+    \end{clm*}
+    \begin{proof}
+        By the equivariance of $p$ 
+        and the \textit{locally continuously transitive} property of homeomorphism group actions
+        $$\text{fix}(H(B_i)) = \{x\in A\, |\, p(x)\cap B_i = \emptyset\}$$
+        where $p(x)$ is being interpreted as a subset of $M$. Interpreted semantically, 
+        this says that 
+        the fixed point set of $H(B_i)$ acting on $A$ is 
+        the set of all points whose image under $p$ has no coordinate in $B_i$. 
+        Then, by making purely set-theoretic manipulations, 
+        we have the following chain of equivalences:
+        \begin{align*}
+            A - \cup\text{fix}(H(B_i))
+        \end{align*}
+    \end{proof}
+    
 \end{proof}
 
 \section{Codimension 1 Orbit Bundles}
-For components of codimension 1 orbits, the fiber must be 1-dimensional and all 1-dimensional homology manifolds are manifolds. So, codimension 1 orbit bundlses are classified by actions of the deck group of $\Gamma$ of the covering $C_X \to \conf[M]{n}$ on 1-manifolds up to equivariant homeomorphism. Note that, in general, $\lvert \pi_0(F) \rvert \leq \lvert \Gamma \rvert$ and the components of $F$ are homeomorphic. 
+For components of codimension 1 orbits, 
+the fiber must be 1-dimensional 
+and all 1-dimensional homology manifolds are manifolds. 
+So, 
+codimension 1 orbit bundlses are classified 
+by actions of the deck group of $\Gamma$ 
+of the covering $C_X \to \conf[M]{n}$ on 1-manifolds 
+up to equivariant homeomorphism.
+Note that, 
+in general, $\lvert \pi_0(F) \rvert \leq \lvert \Gamma \rvert$ 
+and the components of $F$ are homeomorphic. 
 
-It's hard to say something overly general here, but fixing $M = S^1$ and $\text{dim}(N)=3$ a classification is possible. Note, in this setting $C_X = \pconf{2}$ and $\Gamma = \Z_2$.
+It's hard to say something overly general here, 
+but fixing $M = S^1$ 
+and $\text{dim}(N)=3$ a classification is possible. 
+Note, in this setting $C_X = \pconf{2}$ and $\Gamma = \Z_2$.
 
 \begin{prop}
     The classification of $\homeo$ codimension 1 orbit bundles $X$ in 3-manifolds is as follows. 
@@ -87,9 +167,45 @@ It's hard to say something overly general here, but fixing $M = S^1$ and $\text{
 \end{prop}
 
 \begin{proof}
-    Note that the quotient gives a 2-fold covering from $\pconf{2}\times F$ to the orbit bundle $X$, which is connected, so $\pconf{2}\times F$ and thus $F$ has at most two components. Assume $F$ has two components. Since the quotient is connected, the action must permute the components (homeomorphically), so in particular we can express the fiber as $F\cong C\sqcup C$. Then the action is just a homeomorphism from one compenent of $\pconf{2}\times F$ to the other, so the quotient is $\pconf{2}\times C$ where the resulting $\homeo$ action is the standard configuration space action on the $\pconf{2}$ coordinate and the trivial action on the $C$ coordinate.
+    Note, 
+    the quotient gives a 2-fold covering 
+    from $\pconf{2}\times F$ 
+    to the orbit bundle $X$, 
+    which is connected, 
+    so $\pconf{2}\times F$ 
+    and thus $F$ has at most two components. 
+    Assume $F$ has two components. 
+    Since the quotient is connected, 
+    the action must permute the components (homeomorphically), 
+    so in particular we can express the fiber 
+    as $F\cong C\sqcup C$. 
+    Then the action is just a homeomorphism 
+    from one compenent of $\pconf{2}\times F$ to the other, 
+    so the quotient is $\pconf{2}\times C$ 
+    where the resulting $\homeo$ action is the product of the standard configuration space action on $\pconf{2}$ and the trivial action on the fiber $C$.
 
-    If $F$ has a single component, then the $\Z_2$ action is simply a choice of involution on $F$. For any possible $F$ we can allow $\Z_2$ to act trivially. Then, the quotient loads entirely onto the $\pconf{2}$ factor, where $\Z_2$ acts as the deck group of $\pconf{2}\to\conf{2}$, so the resulting quotient is $\conf{2}\times F$. This is nonorientable (regardless of $F$) and top-dimensional, so in general, such orbit bundles only arise when $N$ is nonorientable. The remainder of the proof is done by exhaustion. $[0,1)$ has no nontrivial involutions, $[0,1]$ and $\mathbb{R}$ each have one and $S^1$ has two. In each case, the quotient preserves the product structure away from fixed points and sends every $\pconf{2} \times \{x\}$ for fixed point $x$ to $\conf{2}\times \{x\}$. The result in each case is trivially the Seifert structure described in the proposition.
+    If $F$ has a single component, 
+    then the $\Z_2$ action is simply a choice of involution on $F$. For any possible $F$, 
+    we can allow $\Z_2$ to act trivially. 
+    Then, 
+    the quotient loads entirely 
+    onto the $\pconf{2}$ factor, 
+    where $\Z_2$ acts as the deck group of $\pconf{2}\to\conf{2}$, 
+    so the resulting quotient is $\conf{2}\times F$. 
+    This is nonorientable (regardless of $F$) and top-dimensional, 
+    so in general, 
+    such orbit bundles only arise when $N$ is nonorientable. 
+    The remainder of the proof is done by exhaustion. 
+    $[0,1)$ has no nontrivial involutions, 
+    $[0,1]$ and $\mathbb{R}$ each have one 
+    and $S^1$ has two. 
+    In each case, 
+    the quotient preserves the product structure 
+    away from fixed points 
+    and sends every $\pconf{2} \times \{x\}$ 
+    for fixed point $x$ 
+    to $\conf{2}\times \{x\}$. 
+    The result in each case is trivially the Seifert structure described in the proposition.
 \end{proof}
 
 \end{document}
