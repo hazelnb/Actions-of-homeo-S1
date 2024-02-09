@@ -24,6 +24,7 @@
 \newcommand{\cl}[1]{\overline{#1}}
 \newcommand{\conf}[2][S^1]{\text{Conf}_{#2}(#1)}
 \newcommand{\pconf}[2][S^1]{\text{PConf}_{#2}(#1)}
+\newcommand{\set}{{\{\cdot\}}}
 
 %% CUSTOM THEOREMS
 %%%%%
@@ -64,23 +65,25 @@ Suppose $\homeo[M]$ acts on $N$,
 and $X$ is a connected submanifold of $N$ 
 with orbits of fixed dimension. 
 Fix a base point $b\in \conf[M]{n}$. 
-We will abuse notation 
-by denoting both the point in $\conf[M]{n}$ 
-and the corresponding subset of $M$ as $b$.
+We frequently need to refer to both a point in $\conf[M]{n}$
+and the associated set of points in $M$.
+To avoid confusion,
+if $x$ is a point in $\conf[M]{n}$,
+we will denote by $x_\set$ the corresponding set of points in $M$.
 Also, 
-note that the deck group of the maximal admissible covering $C_b \to \conf[M]{n}$ can be identified with $\text{stab}(b)/\text{stab}_0(b)\subset\homeo[M]$.
+note that the deck group of the maximal admissible covering $C_{b_\set} \to \conf[M]{n}$ can be identified with $\text{stab}(b_\set)/\text{stab}_0(b_\set)\subset\homeo[M]$.
 
 \begin{prop}[Orbit Bundle]
     Suppose $A$ a connected submanifold of $N$ 
     with orbits of fixed dimension, 
     then there is a continuous map $p: A\to \conf[M]{n}$ 
-    such that there's a map: $$I: C_n \times p^{-1}(b) / \Gamma \to A.$$
-    where $\Gamma$ is the deck group of the covering $C_n \to \conf[M]{n}$ 
+    such that there's a map: $$I: C_{b_\set} \times p^{-1}(b)/ \Gamma \to A.$$
+    where $\Gamma$ is the deck group of the covering $C_{b_\set} \to \conf[M]{n}$ 
     acting on the first factor by deck transformations 
     and the second factor by the $\homeo[M]$ action 
     restricted to the subgroup $\Gamma$ acting on the fiber.
     The map $I$ is an equivariant homeomorphism 
-    with the $\homeo[M]$ action on $C_n \times p^{-1}(b) / \Gamma$ being the quotient of the product of the standard action on $C_n$ 
+    with the $\homeo[M]$ action on $C_{b_\set} \times p^{-1}(b) / \Gamma$ being the quotient of the product of the standard action on $C_{b_\set}$ 
     with the trivial action on the fiber.
 \end{prop}
 \begin{proof}
@@ -93,7 +96,7 @@ note that the deck group of the maximal admissible covering $C_b \to \conf[M]{n}
     for every point $x\in O$, 
     there is a unique $X\in\conf[M]{n}$ 
     such that $\text{stab}_0(X) \subseteq G_x \subseteq \text{stab}(X)$. 
-    Then, define $p(x) = X$. 
+    Then, define $p(x)_\set = X$. 
     Since $G_{\rho(f)(x)} = f G_x f^{-1}$ 
     it follows that $\text{stab}_0(f(X)) \subseteq G_{\rho(f)(x)}\subseteq \text{stab}(f(X))$. 
     This directly implies $p$ is equivariant. 
@@ -115,22 +118,44 @@ note that the deck group of the maximal admissible covering $C_b \to \conf[M]{n}
     \begin{proof}
         By the equivariance of $p$ 
         and the \textit{locally continuously transitive} property of homeomorphism group actions
-        $$\text{fix}(H(B_i)) = \{x\in A\, |\, p(x)\cap B_i = \emptyset\}$$
-        where $p(x)$ is being interpreted as a subset of $M$. Interpreted semantically, 
+        $$\text{fix}(H(B_i)) = \{x\in A\, |\, p(x)_\set\cap B_i = \emptyset\}$$
+        Interpreted semantically,
         this says that 
         the fixed point set of $H(B_i)$ acting on $A$ is 
         the set of all points whose image under $p$ has no coordinate in $B_i$. 
         Then, by making purely set-theoretic manipulations, 
         we have the following chain of equivalences:
         \begin{align*}
-            A - \cup\text{fix}(H(B_i))
+            A - \bigcup_{i=1}^n\text{fix}(H(B_i)) &= A - \bigcup_{i=1}^n\{x\in A\, |\, p(x)_\set\cap B_i = \emptyset\}\\
+            &= \bigcap_{i=1}^n A - \{x\in A\, |\, p(x)_\set\cap B_i = \emptyset\}\\
+            &= \bigcap_{i=1}^n \{x\in A\, |\, p(x)_\set\cap B_i \neq \emptyset\}\\
+            &= p^{-1}(U)
         \end{align*}
     \end{proof}
+    So,
+    $p^{-1}(U)$ is open
+    since $\cup_{i=1}^n\text{fix}(H(B_i))$ is a finite union of closed sets
+    and thus closed.
+    In particular,
+    this shows that $p$ is continuous.
+
+    Now,
+    fixing some base-point $b\in\conf[M]{n}$,
+    let $F\coloneqq p^{-1}(b)$. 
+    There is an action of $\text{stab}(b_\set)/\text{stab}_0(b_\set)$
+    on $p^{-1}(b)$ given by 
+    Then,
+    there is an action
+    of the deck group
+    of the covering $C_{b_\set}\to \conf[M]{n}$
+    on $C_{b_\set}\times F$ 
+    given by deck transformations on the first factor
+    and
     
 \end{proof}
 
 \section{Codimension 1 Orbit Bundles}
-For components of codimension 1 orbits, 
+For components consisting of codimension 1 orbits, 
 the fiber must be 1-dimensional 
 and all 1-dimensional homology manifolds are manifolds. 
 So, 
