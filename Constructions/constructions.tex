@@ -1,0 +1,61 @@
+\documentclass[10pt, oneside]{article} 
+\usepackage{mathtools,mathrsfs, amsmath, amsthm, amssymb, wasysym, verbatim, bbm, color, graphics, geometry, xargs, hyperref}
+\usepackage[pdftex,dvipsnames]{xcolor}
+
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+
+\newcommandx{\fix}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\improve}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\note}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
+\newcommandx{\unsure}[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
+
+\geometry{tmargin=.75in, bmargin=1in, lmargin=1in, rmargin = 1in}  
+
+%% NOTATION
+%%%%%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Cdot}{\boldsymbol{\cdot}}
+\newcommand{\SO}{\text{SO}(2)}
+\newcommand{\homeo}[1][S^1]{\text{Homeo}_0(#1)}
+\newcommand{\cl}[1]{\overline{#1}}
+\newcommand{\conf}[2][S^1]{\text{Conf}_{#2}(#1)}
+\newcommand{\pconf}[2][S^1]{\text{PConf}_{#2}(#1)}
+\newcommand{\set}{{\{\cdot\}}}
+
+%% CUSTOM THEOREMS
+%%%%%
+\newtheorem{thm}{Theorem}[section]
+\newtheorem*{thm*}{Theorem}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{conv}{Convention}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem{rem}{Remark}[section]
+\newtheorem*{obs*}{Observation}
+\newtheorem{lem}{Lemma}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem*{fact*}{Fact}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{clm*}{Claim}
+\theoremstyle{definition}
+\newtheorem*{prog*}{Program}
+
+\title{Orbit Bundle Theorem and Applications}
+\author{Hazel Brenner}
+\date{Spring 2023}
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+The following is a jumble
+of tools 
+and subsequently interesting examples 
+of actions of $\homeo$ 
+on three-manifolds
+
+\end{document}
