@@ -143,14 +143,34 @@ note that the deck group of the maximal admissible covering $C_{b_\set} \to \con
     fixing some base-point $b\in\conf[M]{n}$,
     let $F\coloneqq p^{-1}(b)$. 
     There is an action of $\text{stab}(b_\set)/\text{stab}_0(b_\set)$
-    on $p^{-1}(b)$ given by 
+    on $F$ given by noting that $F$ is invariant
+    under the restriction of the $\homeo[M]$ action to the subgroup $\text{stab}(b_\set)$.
+    Also,
+    every element of $\text{stab}_0(b_\set)$ fixes $F$ pointwise,
+    so there is an action of $\text{stab}(b_\set)/\text{stab}_0(b_\set)$
+    on $F$
+    by homeomorphisms.
     Then,
     there is an action
     of the deck group
     of the covering $C_{b_\set}\to \conf[M]{n}$
     on $C_{b_\set}\times F$ 
     given by deck transformations on the first factor
-    and
+    and the previously described action on the $F$ factor.
+    The next step is to show that there is an equivariant homeomorphism
+    $$I:C_{b_\set}\times F / \Gamma \to A.$$
+    This map is constructed as follows.
+    In order, 
+    we must construct a map $\hat{I}$ from $C_{b_\set} \times F$,
+    show that $\hat{I}$ is well-defined,
+    descends to a map $I$ on the quotient,
+    $I$ is continuous,
+    $I$ is proper (thus a hmoemorphism), and
+    $I$ is equivariant.
+    Let $(x, y)\in C_{b_\set}\times F$, then
+    suppose $f\in\homeo[M]$ such that $f^{-1}(x) = b$,
+    then define $\hat{I}((x,y)) = \rho(f^{-1}(x))(y)$.
+    
     
 \end{proof}
 
@@ -159,7 +179,7 @@ For components consisting of codimension 1 orbits,
 the fiber must be 1-dimensional 
 and all 1-dimensional homology manifolds are manifolds. 
 So, 
-codimension 1 orbit bundlses are classified 
+codimension 1 orbit bundles are classified 
 by actions of the deck group of $\Gamma$ 
 of the covering $C_X \to \conf[M]{n}$ on 1-manifolds 
 up to equivariant homeomorphism.
