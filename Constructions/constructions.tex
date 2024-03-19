@@ -34,6 +34,7 @@
 \newtheorem{defn}{Definition}[section]
 \newtheorem{conv}{Convention}[section]
 \newtheorem{conj}{Conjecture}[section]
+\newtheorem{ex}{Example}[section]
 \newtheorem{rem}{Remark}[section]
 \newtheorem*{obs*}{Observation}
 \newtheorem{lem}{Lemma}[section]
@@ -57,5 +58,105 @@ of tools
 and subsequently interesting examples 
 of actions of $\homeo$ 
 on three-manifolds
+
+
+\section{Tools}
+\subsection{Gluing}
+\begin{prop}
+    Suppose $\rho$ and $\rho'$ are actions 
+    of $\homeo[M]$ 
+    on $N$ and $N'$
+    which are manifolds
+    of the same dimension
+    with boundary,
+    and further let $X\subseteq\partial N$ be invariant 
+    with $\varphi: X \to \partial N'$ an embedding 
+    such that $\rho$ and $\rho'$ are conjugate 
+    via $\varphi$. 
+    Then, 
+    there is an action 
+    of $\homeo[M]$ 
+    on $N\cup_\varphi N'$ 
+    which restricts 
+    to $\rho$ and $\rho'$ 
+    on $N$ and $N'$ respectively.
+\end{prop}
+\begin{proof}
+    Use the pasting lemma.
+\end{proof}
+
+
+\subsection{Products}
+\begin{prop}\label{product-construction}
+    Suppose $\rho$ and $\rho'$ are actions 
+    of $\homeo[M]$ 
+    on $A$ and $B$.
+    Then,
+    there is an action 
+    denoted $\rho\times\rho'$
+    of $\homeo[M]$ 
+    on $A\times B$
+    given by
+    $$\rho\times\rho'(f)(x,y) = (\rho(f)(x), \rho(f)(y))$$
+\end{prop}
+
+
+\subsection{Quotients}
+\begin{prop}
+    Suppose 
+    that $q: X\to Y$ is
+    a quotient map.
+    The set
+    $$\Gamma_q \coloneqq\{f\in\homeo[X]\; \vert\; q(x) = q(y) \implies q(f^{\pm 1}(x)) = q(f^{\pm 1}(y))\}$$
+    is a subgroup,
+    and there is a group homeomorphism
+    $q_*: \Gamma_q \to \homeo[Y]$.
+\end{prop}
+
+In particular,
+\begin{cor}
+    If $\rho:\homeo[M]\to\homeo[X]$ is an action,
+    such that $\text{im}(\rho)\subseteq \Gamma_q$,
+    then there is an action
+    of $\homeo[M]$
+    on the quotient $Y$
+    given by composing $\rho$ and $q_*$.
+    We will say
+    that such an action
+    \textit{descends to the quotient}
+\end{cor}
+So if $q$ just collapses a set 
+of homeomorphic orbits 
+to a single orbit
+in a ``reasonable'' way,
+then the action descends. More precisely,
+
+\begin{cor}
+    Suppose $q: X\to Y$ is a quotient map
+    such that there is a set $C$
+    consisting entirely 
+    of homeomorphic orbits 
+    such that $q|_{X - C}$ is a homeomorphism onto its image,
+    $q(C)$ is a single orbit 
+    of the same homeomorphism type
+    of the orbits
+    in $C$,
+    for all orbits $O\in C$, 
+    $q|_O$ is a homeomorphism 
+    onto its image,
+    and for all orbits $O, O'\subseteq C$
+    the induced homeomorphism $\varphi_q: O\to O'$ commutes with $p: C \to \conf[M]{n}$, i.e., $p\vert_O = p\vert_{O'}\circ\varphi_q^{-1}$ and  $p\vert_{O'} = p\vert_O\circ\varphi_q$
+\end{cor}
+
+\section{Examples}
+\subsection{Diagonal action on \texorpdfstring{$T^3$}{T3}}
+\subsection{Product Constructions}
+\begin{ex}
+
+\end{ex}
+\subsection{Quotient Constructions}
+\begin{ex}
+    Denote by $\Delta:\homeo\to\homeo[\overline{Ann}]$ the action induced by splitting $T^2$ with the configuration space action along the invariant circle. Then, by the product construction in Proposition \ref{product-construction}, there is a continuous action $\Delta \times 0$ of $\homeo$ on $\overline{Ann}\times S^1$ where 0 is the trivial action. Under this action, every circle of the form $(0,\theta) \times S^1$ and $(1, \theta) \times S^1$ is invariant. Then consider the relation $(1, \theta, \varphi) \sim (1, \theta, \varphi)$ for all $\theta\in S^1$. Trivially, for all $f\in\homeo$, then $(\Delta\times 0)(f)(1,\theta, \varphi) = (1, \theta, f(\varphi))$, so $\Delta\times 0$ descends to the quotient. Successively performing the same quotient on $0\times S^1\times S^1$ yields an action on $S^2\times S^1$ with an $Ann\times S^1$ orbit bundles such the positive frontier of all of the annuli orbit are a single invariant $S^1$ and the same with the negative frontiers.
+\end{ex}
 
 \end{document}
