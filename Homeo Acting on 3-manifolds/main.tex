@@ -1,6 +1,7 @@
 \documentclass[10pt, oneside]{article} 
 \usepackage[pdftex,dvipsnames, table, xcdraw]{xcolor}
 \usepackage{mathtools,mathrsfs, amsmath, amsthm, amssymb, wasysym, verbatim, bbm, graphics, geometry, xargs, hyperref, svg, float}
+\usepackage{thm-restate}
 \usepackage{relsize}
 \usepackage[nameinlink, capitalize]{cleveref}
 \usepackage[shortlabels]{enumitem}
@@ -45,6 +46,7 @@ sorting=ynt
 \newcommand{\SL}[1][2]{\text{SL}(#1, \R)}
 \newcommand{\PSL}[1][2]{\text{PSL}(#1, \R)}
 \newcommand{\klim}[1]{\text{Lim}\,#1}
+\newcommand{\dimn}[1]{\text{dim}(#1)}
 \newcommand{\li}[1]{\text{Li}\,#1}
 \newcommand{\ls}[1]{\text{Ls}\,#1}
 \newcommand{\fr}[1]{\text{fr}(#1)}
@@ -85,15 +87,40 @@ sorting=ynt
     blah
 \end{abstract}
 \section{Introduction}\label{sec:intro}\fix{expand, include explicit problems and solutions, aiming for 1+ pages}
-$C^r$ actions of compact Lie groups on manifolds satisfy strong local and global structural results, including but not limited to slice theorems (Section 2.3 of \cite{duistermaat_lie_2000}), orbit-type stratification (Section 2.9) of \cite{duistermaat_lie_2000}), and complete classifications up to equivariant (diffeo)homeomorphism in various restricted settings. In particular, Militon \cite{militon_actions_2016} classifies continuous actions of $\homeo$ on the 2-torus and the closed annulus. Chen and Mann \cite{chen_structure_2023} go on to give a complete classification of orbits of $\diffr(M)$ and $Homeo_0(M)$ actions on any CW-complex and apply this result to extend Militon's classification to all actions of $\homeo$ on compact surfaces.
 
-In a broad sense, the problem of classifying actions of a fixed topological group on spaces of a fixed dimension can be divided into the orbit classification problem and the orbit gluing problem. The orbit classification problem for a fixed Lie group is recognizable as the problem of classifying homogeneous spaces (or equivalently its closed subroups). The orbit gluing problem is addressed by slice theorems and the orbit-type stratification. For an example of this program in use, see Ghys's classification of $C^r$ actions of $\SL[n]$ on once-punctured $\R^m$\cite{cairns_local_1997} or Orlik and Raymond's classification of continuous $\SO$ actions on closed 3-manifolds\cite{orlik_actions_1968}. For $\homeo[M]$ and $\diffr$, Chen and Mann completely resolve the orbit classification problem. 
+$C^r$ actions of compact Lie groups on manifolds satisfy strong local and global structural results, including but certainly not limited to slice theorems (Section 2.3 of \cite{duistermaat_lie_2000}), orbit-type stratification (Section 2.9 of \cite{duistermaat_lie_2000}), and complete classifications up to equivariant (diffeo)homeomorphism in various restricted settings. If we extend our focus from Lie groups to homeomorphism and diffeomorphism groups the picture is much less well-understood, but a surprising amount of similar results still hold. In particular, Militon \cite{militon_actions_2016} classifies continuous actions of $\homeo$ on the 2-torus and the closed annulus. Chen and Mann \cite{chen_structure_2023} go on to give a complete classification of spaces with transitive $\diffr$ and $\homeo[M]$ actions and apply this result to extend Militon's classification to all actions of $\homeo$ on compact surfaces.
 
-In \cref{sec:orbit-bundle-lemma} we suppose that, for $M$ some compact manifold, $\homeo$ acts on any manifold $N$ such that all orbits are of a fixed dimension $n*\text{dim}(M)$. Under these assumptions, we prove that $N$ must be equivariantly homeomorphic a particular foliated bundle over $\conf[M]{n}$ --- the configuration space of $n$ unlabeled points in $M$. This echoes Theorem 1.5 in \cite{chen_structure_2023} which outlines dimension restrictions on $M$ and $N$ rather than the orbits, which yield the same result.  
+It is valuable to situate our problem in the context of the dimensions of both the manifold $M$ whose homeomorphism group is acting and the manifold $N$ being acted upon. A key restriction proved by Chen and Mann \cite{chen_structure_2023} is that homeomorphism groups of manifolds cannot act non-trivially on strictly lower-dimensional manifolds (Theorem 1.4). Moreover, when the dimension $M$ is large relative to the dimension of $N$ (spceifically, $\dimn{N} < 2*\dimn{M}$), $N$ must be a topological generalized flat (or equivalantly, foliated) bundle over $M$. Combining these results in the special case of $\dimn{N} = 3$ yields the following:
+\begin{note*}
+    Suppose $\homeo[M]$ acts on $N$ nontrivially, then $\dimn{M}\leq 3$. If $M$ is a 3-manifold, then $N$ is a disjoint union of covers of $M$. If $M$ is a surface, then $N$ is a generalized flat bundle over $M$. 
+\end{note*}
+\noindent Thus, if one is interested in studying actions of homeomorphism groups on 3-manifolds, the only remaining case to be considered is that $M$ is a closed 1-manifold, i.e. $M\cong S^1$. 
 
-In \cref{sec:homeos1}, we fix $M = S^1$ and $N$ any closed 3-manifold. A full classification of $\homeo[S^1]$ actions on compact surfaces was begun in \cite{militon_actions_2016} and completed in \cite{chen_structure_2023}: a natural question is whether such a classification is possible one dimension higher. While we do not present a full classification, we provide several strong structural results and a conjectural path to complete classification. The primary results of the paper are \cref{lem:orbit-bundle}, \cref{thm:main-structure-thm} and \cref{thm:2d-orbit-cpctification}. 
+In a broad sense, the problem of classifying actions of a fixed topological group on spaces of a fixed dimension can be divided into the orbit classification problem and the orbit gluing problem. The orbit classification problem for a fixed Lie group is recognizable as the problem of classifying homogeneous spaces (or equivalently its closed subroups). The orbit gluing problem is addressed by slice theorems and the orbit-type stratification. For an example of this program in use, see Ghys's classification of $C^r$ actions of $\SL[n]$ on once-punctured $\R^m$\cite{cairns_local_1997} or Orlik and Raymond's classification of continuous $\SO$ actions on closed 3-manifolds\cite{orlik_actions_1968}. For $\homeo[M]$ and $\diffr$, Chen and Mann completely resolve the orbit classification problem and solve the orbit gluing problem for particular restrictions on dimension. In this paper, we treat the orbit gluing problem when $M= S^1$ and $N$ is a closed three manifold and separately when all orbits are assumed to be the same dimension but no restrictions are placed on $M$ and $N$. 
 
-For the remainder of this section, we will provide a brief primer on the notation and results which will be foundational to the rest of the paper and conclude with a few basic examples and families of actions of $\homeo$ on closed 3-manifolds.
+In the $\homeo[S^1]$ acting on closed $N^3$ setting, our primary result is:
+\begin{restatable}{thm}{mainstructure}
+\label{thm:main-structure-thm}
+        Suppose $\homeo$ acts on a  closed three-manifold $M$ with no global fixed points, then 
+        \begin{enumerate}
+            \item $M$ is an $\SO$ manifold with singular fibers multiplicity 2 or 3 and occurring in particular 2 and 3-dimensional orbits respectively, and special exceptional orbits occurring in particular orbit bundles if $M$ is non-orientable.
+            \item The region consisting of 2-dimensional orbits which do not lie in the topological boundary of the 3-dimensional orbits is a disjoint union of bundles over $\conf[S^1]{2}$ foliated by their orbits with specified action.
+            \item The frontier of each 2-dimensional orbit consists of one or two 1D orbits.
+        \end{enumerate}  
+\end{restatable}
+Our result for general $M$ and $N$ with orbits of a fixed dimension (which, in fact, the preceding result depends on) is:
+\begin{restatable}{thm}{orbitbundle}
+\label{thm:orbit-bundle}
+    Suppose $\homeo[M]$ acts on a manifold $N$ with all orbits having fixed dimension $n*\dimn{M}$ for some $n\geq 1$. Then, $N$ must have the structure of a generalized flat bundle over $M$; moreover, the orbits form a foliation of $N$ transverse to the fibers.
+\end{restatable}
+We will give a precise bundle structure equipped with a $\homeo[M]$ action in \cref{sec:orbit-bundle-lemma} where this result is proven. 
+
+
+% In \cref{sec:orbit-bundle-lemma} we suppose that, for $M$ some compact manifold, $\homeo$ acts on any manifold $N$ such that all orbits are of a fixed dimension $n*\dimn(M)$. Under these assumptions, we prove that $N$ must be equivariantly homeomorphic a particular foliated bundle over $\conf[M]{n}$ --- the configuration space of $n$ unlabeled points in $M$. This echoes Theorem 1.4 in \cite{chen_structure_2023} which outlines dimension restrictions on $M$ and $N$ rather than the orbits, which yield the same result.  
+
+% In \cref{sec:homeos1}, we fix $M = S^1$ and $N$ any closed 3-manifold. A full classification of $\homeo[S^1]$ actions on compact surfaces was begun in \cite{militon_actions_2016} and completed in \cite{chen_structure_2023}: a natural question is whether such a classification is possible one dimension higher. While we do not present a full classification, we provide several strong structural results and a conjectural path to complete classification. The primary results of the paper are \cref{lem:orbit-bundle}, \cref{thm:main-structure-thm} and \cref{thm:2d-orbit-cpctification}. 
+
+% For the remainder of this section, we will provide a brief primer on the notation and results which will be foundational to the rest of the paper and conclude with a few basic examples and families of actions of $\homeo$ on closed 3-manifolds.
 
 \subsection{Background}
 This section serves to recall definitions and introduce our conventions for notions related to homeomorphism groups, group actions and configuration spaces. At the end of the section, we classify the orbits of $\homeo$ actions on 3-manifolds in \cref{prop:orbit-computation} as a direct application of the Chen-Mann orbit classification theorem \cite{chen_structure_2023}.
@@ -514,14 +541,7 @@ Note, in this setting $C_X = \pconf{2}$ and $\Gamma = \Z_2$.\improve{advertise p
 \section{Structural Results for \texorpdfstring{$\homeo$}{Homeo\_0(S\string^1)} Acting on Closed 3-manifolds}\label{sec:homeos1}
 While a complete conjugacy description of actions of $\homeo$ on closed 3-manifolds is not currently possible, much can still be said about local and global orbit structure. The primary structural result can be summarized as follows:
 
-\begin{thm}\label{thm:main-structure-thm}
-    Suppose $\homeo$ acts on a closed three-manifold $M$ with no global fixed points, then 
-    \begin{enumerate}
-        \item $M$ is an $\SO$ manifold with singular fibers multiplicity 2 or 3 and occurring in particular 2 and 3-dimensional orbits respectively, and special exceptional orbits occurring in particular orbit bundles if $M$ is non-orientable.
-        \item The region consisting of 2-dimensional orbits which do not lie in the topological boundary of the 3-dimensional orbits is a disjoint union of bundles over $\conf[S^1]{2}$ foliated by their orbits with specified action.
-        \item The frontier of each 2-dimensional orbit consists of one or two 1D orbits.
-    \end{enumerate}  
-\end{thm}
+\mainstructure*
 
 Allowing for fixed-points leads to a somewhat subtler situation, which will be outside the scope of this paper. A small collection of observations concerning actions of $\homeo$ with global fixed points is gathered in \cref{subsec:fixed-points}. In the highly specialized setting where all orbits are assumed to be 1-dimensional an extremely simple classification is possible:
 
