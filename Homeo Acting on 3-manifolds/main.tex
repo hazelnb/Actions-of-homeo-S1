@@ -51,6 +51,8 @@ sorting=ynt
 \newcommand{\ls}[1]{\text{Ls}\,#1}
 \newcommand{\fr}[1]{\text{fr}(#1)}
 
+\newcommand{\titlesafehomeo}{\texorpdfstring{$\homeo$}{Homeo\_0(S\^string 1)}}
+
 %% CUSTOM THEOREMS
 %%%%%
 \newtheorem{thm}{Theorem}[section]
@@ -91,9 +93,9 @@ sorting=ynt
 $C^r$ actions of compact Lie groups on manifolds satisfy strong local and global structural results, including but certainly not limited to slice theorems (Section 2.3 of \cite{duistermaat:LieGroups}), orbit-type stratification (Section 2.9 of \cite{duistermaat:LieGroups}), and complete classifications up to equivariant (diffeo)homeomorphism in various restricted settings. Intuitively, a local slice to a Lie group action is a $\stab{x}$-invariant submanifold through a point $x$ such that $G\cdot S$ is an open neighborhood of $G\cdot x$ which is $G$-isomorphic to a particular twisted $S$ bundle over $G/\stab{x}\cong G\cdot x$ (called a tube about $x$). Slice theorems guarantee certain settings in which slices exist; e.g, when $G$ is compact and $M$ is completely regular, slices exist through every point (consequence of Theorem 5.4 in \cite{bredon:IntroductionCompact}). Conjugacy of isotropy subgroups of orbits form an equivalence relation on the set of orbits whose equivalence classes are called orbit types. When $G$ is a Lie group acting properly on a manifold $M$, the orbit types are embedded submanifolds and moreover, they stratify $M$ (if the reader is unfamiliar with stratified spaces, an adequate model is the decomposition of a cell complex into cells of a fixed dimension.) These results are fundamental tools to study proper Lie group actions on manifolds, and are the starting point of Raymond and Orlik's classifications of $\SO$ actions on closed 3-manifolds and $T^2$ actions on simply connected 4-manifold\cite{orlik:ActionsSO2,orlik:ActionsTorusI, orlik:ActionsTorusII}.
 We highlight these particular families of results as they provide substantial inspiration both for the scope of results we aim to prove and methods of proof.
 
-If we extend our focus from Lie groups to homeomorphism and diffeomorphism groups the picture is much less well-understood, but a surprising amount of similar results still hold. In particular, Militon \cite{militon:ActionsGroup} classifies continuous actions of $\homeo$ on the 2-torus and the closed annulus. Militon's classification decomposes the annulus (or torus) into an invariant lamination by concentric circles and gives a complete description of the action on the complement which is a disjoint union of open annulus orbits. Chen and Mann \cite{chen:StructureTheorems} go on to give a complete classification of spaces with transitive $\diffr$ and $\homeo[M]$ actions and apply this result to extend Militon's classification to all actions of $\homeo$ on compact surfaces. In particular, the extended classifcation shows that the global fixed points of a $\homeo$ action on a compact surface are exactly those of the standard rotation group action on that surface. That is, the disk has a unique fixed point, the sphere has two, etc. Away from fixed points, the behavior is ultimately shown to be exactly that of Militon's classification for the closed annulus and the torus. This paper describes the extent to which similar results can be achieved for $\homeo$ actions on closed 3-manifolds.
+If we extend our focus from Lie groups to homeomorphism and diffeomorphism groups the picture is much less well-understood, but a surprising amount of similar results still hold. In particular, Militon \cite{militon:ActionsGroup} classifies continuous actions of $\homeo$ on the 2-torus and the closed annulus. Militon's classification decomposes the annulus (or torus) into an invariant lamination by concentric circles and gives a complete description of the action on the complement which is a disjoint union of open annulus orbits. Chen and Mann \cite{chen:StructureTheorems} go on to give a complete classification of spaces with transitive $\diffr$ and $\homeo[M]$ actions and apply this result to extend Militon's classification to all actions of $\homeo$ on compact surfaces. In particular, the extended classification shows that the global fixed points of a $\homeo$ action on a compact surface are exactly those of the standard rotation group action on that surface. That is, the disk has a unique fixed point, the sphere has two, etc. Away from fixed points, the behavior is ultimately shown to be exactly that of Militon's classification for the closed annulus and the torus. This paper describes the extent to which similar results can be achieved for $\homeo$ actions on closed 3-manifolds.
 
-It is valuable to situate our problem in the context of the dimensions of both the manifold $M$ whose homeomorphism group is acting and the manifold $N$ being acted upon. A key restriction proved by Chen and Mann \cite{chen:StructureTheorems} is that homeomorphism groups of manifolds cannot act non-trivially on strictly lower-dimensional manifolds (Theorem 1.4). Moreover, when the dimension $M$ is large relative to the dimension of $N$ (spceifically, $\dimn{N} < 2*\dimn{M}$), $N$ must be a topological generalized flat (or equivalantly, foliated) bundle over $M$. Combining these results in the special case of $\dimn{N} = 3$ yields the following:
+It is valuable to situate our problem in the context of the dimensions of both the manifold $M$ whose homeomorphism group is acting and the manifold $N$ being acted upon. A key restriction proved by Chen and Mann \cite{chen:StructureTheorems} is that homeomorphism groups of manifolds cannot act non-trivially on strictly lower-dimensional manifolds (Theorem 1.4). Moreover, when the dimension $M$ is large relative to the dimension of $N$ (specifically, $\dimn{N} < 2*\dimn{M}$), $N$ must be a topological generalized flat (or equivalently, foliated) bundle over $M$. Combining these results in the special case of $\dimn{N} = 3$ yields the following:
 \begin{note*}
     Suppose $\homeo[M]$ acts on $N$ nontrivially, then $\dimn{M}\leq 3$. If $M$ is a 3-manifold, then $N$ is a disjoint union of covers of $M$. If $M$ is a surface, then $N$ is a generalized flat bundle over $M$.
 \end{note*}
@@ -150,7 +152,7 @@ Finally, configuration spaces are central to the study of homeomorphism group ac
 \end{defn}
 
 A foundational result about actions of $\homeo[M]$ from \cite{chen:StructureTheorems} is that orbits are continuous injective (equivariant) images of admissible covers of $\conf[M]{n}$. There are many important details concealed in the word ``accessible'' as well as the particular details of the action on these spaces, see Section 4 of Chen-Mann\cite{chen:StructureTheorems} for a precise definition and classification. We will expand on these as needed, primarily in \cref{sec:orbit-bundle-lemma}. Otherwise, an equivariant description of all orbits of a $\homeo$ action on a closed three-manifold will suffice for our purposes.
-\pagebreak
+
 \begin{prop}\label{prop:orbit-computation}
     Suppose that $\homeo$ acts on $M$ closed 3-manifold, then every orbit a global fixed point or an equivariant continuous injective image of:
     \begin{enumerate}
@@ -621,15 +623,7 @@ The primary result of this section is the following:
     Suppose $X$ is a 2-dimensional orbit of any $\homeo$ action on a closed 3-manifold $M$, then $\text{fr}(X)$ has at most two components and each component consists of a single one-dimensional orbit or fixed point.
 \end{thm}
 
-We also prove the following closely related lemma about limits of sequences of 2-dimensional orbits.
-
-\begin{lem}\label{lem:seq-of-annuli}
-    Suppose $A_n$ is a sequence of 2D orbits which converges in the sense of Kuratowski, then $\klim A_n$ is the closure of a 2D orbit or a single invariant $S^1$
-\end{lem}
-
-Interestingly, with minor modification, the proofs in this section work for two-dimensional orbits of actions of $\homeo$ on any closed $n$-manifold. This is because any orbit in the frontier of a 2d orbit must contain a $G_0$ fixed point and the action of $G_0$ on any orbit of dimension greater than 1 is fixed-point free, so higher orbit dimensions need not be considered. Note that when discussing the $\SO$ orbit space, while it need not be a manifold in higher dimensions, all that is needed is the fact that it is Hausdorff, which is generically true.
-
-To understand this result concretely, the following immediate corollary
+More concretely, the following immediate corollary
 may appeal to the reader:
 
 \begin{figure}[b]
@@ -647,11 +641,32 @@ may appeal to the reader:
     In each case, the $\homeo$ action on the model space is the ``closed configuration space action.''
 \end{cor}
 
-Moreover, every structure listed above occurs in some action of $\homeo$ on a closed 3-manifold. Perhaps the most surprising entry on this list is the pinched sphere, which is not a manifold. The following provides an example of an action of $\homeo$ on $S^2 \times S^1$ having 2-dimensional orbits which compactify as pinched spheres.
+Every structure listed above occurs in some action of $\homeo$ on a closed 3-manifold. Perhaps the most surprising entry on this list is the pinched sphere, which is not a manifold. The following provides an example of an action of $\homeo$ on $S^2 \times S^1$ having 2-dimensional orbits which compactify as pinched spheres.
 
 \begin{eg}
     Consider the standard action $\rho$ of $\homeo[S^1]$ on $S^2$ (this action has two fixed points and a single annulus orbit). Then obtain an action $\rho':\homeo[S^1]\to \homeo[\cl{D^3}]$ given by constructing the trivial product action on $\S^2\times [0,1]$ and collapsing one boundary sphere to a point. To get a closed example, equivariantly double this ball along its boundary. Finally quotient any symmetric closed interval of fixed points to a point, then each annulus orbit whose boundary was in this interval now has a "pinched sphere" closure.
 \end{eg}
+
+
+In addition to $\cref{thm:2d-orbit-cpctification}$, we prove the following closely related lemma about limits of sequences of 2-dimensional orbits.
+
+\begin{lem}\label{lem:seq-of-annuli}
+    Suppose $A_n$ is a sequence of 2D orbits which converges in the sense of Kuratowski, then $\klim A_n$ is the closure of a 2D orbit or a single invariant $S^1$
+\end{lem}
+
+This result is particularly notable as it provides a complete descriptions of the closures of $\homeo$ tubes about 2-dimensional orbits away from the ends of the fiber. More precisely, suppose $X$ is a $\homeo$ tube with fiber $F$ about some 2-dimensional orbit. 
+
+\begin{cor}\label{cor:cpct-tube-boundary}
+    Suppose $K$ is a compact subset of $F$, then $\cl{I(\pconf{2}\times K)} = \bigcup_{p\in K} \cl{I(\pconf{2}\times \{p\})}$
+\end{cor}
+
+Interestingly, with minor modification, the proofs in this section work for two-dimensional orbits of actions of $\homeo$ on any closed $n$-manifold. This is because any orbit in the frontier of a 2d orbit must contain a $G_0$ fixed point and the action of $G_0$ on any orbit of dimension greater than 1 is fixed-point free, so higher orbit dimensions need not be considered. Note that when discussing the $\SO$ orbit space, while it need not be a manifold in higher dimensions, all that is needed is the fact that it is Hausdorff, which is generically true. This is a direct consequenc of the following stronger form of \cref{thm:2d-orbit-cpctification}, which can be stated as follows:
+
+\begin{thm}
+    Suppose $\homeo$ acts on closed $n$-manifold $M$ and $I$ is an interval orbit of $G_{\theta_1\dots\theta_k}$, then $\cl{I}\cong S^1$ or $[0,1]$ is the union of $I$ with one or two $G_{\theta_1\dots\theta_k}$ fixed points.
+\end{thm}
+
+This result is not used in this paper, but we present it as it suggests an inductive structure to prove a higher dimensional $\homeo$ orbit closure theorem.
 
 The remainder of this section is devoted to proving \cref{thm:2d-orbit-cpctification}. The overall structure of the proof is to first show that the frontier of a two-dimensional orbit consists of only one-dimensional orbits and global fixed points, then to show that in each end of the annulus or M\"{o}bius band, there is a unique such one-dimensional orbit or fixed point. For convenience, we introduce the following convention for labelling the end(s) of a two-dimensional orbit:
 
@@ -788,6 +803,37 @@ These examples suggest the following conjecture:
     \end{enumerate}
 \end{conj}
 
+\subsection{Remarks on \titlesafehomeo actions with global fixed points}\label{subsec:fixed-points} 
+Of the results proven in the preceding sections of this paper, only \cref{thm:2d-orbit-cpctification} takes into account actions with fixed points. This section presents a brief summary of the theory of $\SO$ manifolds with fixed points and provides a construction for a large family of $\homeo$ actions with fixed-points. 
+
+Note that trivially any global fixed point of a $\homeo$ action is fixed by the rotation subgroup. Moreover, by \cref{prop:orbit-computation}, within a nontrivial $\homeo$ orbit, the rotation subgroup acts without fixed points, so the $\SO$ fixed points are exactly the fixed point of the overall $\homeo$ action. 
+
+\begin{eg}\leavevmode
+    \begin{enumerate}
+        \item Let $\rho_F$ be an action of $\homeo$ on the disk $D^2$ which fixes the center point has a small disk $D_\varepsilon$ worth of $S^1$ orbits centered on $C$. Note outside $D_\varepsilon$ we place no restrictions on $\rho_F$. The action $\rho_F \times 0$ on $V_F \coloneqq D^2\times S^1$ has a circles worth of global fixed points $\{C\}\times S^1$. Equivariantly doubling along the boundary gives an action on $S^2\times S^1$ with two circles worth of global fixed points.
+
+        \item Let $U$ be $D^2 - \{C\}\cup\partial D^2$. Clearly $U$ is homemorphic to an open annulus, and $\fr{U}$ is locally connected, so \cref{prop:lc-fr-construction} yields an action on $V= D^2\times S^1$ with a $\homeo$ tube of type $\pconf{2}$ over $U$ and $S^1$ orbits over $C$ and $\partial D^2$. If in the preceding example instead of doubling, we glued by the map which takes the $\partial D^2 \times \{\theta\}$ to $\{p\}\times S^1$ in the boundary of $V$, the resulting space is homeomorphic to $S^3$. This gluing preserves the action as it clearly conjugates the actions on the boundary.
+        
+        \item If we again start with $V_F$ and glue by the same map to the $(\D^2, (2,1))$ $\homeo$-tube compactified in the natural way, we obtain an action on $L(2, 1)$ with global fixed points. (note the fact that the order of the Seifert invariants is not reversed for the lens space is not a mistake, see the proof of Theorem 3 in \cite{orlik:ActionsSO2}).
+    \end{enumerate}
+\end{eg}
+
+
+Each of these examples have circles worth of fixed-points sitting over boundary components of the $\SO$ orbit space; by appealing to \cite{orlik:ActionsSO2}, we can observe that this is in fact a general fact which comes from considering the action of the rotation subgroup action. Additionally, Orlik and Raymond give an $\SO$ equivariant connect sum formula for all closed 3-manifolds admitting $\SO$ actions with global fixed points. In particular, they classify $\SO$ manifolds in terms of invariants $(b; (\varepsilon, g, \bar{h}, t); (\alpha_1, \beta_1),\dots, (\alpha_n, \beta_1))$
+where $b$ is the integer part of the Euler number, $\varepsilon = o\text{ or }\bar{n}$ to denote orientability, $\bar{h}$ records the number of components of fixed points, $t$ denotes the number of components of special exceptional orbits and finally $(\alpha_i, \beta_i)$ function as the classical Seifert invariants. 
+
+Using the preceding examples, as well as an analgous construction for $\RP^2\times S^1$, we obtain an infinite family of non-conjugate actions of $\homeo$ with global fixed points on all spaces given by invariants $(0; (\varepsilon, g, \bar{h}, t); (2, 1),\dots (2, 1))$ parameterized by the set of all actions of $\homeo$ on the closed annulus. This works since these examples are exactly the connect summands in part (1) and (2) of Theorem 3 in \cite{orlik:ActionsSO2}. These connect sums can be formed $\homeo$-equivariantly by taking balls contained within $D_\varepsilon \times S^1$ which meet the circle worth of fixed points in a closed interval and gluing maps which map fixed points to fixed points. We can also trivially observe that $\SO(2)$ actions on 3-manifolds with $\alpha_i > 3$ cannot extend to $\homeo$ actions. 
+
+% Two immediate, fundamental (and we believe approachable) questions are
+% \begin{question}\leavevmode
+%     \begin{enumerate}
+%         \item If a manifold admits a particular $\SO$-equivariant connect sum formula and a $\homeo$, can it always be decomposed as a $\homeo$-equivariant connect sum?
+%         \item Which $\SO$ actions with fixed points extend to $\homeo$ actions?
+%     \end{enumerate}
+% \end{question}
+% Toward the second question, if $M$ is an $\SO$ manifold with only $\alpha=2$ for all lens space factors in the connect sum, then there is an explicit construction providing extensions of the $\SO$ action to infinitely many non-conjugate $\homeo$ actions. 
+
+
 % \subsection{Orbit Bundle Compactification}
 
 
@@ -833,7 +879,7 @@ These examples suggest the following conjecture:
 \section{Future Work}\label{sec:future-work}
 The two primary themes for future work are providing a complete description of $\homeo$ actions on closed 3-manifolds and studying other specialized homeomorphism group action settings. Under both themes, we provide several starting points or questions which we feel are answerable using similar techniques to those in this paper.
 
-\subsection{Completing Description of \texorpdfstring{$\homeo$}{Homeo\_0(S\string^1)} Acting on Closed 3-manifolds}\label{subsec:fixed-points}
+\subsection{Completing Description of \texorpdfstring{$\homeo$}{Homeo\_0(S\string^1)} Acting on Closed 3-manifolds}
 \begin{figure}[b]
     \hspace{5em}
     \centering
@@ -843,29 +889,12 @@ The two primary themes for future work are providing a complete description of $
 \end{figure}
 Our three main goals under this theme are to prove a similar result to \cref{thm:2d-orbit-cpctification} for 3-dimensional orbits, prove \cref{conj:one-and-two-d-orbits} and to extend the preceding and all results in the paper to include the $\homeo$ actions with global fixed points. To study the compactifications of 3-dimensional orbits, the first key insight is to note that the proof of \cref{thm:2d-orbit-cpctification} can be viewed as a property of the closures of interval orbits of (multiple) point stabilizer subgroups. To prove \cref{conj:one-and-two-d-orbits}, we consider prime ends associated to the frontiers of 2-dimensional orbits and prime ends associated to ends of the fiber separately --- in both cases \cref{lem:seq-of-annuli} will be useful. Finally, to extend our results to actions with global fixed points, we show that global fixed points for a $\homeo$ action are exactly the global fixed points of the rotation subgroup action, we can then appeal to the full equivariant classification of $\SO$ manifolds in \cite{orlik:ActionsSO2}.
 
-The following is the reframing of \cref{thm:2d-orbit-cpctification} in terms of $G_{\theta_1\dots\theta_n}$ interval orbits.
+% The action of $G_0$ on a $\pconf{3}$ orbit of $\homeo$ decompose it into three 3-ball orbits and three disk orbits. Restricting to $G_{0,\theta}$ further subdivides each disk into three disk orbits and two interval orbits. Allowing $\theta$ to vary over $S^1-\{0\}$ gives two transverse product structures on each disk orbit in terms of the interval orbits.
+% The first goal of this direction would be to prove an analogous result to the previous remark for these disk orbits by using this remark and \cref{lem:union-over-cpct}. This structure also suggests an inductive structure to prove a similar result for $n$-dimensional $\homeo$ orbits.
 
-\begin{rem}
-    Suppose $\homeo$ acts on closed 3-manifold $M$ and $I$ is an interval orbit of $G_{\theta_1\dots\theta_n}$, then $\cl{I}\cong S^1$ or $[0,1]$ is the union of $I$ with one or two $G_{\theta_1\dots\theta_n}$ fixed points.
-\end{rem}
+% Suppose $X$ is a $\homeo$ tube with fiber $F$. Let $x$ be some frontier point of the base surface of $X$. Let $(x_n)\subset X$ be a sequence converging to $x$. If the collection of orbits containing $(x_n)$ meets the fiber in a precompact set, then $x\in\cl{A}$ for some 2-dimensional orbit $A\subset X$.
 
-The action of $G_0$ on a $\pconf{3}$ orbit of $\homeo$ decompose it into three 3-ball orbits and three disk orbits. Restricting to $G_{0,\theta}$ further subdivides each disk into three disk orbits and two interval orbits. Allowing $\theta$ to vary over $S^1-\{0\}$ gives two transverse product structures on each disk orbit in terms of the interval orbits.
-The first goal of this direction would be to prove an analogous result to the previous remark for these disk orbits by using this remark and \cref{lem:union-over-cpct}. This structure also suggests an inductive structure to prove a similar result for $n$-dimensional $\homeo$ orbits.
-
-Suppose $\mathcal{B}$ is an orbit bundle with fiber $F$. Let $x$ be some frontier point of the base surface of $\mathcal{B}$. Then, in particular there is a sequence $(x_n)\to x$. If the collection of orbits containing $(x_n)$ meets the fiber in a compact set, we have the following simple consequence of \cref{lem:seq-of-annuli}.
-\begin{cor}
-     Suppose $K$ is a compact subset of $F$, then $\cl{I(\pconf{2}\times K)} = \bigcup_{p\in K} \cl{I(\pconf{2}\times \{p\})}$
-\end{cor}
-Otherwise, we pass to a subsequence of $(x_n)$ which is monotonic in the fiber. In particular, the frontier of an orbit bundle can then be decomposed into points which lie in the frontiers of 2-dimensional orbits and points at the ends of the fiber. Our proposed approach to prove \cref{conj:one-and-two-d-orbits} is to first use the preceding corollary to show inaccessible prime ends can only correspond to frontier points at the ends of the fiber and then to directly prove that the frontier points corresponding to frontiers of annulus orbits are locally accessible. Local accessibility of a frontier point is a technical prime ends condition which implies that the frontier is locally connected about that point. The proposed approach to understanding the frontier points corresponding to ends of the fiber is to show that each end has either a unique inaccessible prime end satisfying $X(e)=Y(e)$ or that there is an orbit bundle which strictly contains $\mathcal{B}$.
-
-Note that trivially any global fixed point of a $\homeo$ action is fixed by the rotation subgroup. Moreover, by \cref{prop:orbit-bundle-computation}, within a nontrivial $\homeo$ orbit, the rotation subgroup acts without fixed points, so the $\SO$ fixed points are exactly the fixed point of the overall $\homeo$ action. By appealing to \cite{orlik:ActionsSO2}, we can observe that if $\homeo$ acts on a closed 3-manifold, every global fixed point lies in a circle's worth of global fixed points and sits over a boundary component of the $\SO$ orbit space. Additionally, there is an $\SO$ equivariant connect sum formula for all closed 3-manifolds admitting $\SO$ actions with global fixed points. Two immediate, fundamental (and we believe approachable) questions are:
-\begin{question}\leavevmode
-    \begin{enumerate}
-        \item If a manifold admits a particular $\SO$-equivariant connect sum formula and a $\homeo$, can it always be decomposed as a $\homeo$-equivariant connect sum?
-        \item Which $\SO$ actions with fixed points extend to $\homeo$ actions?
-    \end{enumerate}
-\end{question}
-Toward the second question, if $M$ is an $\SO$ manifold with only $\alpha=2$ for all lens space factors in the connect sum, then there is an explicit construction providing extensions of the $\SO$ action to infinitely many non-conjugate $\homeo$ actions.
+% Otherwise, we pass to a subsequence of $(x_n)$ which is monotonic in the fiber. In particular, the frontier of an orbit bundle can then be decomposed into points which lie in the frontiers of 2-dimensional orbits and points at the ends of the fiber. Our proposed approach to prove \cref{conj:one-and-two-d-orbits} is to first use the preceding corollary to show inaccessible prime ends can only correspond to frontier points at the ends of the fiber and then to directly prove that the frontier points corresponding to frontiers of annulus orbits are locally accessible. Local accessibility of a frontier point is a technical prime ends condition which implies that the frontier is locally connected about that point. The proposed approach to understanding the frontier points corresponding to ends of the fiber is to show that each end has either a unique inaccessible prime end satisfying $X(e)=Y(e)$ or that there is an orbit bundle which strictly contains $\mathcal{B}$.
 
 \subsection{Other Specialized Classes of \texorpdfstring{$\homeo[M]$}{Homeo\_0(M)} Actions}
 
