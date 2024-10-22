@@ -5,7 +5,7 @@
 \usepackage{relsize}
 \usepackage[nameinlink, capitalize]{cleveref}
 \usepackage[shortlabels]{enumitem}
-\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\usepackage[disable, colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
 \usepackage{multirow}
 
 \usepackage[
@@ -52,6 +52,8 @@ sorting=ynt
 \newcommand{\fr}[1]{\text{fr}(#1)}
 
 \newcommand{\titlesafehomeo}{\texorpdfstring{$\homeo$}{Homeo\_0(S\^string 1)}}
+\newcommand{\titlesafehomeoM}{\texorpdfstring{$\homeo[M]\,$}{Homeo\_0(M)}}
+
 
 %% CUSTOM THEOREMS
 %%%%%
@@ -85,13 +87,18 @@ sorting=ynt
 \maketitle
 \listoftodos
 \tableofcontents
-\begin{abstract}
-    blah
-\end{abstract}
-\section{Introduction}\label{sec:intro}\fix{expand, include explicit problems and solutions, aiming for 1+ pages}
 
-$C^r$ actions of compact Lie groups on manifolds satisfy strong local and global structural results, including but certainly not limited to slice theorems (Section 2.3 of \cite{duistermaat:LieGroups}), orbit-type stratification (Section 2.9 of \cite{duistermaat:LieGroups}), and complete classifications up to equivariant (diffeo)homeomorphism in various restricted settings. Intuitively, a local slice to a Lie group action is a $\stab{x}$-invariant submanifold through a point $x$ such that $G\cdot S$ is an open neighborhood of $G\cdot x$ which is $G$-isomorphic to a particular twisted $S$ bundle over $G/\stab{x}\cong G\cdot x$ (called a tube about $x$). Slice theorems guarantee certain settings in which slices exist; e.g, when $G$ is compact and $M$ is completely regular, slices exist through every point (consequence of Theorem 5.4 in \cite{bredon:IntroductionCompact}). Conjugacy of isotropy subgroups of orbits form an equivalence relation on the set of orbits whose equivalence classes are called orbit types. When $G$ is a Lie group acting properly on a manifold $M$, the orbit types are embedded submanifolds and moreover, they stratify $M$ (if the reader is unfamiliar with stratified spaces, an adequate model is the decomposition of a cell complex into cells of a fixed dimension.) These results are fundamental tools to study proper Lie group actions on manifolds, and are the starting point of Raymond and Orlik's classifications of $\SO$ actions on closed 3-manifolds and $T^2$ actions on simply connected 4-manifold\cite{orlik:ActionsSO2,orlik:ActionsTorusI, orlik:ActionsTorusII}.
-We highlight these particular families of results as they provide substantial inspiration both for the scope of results we aim to prove and methods of proof.
+\section{Introduction}\label{sec:intro}
+
+$C^r$ actions of compact Lie groups on manifolds satisfy strong local and global structural results, including but certainly not limited to slice theorems (Section 2.3 of \cite{duistermaat:LieGroups}), orbit-type stratification (Section 2.9 of \cite{duistermaat:LieGroups}), and complete classifications up to equivariant (diffeo)homeomorphism in various restricted settings. Intuitively, a local slice to a Lie group action is a $\stab{x}$-invariant submanifold through a point $x$ such that $G\cdot S$ is an open neighborhood of $G\cdot x$ which is $G$-isomorphic to a particular twisted $S$ bundle over $G/\stab{x}\cong G\cdot x$ (called a tube about $x$). Slice theorems guarantee certain settings in which slices exist; e.g, when $G$ is compact and $M$ is completely regular, slices exist through every point (consequence of Theorem 5.4 in \cite{bredon:IntroductionCompact}). Conjugacy of isotropy subgroups of orbits form an equivalence relation on the set of orbits whose equivalence classes are called orbit types. When $G$ is a Lie group acting properly on a manifold $M$, the orbit types are embedded submanifolds and moreover, they stratify $M$ (if the reader is unfamiliar with stratified spaces, an adequate model is the decomposition of a cell complex into cells of a fixed dimension.) These results are fundamental tools to study proper Lie group actions on manifolds, and are the starting point of Raymond and Orlik's classifications of $\SO$ actions on closed 3-manifolds and $T^2$ actions on simply connected 4-manifold\cite{orlik:ActionsSO2,orlik:ActionsTorusI, orlik:ActionsTorusII}. We offer the weak tube theorem and weak orbit type stratification as answers to these classical results. Details of the bundle structure and the $\homeo[M]$ action are contained in \cref{thm:precise-orbit-bundle}.
+\begin{restatable}[Weak tube theorem]{thm}{orbitbundle}
+    \label{thm:orbit-bundle}
+        Suppose $\homeo[M]$ acts on a manifold $N$ with all orbits having fixed dimension $n*\dimn{M}$ for some $n\geq 1$. Then, $N$ must have the structure of a generalized flat bundle over $M$; moreover, the orbits form a foliation of $N$ transverse to the fibers.
+    \end{restatable}
+\begin{restatable}[Weak orbit type stratification]{thm}{weakotstratif}
+\label{thm:weak-o-t-strat}
+    Suppose $\homeo$ acts on closed 3-manifold $M$ with no global fixed points. Every orbit in $M_{(2)} - \cl{M_{(3)}}$ has a $\homeo$-invariant tubular neighborhood in the sense of \cref{thm:orbit-bundle} which is isomorphic to one of the examples in the top row of \cref{table:orbit-bundles}. Every orbit in $M_{(1)} - \cl{M_{(2)}\cup M_{(3)}}$ has an invariant neighborhood isomorphic to $\Sigma \times S^1$ where $\Sigma$ is an open surface of finite genus. Moreover, finitely many components of $M_{(2)} - \cl{M_{(3)}}$ are of exceptional type and finitely many components of $M_{(1)} - \cl{M_{(2)}\cup M_{(3)}}$ have $\Sigma$ with nonzero genus.
+\end{restatable}
 
 If we extend our focus from Lie groups to homeomorphism and diffeomorphism groups the picture is much less well-understood, but a surprising amount of similar results still hold. In particular, Militon \cite{militon:ActionsGroup} classifies continuous actions of $\homeo$ on the 2-torus and the closed annulus. Militon's classification decomposes the annulus (or torus) into an invariant lamination by concentric circles and gives a complete description of the action on the complement which is a disjoint union of open annulus orbits. Chen and Mann \cite{chen:StructureTheorems} go on to give a complete classification of spaces with transitive $\diffr$ and $\homeo[M]$ actions and apply this result to extend Militon's classification to all actions of $\homeo$ on compact surfaces. In particular, the extended classification shows that the global fixed points of a $\homeo$ action on a compact surface are exactly those of the standard rotation group action on that surface. That is, the disk has a unique fixed point, the sphere has two, etc. Away from fixed points, the behavior is ultimately shown to be exactly that of Militon's classification for the closed annulus and the torus. This paper describes the extent to which similar results can be achieved for $\homeo$ actions on closed 3-manifolds.
 
@@ -103,22 +110,12 @@ It is valuable to situate our problem in the context of the dimensions of both t
 
 In a broad sense, the problem of classifying actions of a fixed topological group on spaces of a fixed dimension can be divided into the orbit classification problem and the orbit gluing problem. The orbit classification problem for a fixed Lie group is recognizable as the problem of classifying homogeneous spaces (or equivalently its closed subroups). The orbit gluing problem is addressed by slice theorems and the orbit-type stratification. For an example of this program in use, see Ghys's classification of $C^r$ actions of $\SL[n]$ on once-punctured $\R^m$\cite{cairns:LocalLinearization} or Orlik and Raymond's classification of continuous $\SO$ actions on closed 3-manifolds\cite{orlik:ActionsSO2}. For $\homeo[M]$ and $\diffr$, Chen and Mann completely resolve the orbit classification problem and solve the orbit gluing problem for particular restrictions on dimension. In this paper, we treat the orbit gluing problem when $M= S^1$ and $N$ is a closed three manifold and separately when all orbits are assumed to be the same dimension but no restrictions are placed on $M$ and $N$.
 
-In the $\homeo[S^1]$ acting on closed $N^3$ setting, our primary result is:
-\begin{restatable}{thm}{mainstructure}
-\label{thm:main-structure-thm}
-        Suppose $\homeo$ acts on a  closed three-manifold $M$ with no global fixed points, then
-        \begin{enumerate}
-            \item $M$ is an $\SO$ manifold with singular fibers multiplicity 2 or 3 and occurring in particular 2 and 3-dimensional orbits respectively, and special exceptional orbits occurring in particular orbit bundles if $M$ is non-orientable.
-            \item The region consisting of 2-dimensional orbits which do not lie in the topological boundary of the 3-dimensional orbits is a disjoint union of bundles over $\conf[S^1]{2}$ foliated by their orbits with specified action.
-            \item The frontier of each 2-dimensional orbit consists of one or two 1D orbits.
-        \end{enumerate}
+In addition to the weak tube theorem \cref{thm:orbit-bundle} and weak orbit type stratification \cref{thm:weak-o-t-strat}, we provide a description of the global topology of a closed 3-manifold admitting an action of $\homeo$.
+\begin{restatable}{thm}{thmglobaltop}
+    \label{thm:3mfld-global-top}
+    Suppose $\homeo$ acts on closed 3-manifold $M$ without global fixed points. $M$ is an $\SO[2]$-manifold with exceptional orbits of multiplicity two or three lying in $\homeo$ orbits of type $\conf[S^1]{2}$ and $\conf[S^1]{3}$. Special exceptional orbits have open non-orientable $\homeo$ invariant tubular neighborhoods homeomorphic to $M\ddot{o}b\times S^1$. In particular, when $M$ is orientable, it is Seifert-fibered.
 \end{restatable}
-Our result for general $M$ and $N$ with orbits of a fixed dimension (which, in fact, the preceding result depends on) is:
-\begin{restatable}{thm}{orbitbundle}
-\label{thm:orbit-bundle}
-    Suppose $\homeo[M]$ acts on a manifold $N$ with all orbits having fixed dimension $n*\dimn{M}$ for some $n\geq 1$. Then, $N$ must have the structure of a generalized flat bundle over $M$; moreover, the orbits form a foliation of $N$ transverse to the fibers.
-\end{restatable}
-We will give a precise bundle structure equipped with a $\homeo[M]$ action in \cref{sec:orbit-bundle-lemma} where this result is proven.
+
 
 
 % In \cref{sec:orbit-bundle-lemma} we suppose that, for $M$ some compact manifold, $\homeo$ acts on any manifold $N$ such that all orbits are of a fixed dimension $n*\dimn(M)$. Under these assumptions, we prove that $N$ must be equivariantly homeomorphic a particular foliated bundle over $\conf[M]{n}$ --- the configuration space of $n$ unlabeled points in $M$. This echoes Theorem 1.4 in \cite{chen_structure_2023} which outlines dimension restrictions on $M$ and $N$ rather than the orbits, which yield the same result.
@@ -128,30 +125,67 @@ We will give a precise bundle structure equipped with a $\homeo[M]$ action in \c
 % For the remainder of this section, we will provide a brief primer on the notation and results which will be foundational to the rest of the paper and conclude with a few basic examples and families of actions of $\homeo$ on closed 3-manifolds.
 
 \section{Background}\label{sec:background}
-This section serves to recall definitions and introduce our conventions for notions related to homeomorphism groups, group actions and configuration spaces. At the end of the section, we classify the orbits of $\homeo$ actions on 3-manifolds in \cref{prop:orbit-computation} as a direct application of the Chen-Mann orbit classification theorem \cite{chen:StructureTheorems}.
+This section serves to recall definitions and introduce our conventions for notions which will be continually used throughout the paper. \cref{subsec:seifprelims} deals with Seifert-fibered spaces and 3-manifolds with faithful $\SO$ actions. \cref{subsec:homeoprelims} introduces notation and results around homeomorphism groups, group actions and configuration spaces. At the end of the section, we classify the orbits of $\homeo$ actions on 3-manifolds in \cref{prop:orbit-computation} as a direct application of the Chen-Mann orbit classification theorem \cite{chen:StructureTheorems}.
+
+\subsection{Seifert-fibered and \texorpdfstring{$S^1$}{S\^string 1}-manifold preliminaries}\label{subsec:seifprelims}
+
+As mentioned previously, all orientable closed 3-manifolds admitting $\homeo$ actions are Seifert-fibered. Non-orientable closed 3-manifolds admitting $\homeo$ actions necessarily admit an faithful $\SO$ action (but not necessarily a Seifert-fibering). We will briefly provide the relevant definitions and notation associated to both classes of manifolds.
+
+\begin{defn}
+    Let $(p, q)$ be two coprime integers with $p>0$, the $(p, q)$ standard fibered solid torus is $D^2\times [0, 1]/\psi$ where $\psi:D^2\times\{0\}\to D^2\times{1}$ is a rotation by angle $2\pi\frac{q}{p}$. 
+\end{defn}
+
+This definition forms the set of local models for tubular neighborhoods of fibers in a Seifert fibration. More precisely,
+
+\begin{defn}
+    A Seifert fibration of a closed 3-manifold $M$ is a decomposition of $M$ into a disjoint union of circles (called fibers) with each having a tubular neighborhood diffeomorphic to a stanadard fibered solid torus.
+\end{defn}
+
+Fibers with tubular neighborhoods with $p>1$ are said to be singular, while those with $p=1$ are said to be regular. The space of fibers of $M$ is a orbifold surface called the base orbifold with cone points of multiplicity $p$ corresponding to multiplicity $p$ singular fibers. There is a unique orientable Seifert-fibered 3-manifold whose base surface has underlying surface $\Sigma$ and whose singular fibers have invariants $(p_1, q_1),\dots,(p_n, q_n)$, which we will generally denote as $(\Sigma, (p_1, q_1),\dots,(p_i,q_i))$ \cite{martelli:IntroductionGeometric}.
+
+To connect our setting to Seifert fibrations, we observe that there is a tight correspondence between faithful $\SO$ actions and Seifert fibrations.
+
+\begin{rem}
+    Let $M$ be a compact orientable 3-manifold. Seifert-fibrations of $M$ up to fiber-preserving homeomorphism are in one-to-one correspondence with faithful actions of the circle group $\SO$ on $M$ up to equivariant homeomorphism.
+\end{rem}
+
+In general, when it is clear that a given manifold is compact, orientable and Seifert-fibered, we will refer without comment to the associated $\SO$ action and vice versa for the Seifert-fibration associated to a given $\SO$ action. When $M$ is non-orientable, the situation is somewhat subtler -- all Seifert fibrations have an associated faithful $\SO$ action, but there are faithful $\SO$ actions with no associated Seifert fibration. These can be accounted for by allowing for the base orbifold to have mirror boundary.
+
+\subsection{\titlesafehomeoM preliminaries}\label{subsec:homeoprelims}
+
+Unless otherwise mentioned, all manifolds are assumed to be closed and equipped with some metric -- typically denoted $\mathrm{d}$ without further comment. $\text{Homeo}(M)$ is the topological group of all homeomorphism of $M$ and $\homeo[M]$ is the connected component of the identity. It is a classical result that the compact-open topology on $\text{Homeo}(M)$ is the unique complete separable group topology\cite{kallman:UniquenessResults}. A convenient fact about the compact-open topology which we will use is that covergence of a sequence of homeomorphisms is equivalence to uniform convergence on compact subsets of M. The following is the fundamental definition of study:
+
+\begin{defn}
+    An abstract group homomoprhism $\rho: \homeo[M]\to\homeo[N]$ is said to be an action of $\homeo[M]$ on $N$. 
+\end{defn}
+
+By the automatic continuity property for homeomorphism groups\cite{mann:AutomaticContinuity}, all such actions are continuous. We will only consider actions of $\homeo[M]$, the identity component of $\text{Homeo}(M)$. Since the continuous image of a connected set is connected, any homomorphism from $\homeo[M] to\text{Homeo}(N)$ will have image in $\homeo[N]$.
 
 We will make frequent use of the subgroups of $\homeo$ which consist of homeomorphisms which fix a particular point on the circle. In the interest of avoiding ambiguity, we make the following definition.
 
 \begin{defn}
      For $\theta\in S^1$, let $G_\theta\coloneqq\{f\in\homeo[S^1]\;\vert\; \theta\in\text{fix}(f)\}$.
      For $\theta_1,\dots,\theta_n\in S^1$, let $G_{\theta_1,\dots,\theta_n}\coloneqq \{f\in\homeo\;\vert\; \theta_1,\dots,\theta_n\in\text{fix}(f)\}$.
+     For a general manifold $M$ and finite point set $X\subset M$, we write $\stab{X}\coloneqq\{f\in\homeo[M]\vert f(X) = X\}$, and denote by $\pstab{X}$ the connected component of the identity.
 \end{defn}
 
-This is not to be confused with the stabilizer of a point or point set in $N$ under an action of $\homeo$ on $N$. When this is, in fact, what we are referring to, we will use the following notation.
+In general, the pointwise stabilizer of $X$ is contained between $\stab{X}$ and $\pstab{X}$, but it is not true in general that it is equal to $\pstab{X}$. For example, consider the standard action of $\homeo[\D^2]$ on $\D^2$ and a finite point set $X\subset \D^2$. The quotient of the pointwise stabilizer of $X$ by $\pstab{X}$ is isomorphic to the pure braid group on $|X|$ strands. This is not to be confused with the stabilizer of a point or point set in $N$ under an action of $\homeo$ on $N$. When this is, in fact, what we are referring to, we will clearly clearly indicate it. 
+
+Configuration spaces are central to the study of homeomorphism group actions. We adopt the following notational conventions for the spaces of configurations of labeled and unlabeled points.
 
 \begin{defn}
-    Suppose $\rho: \homeo[M]\to N$ is some action and $X\subseteq N$ is a finite point set, then denote by $\stab{X}$ the subgroup of $\homeo[M]$ which fixes $X$ setwise and denote its identity component $\pstab{x}$.
+    Given any $n$ and any topological space $X$, $\pconf[M]{n} \coloneqq \{(x_i)\in X^n \,\vert\, \forall i\neq j,\, x_i\neq x_j\}$.
+    There is a natural properly discontinuous, free action the symmetric group $S_n$ on $\pconf[M]{n}$ by permuting coordinates. Define $\conf[M]{n}\coloneqq \pconf[M]{n}/S_n$
 \end{defn}
 
-Note that in general, the pointwise stabilizer of $X$ is contained between $\stab{X}$ and $\pstab{X}$, but it is not true in general that it is equal to $\pstab{X}$. For example, consider the standard action of $\homeo[\D^2]$ on $\D^2$ and a finite point set $X\subset \D^2$. The quotient of the pointwise stabilizer of $X$ by $\pstab{X}$ is isomorphic to the pure braid group on $|X|$ strands.
+When $X$ is a topological manifold without boundary, then for all $n$, $\pconf[X]{n}$ and $\conf[X]{n}$ are as well. A small technicality arises when $X=S^1,\; \R$; namely, homeomorphisms of $S^1$ and $\R$ respectively preserve cyclic and linear orders of the coordinates of a configuration, so in particular $\homeo$ and $\homeo[\R]$ do not act transitively. As a matter of convention, we define $\pconf[S^1]{n}$ and $\pconf[\R]{n}$ to be the connected components consisting of configurations with a fixed cyclic or linear ordering. 
 
-Finally, configuration spaces are central to the study of homeomorphism group actions. We adopt the following notational conventions in line with \cite{chen:StructureTheorems}.
+\begin{eg}\label{eg:confcompute}
+    Trivially, for any topological space $\conf[X]{1}\cong\pconf[X]{1}\cong X$. Now, we consider $\pconf[S^1]{2}$ and $\conf[S^1]{2}$. In particular
+    $$\pconf[S^1]{2} = \{(\theta, \varphi)\in S^1\times S^1 = T^2\,\vert\, \theta\neq\varphi\}$$. Considering $T^2$ as the unit square with edge identifications, $\pconf[S^1]{1}$ is then the complement of the line $\theta=\varphi$, which is easily seen to be homeomorphic to an open annulus. In this model, the symmetric group $S_2$ acts by a reflection over the diagonal. A simple way to identify the homeomorphism type of the quotient by this action is to note that it is a noncompact surface fibering over the circle 2-fold covered by an annulus; thus, it is a M\"{o}bius band\cite{morton:SymmetricProducts}.
+\end{eg}
 
-\begin{defn}\fix{audit for clarity and directness}
-    The {\it ordered configuration space} of $n$ points in $M$, denoted $\pconf[M]{n}$ is defined to be the $n$-fold product of $M$ with itself cut along the set where any two or more coordinates coincide. There is a natural properly discontinuous, free action the symmetric group $S_n$ on $\pconf[M]{n}$. The quotient by this action results in the {\it unordered configuration space} of $n$ points in $M$, denoted $\conf[M]{n}$.
-\end{defn}
-
-A foundational result about actions of $\homeo[M]$ from \cite{chen:StructureTheorems} is that orbits are continuous injective (equivariant) images of admissible covers of $\conf[M]{n}$. There are many important details concealed in the word ``accessible'' as well as the particular details of the action on these spaces, see Section 4 of Chen-Mann\cite{chen:StructureTheorems} for a precise definition and classification. We will expand on these as needed, primarily in \cref{sec:orbit-bundle-lemma}. Otherwise, an equivariant description of all orbits of a $\homeo$ action on a closed three-manifold will suffice for our purposes.
+A foundational result about actions of $\homeo[M]$ from \cite{chen:StructureTheorems} is that orbits are continuous injective (equivariant) images of admissible covers of $\conf[M]{n}$. More precisely, they show for any $x\in N$ that there is a finite point set $X\subset M$ such that $\stab{X}\supseteq G_x \supseteq \pstab{X}$ and thus, since an orbit of a group action is a continuous injective image of the quotient of the group by the stabilizer of a point in the orbit, the orbit topologies sit between $\homeo[M]/\stab{X}$ and $\homeo[M]/\pstab{X}$. They prove that $\homeo[M]/\stab{X}\cong \conf[M]{n}$ and that $C_X\coloneqq \homeo[M]/\pstab{X}$ covers $\conf[M]{n}$ with deck group $\stab{X}/\pstab{X}$. Thus any orbit of $\homeo[M]$ is the continuous injective image of an intermediate covering between $\homeo[M]/\pstab{X}\to \conf[M]{n}$. The action of $\homeo[M]$ is given by left multiplication. See Section 4 of Chen-Mann\cite{chen:StructureTheorems} for further details. Otherwise, an equivariant description of all orbits of a $\homeo$ action on a closed three-manifold will suffice for our purposes.
 
 \begin{prop}\label{prop:orbit-computation}
     Suppose that $\homeo$ acts on $M$ closed 3-manifold, then every orbit a global fixed point or an equivariant continuous injective image of:
@@ -160,14 +194,14 @@ A foundational result about actions of $\homeo[M]$ from \cite{chen:StructureTheo
         \item $\pconf[S^1]{2} \cong (0,1)\times S^1$, the open annulus
         \item $\conf[S^1]{2} \cong M\ddot{o}b$, the open M\"{o}bius band,
         \item $\pconf[S^1]{3} \cong D^2\times S^1$, the 3-dimensional open solid torus
-        \item $\conf[S^1]{3} \cong D^2\times S^1$ --- restriction to $\SO$ gives the $(3, 1)$ standard fibered\fix{give defn of standard-fibered torus in background} solid torus
+        \item $\conf[S^1]{3} \cong D^2\times S^1$ --- restriction to $\SO$ gives the $(3, 1)$ standard fibered solid torus
     \end{enumerate}
 \end{prop}
 \begin{proof}[Proof of \cref{prop:orbit-computation}]\fix{Clarify and expand proof. set aside results before hand}
 \fix{outline the structure of the proof}
-    Since $\pi_1(\homeo) \cong \Z \cong \pi_1(\pconf[S^1]{n})$, every admissible cover of $\conf[S^1]{M}$ is an intermediate cover of the covering $\pconf[S^1]{n}\to \conf[S^1]{n}$. By invariance of domain, the orbits are at most 3-dimensional (and $\conf[S^1]{n}$ is $n$-dimensional), so $n=1,\; 2,\; 3$. Clearly\improve{avoid clearly} for $n=1$, the only possible orbit topology is $\pconf[S^1]{1} \cong \conf[S^1]{1}\cong S^1$. Clearly\fix{cite a result for this} $\pconf[S^1]{2}$ is homeomorphic to an open annulus, and it is a standard -- albeit satisfying -- exercise in cut-and-paste topology to check that $\conf[S^1]{2}$ is homeomorphic to an open M\"{o}bius band. This covering is degree 2, so there are no spaces intermediate to this covering. Finally, in the $n=3$ case the computation is as follows.
+    Since $\pi_1(\homeo) \cong \Z \cong \pi_1(\pconf[S^1]{n})$, every admissible cover of $\conf[S^1]{M}$ is an intermediate cover of the covering $\pconf[S^1]{n}\to \conf[S^1]{n}$. By invariance of domain, the $\homeo$ orbits are at most 3-dimensional (and $\conf[S^1]{n}$ is $n$-dimensional), so $n=1,\; 2,\; 3$. The $n=1,\; 2$ cases are addressed in\cref{eg:confcompute}. So it remains only to study the $n=3$ case. 
 
-    \fix{expand the orbit decomp cutting argument} Consider the diagonal action of $\homeo$ on $T^3$ considered as $[0,1]^3$ with face identifications. Cutting along the 1 $S^1$ orbit and 3 annulus orbits leaves 6 tetrahedral regions in $[0,1]^3$\improve{Just write this as $S^1\times S^1\times S^1$}. These glue together in 2 cycles to give two disjoint subsets of $T^3$ each homeomorphic to $D^2 \times S^1$ corresponding to the two possible cyclic ordering of three marked points on $S^1$; thus, by restricting to one of these components we recover the configuration space action of $\homeo$ on $\pconf[S^1]{3}\cong D^2 \times S^1$. The rotation subgroup action restricts directly from the rotation subgroup action on $T^3$, so in particular, all fibers of the associated Seifert-fibered structure are regular. The action of $S_3$ which permutes coordinates can be generated by a $2\pi/3$ rotation about the line $x=y=z$. \improve{replace numerals with words} In particular, the quotient by this action identifies each of the 3 tetrahedra which make up $\pconf[S^1]{3}$. Thus, $\conf[S^1]{3}$ can be understood as a tetrahedron with all but two faces (including edges and vertices) cut out and the two remaining faces glued by a 1/3 twist. The rotation subgroup action rotates along circular fibers parallel to the edge opposite the shared edge of the two glued face. The associated \improve{clarify what is meant by associated seifert fibered structure} Seifert-fibered structure is that of a $(3, 1)$ standard fibered solid torus. The covering from $\pconf[S^1]{3}$ to $\conf[S^1]{3}$ is three-fold, so there is no intermediate covering.
+    \fix{expand the orbit decomp cutting argument} Consider the diagonal action of $\homeo$ on $T^3$ considered as $[0,1]^3$ with face identifications. Cutting along the one $S^1$ orbit and three annulus orbits leaves six tetrahedral regions in $S^1\times S^1\times S^1$. These glue together in two cycles to give two disjoint subsets of $T^3$ each homeomorphic to $D^2 \times S^1$ corresponding to the two possible cyclic ordering of three marked points on $S^1$; thus, by restricting to one of these components we recover the configuration space action of $\homeo$ on $\pconf[S^1]{3}\cong D^2 \times S^1$. The rotation subgroup action restricts directly from the rotation subgroup action on $T^3$, so in particular, all fibers of the associated Seifert-fibered structure are regular. The action of $S_3$ which permutes coordinates can be generated by a $2\pi/3$ rotation about the line $x=y=z$. In particular, the quotient by this action identifies each of the three tetrahedra which make up $\pconf[S^1]{3}$. Thus, $\conf[S^1]{3}$ can be understood as a tetrahedron with all but two faces (including edges and vertices) cut out and the two remaining faces glued by a 1/3 twist. The rotation subgroup action rotates along circular fibers parallel to the edge opposite the shared edge of the two glued face. The associated \improve{clarify what is meant by associated seifert fibered structure} Seifert-fibered structure is that of a $(3, 1)$ standard fibered solid torus. The covering from $\pconf[S^1]{3}$ to $\conf[S^1]{3}$ is three-fold, so there is no intermediate covering.
 \end{proof}
 
 \subsection{Fundamental Examples}\fix{add examples}
@@ -182,7 +216,7 @@ The following examples can all be viewed as constructed by cutting, pasting and 
 
 \begin{enumerate}
     \setcounter{enumi}{-1}
-    \item {\bf $T^3$ diagonal action:} The simplest (and perhaps most illustrative) example of an action of $\homeo$ on a 3-manifold is the diagonal action of $\homeo$ on $T^3$, i.e.$$\rho(f)(\theta, \varphi, \psi) = (f(\theta), f(\varphi), f(\psi))$$ This action has one 1-dimensional orbit $\sigma \coloneqq \{(\theta,\theta,\theta)\,\vert\,\theta\in S^1\}$, three 2-dimensional corresponding to each torus $\theta=\varphi$, $\varphi=\psi$ and $\theta=\psi$ minus $\sigma$ and two 3-dimensional orbits corresponding to the connected components of the complement of the 1 and 2-dimensional orbits. Part of the reason this example is so illustrative is that it gives us a concrete setting to study the configuration space action on $\pconf{3}$ and its closure. In particular, every example of an action of $\homeo$ on a closed 3-manifold with 3-dimensional orbits which has been constructed by the authors has the boundaries of the 3d orbits being some quotient of the boundary of one of the 3d orbits in this example split twice along $\sigma$. Additionally, the quotient of $T^3$ by the action of $Z^3$ which cyclically permutes the coordinates gives an example of an action of $\homeo$ on $S^2\times S^1$ with Seifert fibering $(S^2, (3, 1), (3, -1))$ with two $\conf{3}$ orbits.
+    \item {\bf $T^3$ diagonal action:} The simplest (and perhaps most illustrative) example of an action of $\homeo$ on a 3-manifold is the diagonal action of $\homeo$ on $T^3$, i.e.$$\rho(f)(\theta, \varphi, \psi) = (f(\theta), f(\varphi), f(\psi))$$ This action has one 1-dimensional orbit $\sigma \coloneqq \{(\theta,\theta,\theta)\,\vert\,\theta\in S^1\}$, three 2-dimensional corresponding to each torus $\theta=\varphi$, $\varphi=\psi$ and $\theta=\psi$ minus $\sigma$ and two 3-dimensional orbits corresponding to the connected components of the complement of the 1 and 2-dimensional orbits. Part of the reason this example is so illustrative is that it gives us a concrete setting to study the configuration space action on $\pconf{3}$ and its closure. In particular, every example of an action of $\homeo$ on a closed 3-manifold with 3-dimensional orbits which has been constructed by the authors has the boundaries of the 3d orbits being some quotient of the boundary of one of the 3d orbits in this example split twice along $\sigma$. Additionally, the quotient of $T^3$ by the action of $\Z_3$ which cyclically permutes the coordinates gives an example of an action of $\homeo$ on $S^2\times S^1$ with Seifert fibering $(S^2, (3, 1), (3, -1))$ with two $\conf{3}$ orbits.
 
 
     \item {\bf Product actions:} Let $\rho:\homeo[S^1]\to\homeo[\Sigma]$ where $\Sigma$ is some compact surface. Then there are two associated essentially different actions of $\homeo[S^1]$ on $\Sigma\times S^1$:
@@ -197,7 +231,10 @@ There are constructive examples using the results of this paper and illustrating
 
 
 \section{General \texorpdfstring{$\homeo[M]$}{Homeo\_0(M)} action structure: weak tube theorem}\label{sec:orbit-bundle-lemma}
-Though the primary focus of this paper concerns actions on 3-manifolds, in an effort to understand how orbits of a fixed dimension are situated in the ambient manifold we arrive at a generalized flat bundle structure. In a sense, orbit bundles can be thought of as capturing the ways in which the partition into orbits of fixed dimension fails to be a stratification. This result can also be thought of as a kind of generalization of Theorem 1.5\improve{refer more directly to katie's flat bundle theorem} in \cite{chen:StructureTheorems} -- removing the dimension assumptions on the total manifold, but adding in assumptions about the dimensions of the orbits. Not only does it function as a generalization of this theorem, but the proof follows much the same structure. Most of the divergence from this structure come in the proof of the continuity of the map from the model spaces to $N$. \cref{subsec:orbit-bundle-construction} gives the necessary constructions to state the primary result of this section, \cref{lem:orbit-bundle}\improve{figure out how to say orbit bundle lemma before everything is defined}. \cref{subsec:top-lemmas} provides a key topological lemma (and a closely related one) which is used in the proof of \cref{lem:orbit-bundle} in \cref{subsec:orbit-bundle-proof}. Finally \cref{subsec:example-orbit-bundle-classif} provides an application of \cref{lem:orbit-bundle}, classifying up to equivariant homeomorphism all actions of $\homeo$ on 3-manifolds having only 2-dimensional orbits.
+Though the primary focus of this paper concerns actions on 3-manifolds, in an effort to understand how orbits of a fixed dimension are situated in the ambient manifold we arrive at a generalized flat bundle structure. This result can also be thought of as a direct generalization of Theorem 1.5 in \cite{chen:StructureTheorems}, which says that when $\dimn{N} < 2*\dimn{M}$ then $N$ is a generalized flat bundle over $M$ foliated by the orbits of $\homeo[M]$. The primary result of this section is as follows:
+\orbitbundle*
+
+We say this is a generalization since the hypothesis that the action has only orbits of a fixed dimension is a direct consequence of $\dimn{N} < 2*\dimn{M}$. The proof follows a very similar structure to that of Mann and Chen's Theorem 1.5 as well, most of the divergence from this structure come in the proof of the continuity and properness of the map from the model spaces to $N$. \cref{subsec:orbit-bundle-construction} gives the necessary constructions to state \ref{thm:orbit-bundle} more precisely. \cref{subsec:top-lemmas} provides a key topological lemma (and a closely related one) which is used in the proof of \cref{thm:orbit-bundle} in \cref{subsec:orbit-bundle-proof}. Finally \cref{subsec:example-orbit-bundle-classif} provides an application of \cref{thm:orbit-bundle}, classifying up to equivariant homeomorphism all actions of $\homeo$ on 3-manifolds having only 2-dimensional orbits.
 
 \subsection{\texorpdfstring{$\homeo[M]$}{Homeo\_0(M)} invariant tube construction}\label{subsec:orbit-bundle-construction}
 Let $N$ be a connected manifold of dimension $D=n*\text{dim}(M)$ for some $n$. Let $\rho:\homeo[M]\to\homeo[N]$ be some action such that all orbits have dimension $n$. In particular, by the Chen-Mann orbit classification theorem, all of the orbits are injective continuous equivariant images of covers of $\conf[M]{n}$.
@@ -283,9 +320,9 @@ Using the map $p$, we construct the following generalized flat bundle over $\con
     Let $L$ denote the action of $\homeo[M]$ on $\maxcov$, then we have the product action $L\times 0$ on $E_b$. To show that this action descends to the quotient, it suffices to prove that the actions of $\homeo[M]$ and $\Gamma$ commute. The action $L\times 0$ is trivial on $F$, and deck transformations of $\maxcov\to \conf[M]{\lvert b_{\set}\rvert}$ commute with the left action of $\homeo[M]$ on $\maxcov$. So, in particular, the action of $\homeo[M]$ on $E_b$ descends to an action on $E_b/\Gamma$. When we refer to $E_b/\Gamma$, the implied action of $\homeo[M]$ will always be this action.
 \end{construction*}
 
-In light of this construction, the following is the precise statement of what we will refer to as the weak tube theorem.
+In light of this construction, the following is the precise statement of \cref{thm:orbit-bundle} which we will refer to as the weak tube theorem.
 
-\begin{thm}\label{thm:orbit-bundle}
+\begin{thm}\label{thm:precise-orbit-bundle}
     There's a map: $$I: \maxcov \times p^{-1}(b)/ \Gamma \to N.$$
     Moreover, $I$ is an equivariant homeomorphism
     with the $\homeo[M]$ action on $\maxcov \times p^{-1}(b) / \Gamma$ being the quotient of the product of the standard action $L$ on $\maxcov$
@@ -293,19 +330,20 @@ In light of this construction, the following is the precise statement of what we
 \end{thm}
 
 \subsection{Three Useful Topological Lemmas}\label{subsec:top-lemmas}
-\begin{fact}\label{compact-converg-imply-cont}\improve{this can be omitted, it's ``standard''}
-    Suppose that $X, Y$ are metric spaces, $f_n: X\to Y$ is a sequence of continuous functions converging to $f$ uniformly on compact sets and $(x_n)$ is a sequence of points converging to $x$. Then $f_n(x_n)$ converges to $f(x)$
-\end{fact}
-\begin{proof}
-    A convergent sequence together with its limit is a compact set in any metric space, so $f_n$ converges uniformly on $A = \{x_n\}\cup\{x\}$. Following definitions, for any $\varepsilon > 0$, there exists some $N$ such that for all $n> N$ and $t \in A$, $d_Y(f_n(t), f(t)) < \varepsilon/2$. Similarly, by the convergence of $(x_n)\to x$ and the continuity of $f$, we can demand $N'$ such that for all $n>N'$, $d_Y(f(x_n), f(x)) < \varepsilon/2$. Then, by the triangle inequality, for all $n>\text{max}(N, N')$, $$d_Y(f_n(x_n), f(x)) \leq \varepsilon$$.
-\end{proof}
+The following are self-contained purely topological lemmas about homeomorphism groups and their actions. They are all used in the proof of the weak tube theorem \cref{thm:orbit-bundle}
+% \begin{fact}\label{compact-converg-imply-cont}\improve{this can be omitted, it's ``standard''}
+%     Suppose that $X, Y$ are metric spaces, $f_n: X\to Y$ is a sequence of continuous functions converging to $f$ uniformly on compact sets and $(x_n)$ is a sequence of points converging to $x$. Then $f_n(x_n)$ converges to $f(x)$
+% \end{fact}
+% \begin{proof}
+%     A convergent sequence together with its limit is a compact set in any metric space, so $f_n$ converges uniformly on $A = \{x_n\}\cup\{x\}$. Following definitions, for any $\varepsilon > 0$, there exists some $N$ such that for all $n> N$ and $t \in A$, $d_Y(f_n(t), f(t)) < \varepsilon/2$. Similarly, by the convergence of $(x_n)\to x$ and the continuity of $f$, we can demand $N'$ such that for all $n>N'$, $d_Y(f(x_n), f(x)) < \varepsilon/2$. Then, by the triangle inequality, for all $n>\text{max}(N, N')$, $$d_Y(f_n(x_n), f(x)) \leq \varepsilon$$.
+% \end{proof}
 
 \begin{lem}\label{lem:union-over-cpct}
-    Suppose there is some\fix{add some fussing about automatic continuity to preliminaries} action $\rho$ of $\homeo[M]$ on $N$. Suppose $A\subset N$ is closed and $H\subset\homeo[M]$ is compact, then $H\cdot A \coloneqq \bigcup_{h\in H} \rho(h)(A)$ is closed. If $A$ is compact, then $H\cdot A$ is also compact.
+    Suppose there is some action $\rho$ of $\homeo[M]$ on $N$. Suppose $A\subset N$ is closed and $H\subset\homeo[M]$ is compact, then $H\cdot A \coloneqq \bigcup_{h\in H} \rho(h)(A)$ is closed. If $A$ is compact, then $H\cdot A$ is also compact.
 \end{lem}
 
 \begin{proof}
-    Suppose $(x_n)\to x$ is a convergent sequence in $H\cdot A$, then by definition, there is a sequence of homeomorphisms $f_n\in \homeo[M]$ such that $\rho(f_n^{-1})(x_n)\in A$ for all $A$. Since $H$ is compact, we may pass to a convergent subsequence of $f_{k_n}\to f\in H$. Under the standard topology\improve{describe std topology on homeo in intro} on $\homeo[M]$, convergence is uniform convergence on compact sets. By the preceding general metric space \cref{compact-converg-imply-cont}, $\rho(f^{-1}_{k_n})(x_{k_n}) \to \rho(f^{-1})(x)$. Since $A$ is closed, $\rho(f^{-1})(x)\in A$, thus $x\in H\cdot A$.
+    Suppose $(x_n)\to x$ is a convergent sequence in $H\cdot A$, then by definition, there is a sequence of homeomorphisms $f_n\in \homeo[M]$ such that $\rho(f_n^{-1})(x_n)\in A$ for all $A$. Since $H$ is compact, we may pass to a convergent subsequence of $f_{k_n}\to f\in H$. Since convergence in $\homeo[M]$ is uniform convergence on compact sets and compact convergence implies continuous convergence, $\rho(f^{-1}_{k_n})(x_{k_n}) \to \rho(f^{-1})(x)$. Since $A$ is closed, $\rho(f^{-1})(x)\in A$, thus $x\in H\cdot A$.
 
     Suppose further that $A$ is compact. Let $\rho(f_n)(x'_n)=(x_n)\subset H\cdot A$ an arbitrary sequence. By sequential compactness of $A$, there is some subsequence such that $(x'_{n_k})\to x\in A$. Passing to a further subsequence, we may also assume that $f_{n_k}\to f\in H$. Then, by continuous convergence, $\rho(f_{n_k})(x_{n_k})$ converges to $\rho(f)(x)\in H\cdot A$. Thus, $H\cdot A$ is sequentially compact, and thus compact since $N$ is metrizable.
 \end{proof}
@@ -324,7 +362,7 @@ If $A\coloneqq \li{A_n}=\ls{A_n}$, then $A_n$ is said to converge and we denote 
     A basic fact from Kuratowski's book\improve{add theorem/sec number} is that for any sequence, $\li{A_n}\subseteq\ls{A_n}$. So, it will suffice to show $\ls{(H\cdot X_n)}\subseteq H\cdot \klim{X_n}\subseteq\li{(H\cdot X_n)}$. First, we check $\mathit{\ls{X_n}\subseteq H\cdot\klim{X_n}}$. Suppose that $x\in \ls{H\cdot X_n}$. That is, there is some $n_1 < \dots < n_k < \dots$ such that there are $(x_{n_k})$ chosen from $X_{n_k}$ and $f_{n_k}\in\homeo[M]$ such that $\rho(f_{n_k})(x_{n_k})$ converges --- call the limit point $x$. Since $H$ is compact, up to passing to some further subsequence, $f_{n_k}$ converges to some $f\in\homeo[M]$. Thus, $\rho(f)(x_{n_k})$ converges to $x$. In particular, $x_{n_k}$ converges to some $x'$ which is by definition in $\ls{X_n} =\klim{X_n}$, so $x=\rho(f)(x')$ lies in $H\cdot \klim{X_n}$. To check the remaining containment, suppose that $x\in H\cdot\klim{X_n}$. In particular, there is some sequence $(x_n)$ chosen from each $X_n$, some $f\in\homeo[M]$ and some $x'$ such that $(x_n)$ converges to $x'$ and $\rho(f)(x')=x$. Then, by continuity, $\rho(f)(x_n)\to\rho(f)(x')=x$, so by definition, $x\in\li{X_n}$. So, in conclusion, $H\cdot X_n$ is convergent and $\klim{(H\cdot X_n)} = H\cdot\klim{X_n}$
 \end{proof}
 
-To make use of these lemmas in a general setting, we have the following construction of a particular compact family of homeomorphisms which is used in the proof of \cref{lem:orbit-bundle}.
+To make use of these lemmas in a general setting, we have the following construction of a particular compact family of homeomorphisms which is used in the proof of \cref{thm:precise-orbit-bundle}.
 
 \begin{lem}\label{lem:cpct-to-basepoint-confM}
     Suppose $K\subseteq\conf[n]{M}$ is compact and $b\in\conf[n]{M}$ is a choice of basepoint, then there is a compact set $H_K\subset\homeo[M]$ such that for every $p\in K$, there is some $f\in H_K$ such that $f*p=b$ where $*$ denotes the configuration space action.
@@ -363,7 +401,7 @@ Finally, we prove \cref{lem:cpct-to-basepoint-confM} using these intermediate re
 \end{proof}
 
 \subsection{Proof of weak tube theorem}\label{subsec:orbit-bundle-proof}
-The remainder of the proof is concerned with showing that $M$ \improve{state hypotheses for orb. bundle lemma} is equivariantly homeomorphic to $\maxcov\times F/\Gamma$, where the action on the quotient is as described in \cref{const:orbit-bundle}.
+The remainder of the proof is concerned with showing that $M$ \improve{state hypotheses for orb. bundle lemma} is equivariantly homeomorphic to $\maxcov\times F/\Gamma$, where the action on the quotient is as described in \cref{thm:precise-orbit-bundle}
 
 \begin{proof}\improve{note this follows chen-mann proof outline}
     In order,
@@ -547,15 +585,11 @@ Note, in this setting $C_X = \pconf{2}$ and $\Gamma = \Z_2$.\improve{advertise p
 
 To understand $\homeo$ actions on closed 3-manifolds, it is instructive to at first have in mind which closed 3-manifolds may admit a $\homeo$ action.
 
-\begin{thm}\label{thm:3mfld-global-top}
-    Suppose $\homeo$ acts on closed 3-manifold $M$ without global fixed points. $M$ is an $\SO[2]$-manifold with exceptional orbits of multiplicity two or three lying in $\homeo$ orbits of type $\conf[S^1]{2}$ and $\conf[S^1]{3}$. Special exceptional orbits have open non-orientable $\homeo$ invariant tubular neighborhoods homeomorphic to $M\ddot{o}b\times S^1$. In particular, when $M$ is orientable, it is Seifert-fibered.
-\end{thm}
+\thmglobaltop*
 
 Particularly in light of the weak tube theorem \cref{thm:orbit-bundle}, it is fruitful to divide the manifold $M$ being acted on into the sets of orbits of fixed dimension $M_{(1)}$, $M_{(2)}$ and $M_{(3)}$. The following $\homeo$ answer to the classical Lie group orbit type stratification theorem provides a nearly complete answer to the orbit gluing question when only one and two-dimensional orbits are present.
 
-\begin{thm}[Weak Orbit Type Stratification]\label{thm:weak-o-t-strat}
-    Suppose $\homeo$ acts on closed 3-manifold $M$ with no global fixed points. Every orbit in $M_{(2)} - \cl{M_{(3)}}$ has a $\homeo$-invariant tubular neighborhood in the sense of \cref{thm:orbit-bundle} which is isomorphic to one of the examples in the top row of \cref{table:orbit-bundles}. Every orbit in $M_{(1)} - \cl{M_{(2)}\cup M_{(3)}}$ has an invariant neighborhood isomorphic to $\Sigma \times S^1$ where $\Sigma$ is an open surface of finite genus. Moreover, finitely many components of $M_{(2)} - \cl{M_{(3)}}$ are of exceptional type and finitely many components of $M_{(1)} - \cl{M_{(2)}\cup M_{(3)}}$ have $\Sigma$ with nonzero genus.
-\end{thm}
+\weakotstratif*
 
 To complete the story when $M_{(3)}=\emptyset$, we employ the following technical lemma:
 \begin{lem}
@@ -568,7 +602,7 @@ It is interesting to note that the proof of this lemma uses very little which is
 %     If $\homeo$ acts on closed $M^3$ with only 1-dimensional orbits, then $M$ is equivariantly homeomorphic to $\Sigma \times S^1$ where $\Sigma$ is a closed surface and the action is trivial on the $\Sigma$ coordinate and evaluation on the $S^1$ coordinate.
 % \end{rem}
 
-Finally, we give a construction providing uncountably many non-conjugate examples of $\homeo$ actions on Seifert-fibered spaces of the form $(\Sigma, (2, 1), \dots, (2, 1))$(including trivial circle bundles) or $\SO(2)$ manifolds with the same restrictions.
+Finally, we give a construction providing uncountably many non-conjugate examples of $\homeo$ actions on Seifert-fibered spaces of the form $(\Sigma, (2, 1), \dots, (2, 1))$ (including trivial circle bundles) or $\SO$ manifolds with the same restrictions.
 
 % Motivated by this construction and other ad hoc positive and negative examples, we present the following conjectural picture for actions with only 1 and 2-dimensional orbits.
 
@@ -588,7 +622,7 @@ Finally, we give a construction providing uncountably many non-conjugate example
         \item Each annulus and M\"{o}bius band contains no cone points and each disk contains at most 2 cone points. All boundary components are contained in the boundary of some annulus.
         \item The topological frontier of each disk and annulus is locally connected
     \end{enumerate}
-    Let $M$ be the 3-manifold with the effective $\SO$ action with orbit space $S_b$, multiplicity 2 exceptional orbits over the cone points and special exceptional orbits over the boundary components. Then, there are uncountably infinitely many non-conjugate extensions of the $\SO$ action on $M$ to an action of $\homeo$ on $M$ with a unique invariant tubular neighborhood over each $X_k$ and 1-dimensional orbits over every point of $S_b - \cup X_k$.
+    Let $M$ be the 3-manifold with the faithful $\SO$ action with orbit space $S_b$, multiplicity 2 exceptional orbits over the cone points and special exceptional orbits over the boundary components. Then, there are uncountably infinitely many non-conjugate extensions of the $\SO$ action on $M$ to an action of $\homeo$ on $M$ with a unique invariant tubular neighborhood over each $X_k$ and 1-dimensional orbits over every point of $S_b - \cup X_k$.
 \end{prop}
 
 This construction is easily modified to include $\pconf[S^1]{3}$ and $\conf[S^1]{3}$ orbits.
@@ -608,11 +642,11 @@ Now we prove $\cref{thm:weak-o-t-strat}$ by appeal to \cref{prop:orbit-bundle-co
     Note the fixed point set of a point stabilizer subgroup $G_\theta$ is a closed set contained in $M_{(1)}$ and meets every one-dimensional orbit in a unique point. Since the ambient manifold is closed, the base orbifold is compact, so the projection map to the base orbifold is closed. So, the image of $\text{fix}(G_0)$ is a closed subset of the base orbifold; thus, its preimage under the projection map -- the set consisting of the one-dimensional orbits -- is closed. Trivially $M_{(3)}$ is closed, so $M - (M_{(1)}\cup \cl{M_{(3)}})\subseteq M_{(2)}$ is open. Then, in particular, each component of this set is equivariantly homeomorphic to one of the open tubular neighborhoods listed in \cref{prop:orbit-bundle-computation}. If there are no 3-dimensional orbits present (i.e., $M_{(3)}=\emptyset$), then this implies the hypotheses and first part of \cref{prop:lc-fr-construction} as mentioned in the preceding section.
 \end{proof}
 
-It is interesting to note that in the setting with only one-dimensional orbits, \cref{thm:3mfld-global-top} implies that $M$ is a circle bundle with every fiber invariant. Note that the proof of \cref{thm:weak-o-t-strat} showed that the $\SO$ orbit space projection map restricted to $\text{fix}(G_0)$ is a homeomorphism onto the $\SO$ projection $M_{(1)}$. So, in particular, when all orbits are one-dimensional, the inverse of this restricted map gives a continuous section for the circle bundle structure. Trivially, the map from $M$ to $\Sigma \times S^1$  which maps $x$ to $(\pi_{\SO}, \theta)$ where $\theta\in S^1$ is the unique angle such that $x\in\text{fix}(G_\theta)$
+In the setting with only one-dimensional orbits, \cref{thm:3mfld-global-top} implies that $M$ is a circle bundle with every fiber invariant. The proof of \cref{thm:weak-o-t-strat} showed that the $\SO$ orbit space projection map restricted to $\text{fix}(G_0)$ is a homeomorphism onto the $\SO$ projection $M_{(1)}$; in particular, when all orbits are one-dimensional, the inverse of this restricted map gives a continuous section for the circle bundle structure. Trivially, the map from $M$ to $\Sigma \times S^1$  which maps $x$ to $(\pi_{\SO}, \theta)$ where $\theta\in S^1$ is the unique angle such that $x\in\text{fix}(G_\theta)$
 is trivially a homeomorphism. With $\Sigma \times S^1$ equipped with the action $0\times \text{ev}$, this map is equivariant.
 
 \subsection{Orbit compactification}
-Motivated by the orbit-type stratification for proper Lie group actions on closed manifolds, it is useful to understand the topological closures of the non-compact orbits (i.e., 2 and 3-dimensional orbits). As a small point of notation, recall the following definition from point set topology:
+Motivated by the orbit-type stratification for proper Lie group actions on closed manifolds, it is useful to understand the topological closures of the non-compact orbits (i.e., 2 and 3-dimensional orbits). As a small point of notation, we recall the following definition from point set topology:
 \begin{defn}
     The {\it frontier} of a set $X$, denoted $\text{fr}(X)$ is defined as $\cl{X}-X$
 \end{defn}
@@ -715,7 +749,7 @@ Finally,
 What follows provides the details of our construction for a large family of $\homeo$ actions on closed 3-manifolds with only one and two-dimensional orbits.
 \begin{proof}[Proof of \cref{prop:lc-fr-construction}]
     The overall structure of the construction is as follows. Note that for convenience we denote the (necessarily closed) $S_b - \cup X_k$ as $K$.
-    For each disk, annulus or M\"{o}bius band $U\in\{X_k\}$, to construct the desired action over $U$, we start with model $\homeo$ actions on $\SO$ manifolds with boundary which restrict to a model tube action on the interior, make some free choice of modifications on the boundary and fix a homeomorphism to the prime ends compactification of $U$ and pull back the model $\SO$ action. The local-connectedness of provides a continuous extension of $U$ to a surjective continuous map from the prime ends compactification of $U$ to $\bar{U}$. Finally, we use this map to construct an equivariant gluing from the model action to the corresponding frontier component of $K\times S^1$. The two choices made in this construction were in modifying the model action and choice of homeomorphism from the model action base space to the prime ends compactification of $U$. While differing choices here may result in globally conjugate actions, there is a highly infinite family of choices which can be made which result in pairwise nonconjugate actions.
+    For each disk, annulus or M\"{o}bius band $U\in\{X_k\}$, to construct the desired action over $U$, we start with model $\homeo$ actions on $\SO$ manifolds with boundary which restrict to a model tube action on the interior, make some free choice of modifications on the boundary and fix a homeomorphism to the prime ends compactification of $U$ and pull back the model $\SO$ action. The local-connectedness of the frontier provides a continuous extension of the inclusion of $U$ in $\hat{U}$ to a surjective continuous map from the prime ends compactification of $U$ to $\bar{U}$\cref{thm:lc-fr-prime-ends}. Finally, we use this map to construct an equivariant gluing from the model action to the corresponding frontier component of $K\times S^1$. The two choices made in this construction were in modifying the model action and choice of homeomorphism from the model action base space to the prime ends compactification of $U$. While differing choices here may result in globally conjugate actions, there is a highly infinite family of choices which can be made which result in pairwise nonconjugate actions.
 
     We begin the construction simply by letting $\homeo$ act on $K\times S^1$ trivially on the $K$ factor and by evaluation on the $S^1$ factor. Let $U$ be a fixed annulus, M\"{o}bius band or disk in $S_b - K$. Note that since we assumed $\lvert K\rvert > 2$, it is not possible that the prime ends compactification of $U$ is closed, so it must have nonempty boundary. In particular, $\hat{U}$ is homeomorphic to a closed disk, closed annulus or closed M\"{o}bius band. Let $\cl{B}$ be the unique model closed $\homeo$ invariant tubular neighborhood over $\hat{U}$. Choose any family of intervals $\mathscr{I}\coloneqq \{I_\alpha\}$ in the boundary of $\pi_{\SO}(\cl{B})$ such that the quotient of the boundary by the equivalence relation having $\mathscr{I}$ as equivalence classes is homeomorphic. By a Bing shrinking argument, the quotient corresponding to a collection of intervals is homeomorphic to a circle if and only if no sequences of intervals converges to an endpoint of another interval in the collection.
 
@@ -724,8 +758,29 @@ What follows provides the details of our construction for a large family of $\ho
     This construction can be done simultaneously for all components of $S_b - K$, and results in an action with the desired properties over all of $S_b$. In general, choosing different collections of intervals and different homeomorphisms to the prime ends compactification of $U$ will result in non-conjugate $\homeo$ actions.
 \end{proof}
 
-\subsection{Remarks on prime ends details}\label{subsec:prime-ends}
-The primary goal of this section is to impress upon the reader that the assumption of locally connected frontier in \cref{prop:lc-fr-construction} is not sharp, and it is possible to relax it slightly by venturing into prime ends theory. We will first demonstrate that there are still unusual examples provided the local connectivity assumption. Later, we will give examples which suggest what the sharper condition should be. Note that all that follows assumes the reader is familiar with the basics of the topological theory of prime ends, for convenience, we have included a short primer on the fundamental notions in \cref{sec:background}.
+\subsection{Exotic prime ends examples}\label{subsec:prime-ends}
+The primary goal of this section is to impress upon the reader that the assumption of locally connected frontier in \cref{prop:lc-fr-construction} is not sharp, and it is possible to relax it slightly by venturing into prime ends theory. We will first demonstrate that there are still unusual examples provided the local connectivity assumption. Later, we will give examples which suggest what the sharper condition should be. Note that all that follows requires passing familiarity with the topological theory of prime ends. For convenience, we have included a short primer on the fundamental notions following \cite{mather:TopologicalProofs}. 
+
+Let $\Sigma$ be a closed surface and $U\subset \Sigma$ an open subset with $H_1(U, \Z_2)$ finite. Our goal is to compactify $U$ as a surface with boundary $\hat{U}$ in a principled way such that in nice situations, there is a quotient map from $\hat{U}\to\cl{U}\subseteq\Sigma$. 
+
+\begin{defn}
+    A topological chain is a descending sequence $V_1\supset V_2\supset\dots$ of open connected subsets of $U$ whose frontiers in $U$ are nonempty and connected and $\cl{\fr{U_i}}\cap\cl{\fr{U_j}}=\emptyset$ for $i\neq j$, where closures are taken in $\Sigma$.
+
+    A chain $\tau=\{V_1\supset V_2\supset\dots\}$ is said to divide $\sigma =\{W_1\supset W_2\supset\dots\}$ if every $W_i$ is contained in some $V_j$. Two chains are equivalent if they divide one another. A chain is said to be prime if every chain which divides it is equivalent to it.
+\end{defn}
+
+The set of prime chains up to equivalence (called prime points) admits a very natural topology. Moreover, $U$ embeds into the space of prime points by taking, e.g., a decreasing sequence of disks about a point. Those prime points which are not equivalent to chains of disks about points in $U$ are called prime ends. Every prime end interacts with the topological frontier of $U$ in some way:
+
+\begin{defn}
+    Suppose $e$ is a prime end and $\{V_1\supset V_2\supset\dots\}$ is any representative chain. The impression of $e$ is $Y(e)\coloneqq \cap_i \cl{V_i}$. If there is a chain $\{V_1'\supset V_2'\supset \dots \}$ whose frontiers Hausdorff limit to a point $x$, $x$ is said to be a principal point for $e$, and the principal set $X(e)$ is the collection of all principal points for $e$.
+\end{defn}
+
+In general, $X(e)\subset Y(e)$, and they are always connected, compact and nonempty subsets of $\fr{U}$. When $X(e)$ is reduced to a single point, $e$ is said to be accessible. Accessibility is equivialent to the existence of a path $\gamma(t):(0,1)\to U$ such that $\lim\limits_{t\to 1}\gamma(t)$ exists and lies in $X(e)$. 
+
+\begin{thm}\label{thm:lc-fr-prime-ends}
+    $\fr{U}$ is locally connected if and only if $Y(e)$ is a singleton for all prime ends $e$. When $\fr{U}$ is locally connected, $Y:\hat{U}\to \bar{U}$ is continuous and surjective.
+\end{thm}
+
 
 \begin{figure}
     \centering
@@ -743,7 +798,6 @@ The primary goal of this section is to impress upon the reader that the assumpti
 For the remainder of this section, if there exists an action of $\homeo$ on a closed 3-manifold with a $\homeo$ invariant tubular neighborhood over a particular embedded disk or annulus $U$ in the base space, we will call it `admissible,' if there is no such action we will call it `inadmissible.' The first example will be an inadmissible embedded disk with an inaccessible prime end with $Y(e)\neq X(e)$. Next will be an admissible modification of the preceding example such that $X(e) = Y(e)$ for the inaccessible prime end. Finally, we will provide an example of an inadmissible embedded annulus with an accessible prime end with $Y(e)\neq X(e)$.
 
 A classical family of examples from prime ends theory comes from considering the complements of variations on the comb space. First we will provide an inadmissible example, which we will then modify slightly to get an admissible example depicted in \cref{fig:inadmissible-comb} and \cref{fig:admissible-comb}. In both cases, the disk under discussion is the complement of the set $K$ in black. The dotted lines show the $\SO$ projections of annulus orbits.
-
 
 \begin{eg}[Inadmissible Comb Complement]
     Let the set $K$ be the union of the boundary of the unit square in $\R^2$ with the set of ascending vertical segments of length 2/3 based at all points $(\frac{1}{2n+1}, 0)$ and descending vertical segments of length 2/3 based at all points $(\frac{1}{2n}, 1)$. Let $U$ denote the bounded component of $\R^2 - K$. While our claim here will be that a particular action on $U\times S^1$ does not extend to $K\times S^1$, it is not difficult to show by a similar but more careful argument that no orbit bundle action on $U\times S^1$ can extend to the frontier. The action of interest is given by applying the construction in \cref{prop:lc-fr-construction} to $U$ considered as a subset of $\R^2 - \R^2_{y\leq 0}$ such that the $\SO$ projections of annulus orbits are horizontal between $y=1/3$, and $y=2/3$ and radial based at the end points of the vertical segments as depicted in \cref{fig:inadmissible-comb}. The primary obstruction to extending the action to the $y$-axis is sequences of orbits like the one marked in red. Since the fibers over all points in $K-\{0\}\times\R$ are invariant, there are sequences of 1-dimensional orbits converging to all points of $K$ in the $y$-axis, so in particular, any extended action must have all fibers over points on the $y$-axis invariant, but by \cref{lem:seq-of-annuli}, the limit set of the red sequence of annuli must be a closed 2-dimensional orbit, which is a contradiction.
@@ -804,9 +858,9 @@ These examples suggest the following conjecture:
 \end{conj}
 
 \subsection{Remarks on \titlesafehomeo actions with global fixed points}\label{subsec:fixed-points} 
-Of the results proven in the preceding sections of this paper, only \cref{thm:2d-orbit-cpctification} takes into account actions with fixed points. This section presents a brief summary of the theory of $\SO$ manifolds with fixed points and provides a construction for a large family of $\homeo$ actions with fixed-points. 
+Of the results proven in the preceding sections, only \cref{thm:2d-orbit-cpctification} takes into account actions with global fixed points. This section presents a brief summary of the theory of $\SO$-manifolds with fixed points and provides a construction for a large family of $\homeo$ actions with global fixed points. 
 
-Note that trivially any global fixed point of a $\homeo$ action is fixed by the rotation subgroup. Moreover, by \cref{prop:orbit-computation}, within a nontrivial $\homeo$ orbit, the rotation subgroup acts without fixed points, so the $\SO$ fixed points are exactly the fixed point of the overall $\homeo$ action. 
+Note that any global fixed point of a $\homeo$ action is fixed by the rotation subgroup by definition. Moreover, by \cref{prop:orbit-computation}, within a nontrivial $\homeo$ orbit, the rotation subgroup acts without fixed points, so the $\SO$ fixed points are exactly the fixed point of the overall $\homeo$ action. 
 
 \begin{eg}\leavevmode
     \begin{enumerate}
@@ -819,10 +873,10 @@ Note that trivially any global fixed point of a $\homeo$ action is fixed by the 
 \end{eg}
 
 
-Each of these examples have circles worth of fixed-points sitting over boundary components of the $\SO$ orbit space; by appealing to \cite{orlik:ActionsSO2}, we can observe that this is in fact a general fact which comes from considering the action of the rotation subgroup action. Additionally, Orlik and Raymond give an $\SO$ equivariant connect sum formula for all closed 3-manifolds admitting $\SO$ actions with global fixed points. In particular, they classify $\SO$ manifolds in terms of invariants $(b; (\varepsilon, g, \bar{h}, t); (\alpha_1, \beta_1),\dots, (\alpha_n, \beta_1))$
-where $b$ is the integer part of the Euler number, $\varepsilon = o\text{ or }\bar{n}$ to denote orientability, $\bar{h}$ records the number of components of fixed points, $t$ denotes the number of components of special exceptional orbits and finally $(\alpha_i, \beta_i)$ function as the classical Seifert invariants. 
+Each of these examples have circle of fixed points sitting over boundary components of the $\SO$ orbit space. By appealing to \cite{orlik:ActionsSO2}, we can observe that this is in fact a general fact which comes from considering the action of the rotation subgroup. Additionally, Orlik and Raymond give an $\SO$-equivariant connect sum formula for all closed 3-manifolds admitting faithful $\SO$ actions with global fixed points. In particular, they classify $\SO$ manifolds in terms of invariants $(b; (\varepsilon, g, \bar{h}, t); (\alpha_1, \beta_1),\dots, (\alpha_n, \beta_1))$
+where $b$ is the integer part of the Euler number, $\varepsilon = o\text{ or }\bar{n}$ to denote orientability of the base surface, $g$ denotes its genus, $\bar{h}$ records the number of components of the fixed point set, $t$ records the number of components of special exceptional orbits and finally $(\alpha_i, \beta_i)$ function as the classical Seifert invariants. 
 
-Using the preceding examples, as well as an analgous construction for $\RP^2\times S^1$, we obtain an infinite family of non-conjugate actions of $\homeo$ with global fixed points on all spaces given by invariants $(0; (\varepsilon, g, \bar{h}, t); (2, 1),\dots (2, 1))$ parameterized by the set of all actions of $\homeo$ on the closed annulus. This works since these examples are exactly the connect summands in part (1) and (2) of Theorem 3 in \cite{orlik:ActionsSO2}. These connect sums can be formed $\homeo$-equivariantly by taking balls contained within $D_\varepsilon \times S^1$ which meet the circle worth of fixed points in a closed interval and gluing maps which map fixed points to fixed points. We can also trivially observe that $\SO(2)$ actions on 3-manifolds with $\alpha_i > 3$ cannot extend to $\homeo$ actions. 
+Using the preceding examples, as well as an analgous construction for $\RP^2\times S^1$, we obtain an infinite family of non-conjugate actions of $\homeo$ with global fixed points on all spaces given by invariants $(0; (\varepsilon, g, \bar{h}, t); (2, 1),\dots (2, 1))$ parameterized by the set of all actions of $\homeo$ on the closed annulus. This works since these examples are exactly the connect summands in part (1) and (2) of Theorem 3 in \cite{orlik:ActionsSO2}. These connect sums can be formed $\homeo$-equivariantly by taking balls contained within $D_\varepsilon \times S^1$ which meet the circle worth of fixed points in a closed interval and gluing maps which map fixed points to fixed points. We can also trivially observe that $\SO$ actions on 3-manifolds with $\alpha_i > 3$ cannot extend to $\homeo$ actions. 
 
 % Two immediate, fundamental (and we believe approachable) questions are
 % \begin{question}\leavevmode
@@ -898,7 +952,7 @@ Our three main goals under this theme are to prove a similar result to \cref{thm
 
 \subsection{Other Specialized Classes of \texorpdfstring{$\homeo[M]$}{Homeo\_0(M)} Actions}
 
-Similar to the description of effective $\SO$ actions on closed 3-manifolds in terms of a weighted closed surface, there is a description of effective $\SO$ actions on closed (oriented) 4-manifolds in terms of a weighted closed 3-manifold \cite{fintushel:ClassificationCircle}\cite{jang:CircleActions}. Similarly, since $\homeo[S_g]$ is algebraically simple for all $g$\cite{bounemoura:SimpliciteGroupes}, any action of $\homeo[T^2]$ on a manifold $M$ restricts to a faithful action of the torus subgroup $\SO\times\SO$. There exists a classical topological classification of such actions on closed 4-manifolds\cite{orlik:ActionsTorusI, orlik:ActionsTorusII}.
+Similar to the description of faithful $\SO$ actions on closed 3-manifolds in terms of a weighted closed surface, there is a description of faithful $\SO$ actions on closed (oriented) 4-manifolds in terms of a weighted closed 3-manifold \cite{fintushel:ClassificationCircle}\cite{jang:CircleActions}. Similarly, since $\homeo[S_g]$ is algebraically simple for all $g$\cite{bounemoura:SimpliciteGroupes}, any action of $\homeo[T^2]$ on a manifold $M$ restricts to a faithful action of the torus subgroup $\SO\times\SO$. There exists a classical topological classification of such actions on closed 4-manifolds\cite{orlik:ActionsTorusI, orlik:ActionsTorusII}.
 
 \printbibliography
 
